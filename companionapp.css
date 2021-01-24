@@ -1,0 +1,585 @@
+body {
+  margin: 2vh 3vw;
+  margin-bottom: 0px;
+  background-color: rgba(0,0,0,1);
+  color: rgba(255,255,255,1);
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.builder {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1vw;
+  column-gap: 5px;
+  row-gap: 5px;
+  width: 90vw;
+  height: 70vh;
+  overflow-y: auto;
+  margin: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  user-select: none;
+}
+
+.card {
+  background-color: rgba(0,0,0,1);
+  min-width: 65px;
+  min-height: 65px;
+  max-width: 150px;
+  max-height: 150px;
+  width: 20vw;
+  height: 20vw;
+  font-size: clamp(9px, 1.5vw,12px);
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.1);
+  cursor: pointer;
+  text-align: center;
+}
+
+.card img {
+  max-width: 70px;
+  max-height: 70px;
+}
+
+.alter {
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+}
+
+.navigation {
+  background-color: rgba(0,240,140,1);
+  color: rgba(0,0,0,1);
+  width: 10vw;
+  margin: auto;
+  bottom: 0;
+  text-align: center;
+  padding: 0.5vh 0.5vw;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.select {
+  border: 2px solid yellow;
+  box-sizing: border-box;
+}
+
+.select.Arcanamancy {
+  background-color: rgba(80,203,277,1);
+}
+
+.select.Evoke {
+  background-color: rgba(80,203,277,1);
+}
+
+.select.Pierce-Weapons {
+  background-color: rgba(80,203,277,1);
+}
+
+.select.Astramancy {
+  background-color: rgba(68,26,76,1);
+}
+
+.select.Dark-Magic {
+  background-color: rgba(68,26,76,1);
+}
+
+.select.Animancy {
+  background-color: rgba(68,26,76,1);
+}
+
+.select.Corrupt {
+  background-color: rgba(68,26,76,1);
+}
+
+.select.Beast-Arts {
+  background-color: rgba(220,130,0);
+}
+
+.select.Crush-Weapons {
+  background-color: rgba(220,130,0,1);
+}
+
+.select.Geomancy {
+  background-color: rgba(65,42,21,1);
+}
+
+.select.Guard-Arts {
+  background-color: rgba(220,200,25,1);
+}
+
+.select.Divine-Magic {
+  background-color: rgba(220,200,25,1);
+}
+
+.select.Aura {
+  background-color: rgba(220,200,25,1);
+}
+
+.select.Hemomancy {
+  background-color: rgba(215,10,0,1);
+}
+
+.select.Pyromancy {
+  background-color: rgba(215,10,0,1);
+}
+
+.select.Battle-Spirit {
+  background-color: rgba(215,10,0,1);
+}
+
+.select.Weapon-Arts {
+  background-color: rgba(215,10,0,1);
+}
+
+.select.Hydromancy {
+  background-color: rgba(0,195,220,1);
+}
+
+.select.Harmonic-Magic {
+  background-color: rgba(0,195,220,1);
+}
+
+.select.Illusion-Magic {
+  background-color: rgba(240,65,240,1);
+}
+
+.select.Chronomancy {
+  background-color: rgba(240,65,240,1);
+}
+
+.select.Metamorph {
+  background-color: rgba(240,65,240,1);
+}
+
+.select.Aeromancy {
+  background-color: rgba(25,220,170,1);
+}
+
+.select.Spirit-Magic {
+  background-color: rgba(25,220,170,1);
+}
+
+.select.Martial-Arts {
+  background-color: rgba(60,60,60,1);
+}
+
+.select.Magitech {
+  background-color: rgba(60,60,60,1);
+}
+
+.select.Ranged-Weapons {
+  background-color: rgba(0,230,100,1);
+}
+
+.select.Nature-Magic {
+  background-color: rgba(0,230,100,1);
+}
+
+.select.Dynamism {
+  background-color: rgba(0,230,100,1);
+}
+
+.select.Shadow-Arts {
+  background-color: rgba(60,60,60,1);
+}
+
+.select.Slash-Weapons {
+  background-color: rgba(26,39,80,1);
+}
+
+.select.Conjure {
+  background-color: rgba(26,39,80,1);
+}
+
+.select.Mend {
+  background-color: rgba(26,39,80,1);
+}
+
+.select.Summon {
+  background-color: rgba(26,39,80,1);
+}
+
+.select.Alchemy {
+  background-color: rgba(33,69,35,1);
+}
+
+.select.Hyper-Sense {
+  background-color: rgba(33,69,35,1);
+}
+
+.p2, .p3, .p4 {
+  display: none;
+}
+
+.navcontainer {
+  width: 20vw;
+  margin: auto;
+  margin-bottom: 2vh;
+}
+
+.display {
+  background-color: black;
+  width: 90vw;
+  height: 150px;
+  display: flex;
+  padding: 1vh 1vw;
+  justify-content: center;
+}
+
+.builder.p2 {
+  align-items: flex-start;
+}
+
+#masterybar {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr 1fr;
+  font-size: clamp(9px, 1.3vw,12px);
+}
+
+#masterybar select {
+  height: 2.4vh;
+  width: 60%;
+  margin: auto;
+}
+
+.mcontainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 1vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.mcontainer > img {
+  width: min(8vw, 90px);
+  height: min(8vw, 90px);
+}
+
+.equipmentranks {
+  display: flex;
+}
+
+.weaponrank, .armorrank {
+  display: flex;
+  width: 20vw;
+  flex-direction: column;
+  text-align: center;
+}
+
+.weaponrank img {
+  width: 12vw;
+  margin: auto;
+}
+
+.armorrank img {
+  width: 12vw;
+  margin: auto;
+}
+
+#P2Builder {
+  align-items: flex-start;
+}
+
+.armorrank select {
+  max-width: 15vw;
+  margin: auto;
+}
+
+.weaponrank select {
+  max-width: 15vw;
+  margin: auto;
+}
+
+#OtherActions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#StandardActions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.actioncard {
+  display: flex;
+  flex-direction: column;
+  width: 22vw;
+  min-width: 220px;
+  height: 25vw;
+  min-height: 250px;
+  user-select: none;
+  text-align: center;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 1vh 1vw;
+  justify-content: flex-start;
+  font-size: clamp(5px, 1.3vw,12px);
+  flex-wrap: wrap;
+  margin-bottom: 1vh;
+}
+
+.actioncard.standard {
+  margin-right: 1vw;
+  border: 3px solid yellow;
+  box-shadow: 0 0 4px white;
+}
+
+.rollcode {
+  font-family: monospace;
+  user-select: all;
+}
+
+.selectedcard {
+  background-color: rgba(220,220,220,1);
+  border: 3px solid rgba(77,148,255);
+  box-shadow: 0 0 4px cyan;
+}
+
+.actionname {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.masteryarea {
+  grid-row: 1;
+  background-color: black;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 3fr;
+  justify-content: space-evenly;
+}
+
+.equipmentspace {
+  display: grid;
+  grid-template-areas:
+    "weaponspace armorspace"
+    "weapontext armortext";
+  font-size: 1.3vw;
+}
+
+.weaponspace {
+  grid-area: weaponspace;
+  justify-self: center;
+  margin-right: 3px;
+}
+
+.weaponspace img {
+  width: 10vw;
+  height: 10vw;
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.armorspace {
+  grid-area: armorspace;
+  justify-self: center;
+}
+
+.armorspace img {
+  width: 10vw;
+  height: 10vw;
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.weapontext {
+  grid-area: weapontext;
+  justify-self: center;
+  text-align: center;
+  font-size: max(12px, 1.3vw);
+  margin-right: 3px;
+}
+
+.armortext {
+  grid-area: armortext;
+  justify-self: center;
+  text-align: center;
+  font-size: max(12px, 1.3vw);
+}
+
+.masteryspace {
+  display: grid;
+  grid-template-areas:
+    "mastery1 mastery2 mastery3"
+    "mastery1text mastery2text mastery3text";
+  grid-auto-flow: column;
+}
+
+.mastery {
+  justify-self: center;
+}
+
+.mastery img {
+  width: 10vw;
+  height: 10vw;
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.masterytext {
+  font-size: 1.3vw;
+  justify-self: center;
+  text-align: center;
+}
+
+#standardactionspace {
+  grid-row: 2;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#chosenactionspace {
+  grid-row: 3;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.finalstandard {
+  background-color: rgba(220,220,220,1);
+  border: 3px solid yellow;
+  box-shadow: 0 0 4px cyan;
+  margin-right: 10px;
+}
+
+.finalchosen {
+  background-color: rgba(220,220,220,1);
+  border: 3px solid rgba(77,148,255,1);
+  box-shadow: 0 0 4px cyan;
+  margin-right: 10px;
+}
+
+.vuln {
+  color: red;
+}
+
+.guard {
+  color: forestgreen;
+}
+
+#P4Builder {
+  height: 86vh;
+}
+
+.togglemastery {
+  background-color: black;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.togglemastery img {
+  width: 3vw;
+  height: 3vw;
+}
+
+.instructions {
+  text-align: center;
+  text-decoration: underline dotted;
+  text-transform: uppercase;
+}
+
+#savesandchecks {
+  display: grid;
+  grid-auto-flow: column;
+  text-align: center;
+  grid-template-areas: "saves . checks";
+}
+
+#saves {
+  display: flex;
+  flex-direction: column;
+  grid-area: saves;
+}
+
+.savearea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#fortitude {
+  grid-area: fortsave;
+}
+
+#will {
+  grid-area: willsave;
+}
+
+#reflex {
+  grid-area: reflexsave;
+}
+
+#checks {
+  display: flex;
+  flex-direction: column;
+  grid-area: checks;
+  align-self: end;
+}
+
+.checkarea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#fitness {
+  grid-area: fitnesscheck;
+}
+
+#knowledge {
+  grid-area: knowledgecheck;
+}
+
+#knack {
+  grid-area: knackcheck;
+}
+
+#presence {
+  grid-area: presencecheck;
+}
+
+#awareness {
+  grid-area: awarenesscheck;
+}
+
+#spirituality {
+  grid-area: spiritualitycheck;
+}
+
+#saveheader {
+  background-color: rgba(235, 220, 30, 1);
+  color: rgba(0,0,0,1);
+  font-weight: bold;
+}
+
+#checkheader {
+  background-color: rgba(77,148,255,1);
+  color: rgba(0,0,0,1);
+  font-weight: bold;
+}

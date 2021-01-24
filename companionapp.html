@@ -1,0 +1,297 @@
+<head>
+  <meta title="TS Companion App">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="companionapp.css">
+  <script defer src="companionapp.js"></script>
+  <script defer src="actions.js"></script>
+  <script defer src="masteries.js"></script>
+</head>
+<body>
+<h1>TerraSphere Build Editor</h1>
+<p class="instructions" onclick="toggleInstructions()">Instructions</p>
+<div class="builder p1" id="P1Builder">
+  <div onclick="selectMastery(this)" id= "Aeromancy" class="card Aeromancy">
+    <div class="mcontainer"><img src="Images/Aeromancy.png">
+    AEROMANCY</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Alchemy" class="card Alchemy">
+    <div class="mcontainer"><img src="Images/Alchemy.png">
+    ALCHEMY</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Animancy" class="card Animancy">
+    <div class="mcontainer"><img src="Images/Animancy.png">
+    ANIMANCY</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Arcanamancy" class="card Arcanamancy">
+    <div class="mcontainer"><img src="Images/Arcanamancy.png">
+    ARCANAMANCY</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Astramancy" class="card Astramancy">
+    <div class="mcontainer"><img src="Images/Astramancy.png">
+    ASTRAMANCY</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Aura" class="card alter Aura">
+    <div class="mcontainer"><img src="Images/Aura.png">
+    AURA</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Battle-Spirit" class="card alter Battle-Spirit">
+    <div class="mcontainer"><img src="Images/Battle-Spirit.png">
+    BATTLE SPIRIT</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Beast-Arts" class="card Beast-Arts">
+    <div class="mcontainer"><img src="Images/Beast-Arts.png">
+    BEAST ARTS</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Chronomancy" class="card Chronomancy">
+    <div class="mcontainer"><img src="Images/Chronomancy.png">
+    CHRONOMANCY</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Conjure" class="card alter Conjure">
+    <div class="mcontainer"><img src="Images/Conjure.png">
+    CONJURE</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Corrupt" class="card alter Corrupt">
+    <div class="mcontainer"><img src="Images/Corrupt.png">
+    CORRUPT</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Crush-Weapons" class="card Crush-Weapons">
+    <div class="mcontainer"><img src="Images/Crush-Weapons.png">
+    CRUSH WEAPONS</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Dark-Magic" class="card Dark-Magic">
+    <div class="mcontainer"><img src="Images/Dark-Magic.png">
+    DARK MAGIC</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Divine-Magic" class="card Divine-Magic">
+    <div class="mcontainer"><img src="Images/Divine-Magic.png">
+    DIVINE MAGIC</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Dynamism" class="card alter Dynamism">
+    <div class="mcontainer"><img src="Images/Dynamism.png">
+    DYNAMISM</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Evoke" class="card alter Evoke">
+    <div class="mcontainer"><img src="Images/Evoke.png">
+    EVOKE</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Geomancy" class="card Geomancy">
+    <div class="mcontainer"><img src="Images/Geomancy.png">
+    GEOMANCY</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Guard-Arts" class="card Guard-Arts">
+    <div class="mcontainer"><img src="Images/Guard-Arts.png">
+    GUARD ARTS</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Harmonic-Magic" class="card Harmonic-Magic">
+    <div class="mcontainer"><img src="Images/Harmonic-Magic.png">
+    HARMONIC MAGIC</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Hemomancy" class="card Hemomancy">
+    <div class="mcontainer"><img src="Images/Hemomancy.png">
+    HEMOMANCY</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Hydromancy" class="card Hydromancy">
+    <div class="mcontainer"><img src="Images/Hydromancy.png">
+    HYDROMANCY</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Hyper-Sense" class="card alter Hyper-Sense">
+    <div class="mcontainer"><img src="Images/Hyper-Sense.png">
+    HYPER SENSE</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Illusion-Magic" class="card Illusion-Magic">
+    <div class="mcontainer"><img src="Images/Illusion-Magic.png">
+    ILLUSION MAGIC</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Magitech" class="card Magitech">
+    <div class="mcontainer"><img src="Images/Magitech.png">
+    MAGITECH</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Martial-Arts" class="card Martial-Arts">
+    <div class="mcontainer"><img src="Images/Martial-Arts.png">
+    MARTIAL ARTS</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Mend" class="card alter Mend">
+    <div class="mcontainer"><img src="Images/Mend.png">
+    MEND</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Metamorph" class="card alter Metamorph">
+    <div class="mcontainer"><img src="Images/Metamorph.png">
+    METAMORPH</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Nature-Magic" class="card Nature-Magic">
+    <div class="mcontainer"><img src="Images/Nature-Magic.png">
+    NATURE MAGIC</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Pierce-Weapons" class="card Pierce-Weapons">
+    <div class="mcontainer"><img src="Images/Pierce-Weapons.png">
+    PIERCE WEAPONS</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Pyromancy" class="card Pyromancy">
+    <div class="mcontainer"><img src="Images/Pyromancy.png">
+    PYROMANCY</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Ranged-Weapons" class="card Ranged-Weapons">
+    <div class="mcontainer"><img src="Images/Ranged-Weapons.png">
+    RANGED WEAPONS</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Shadow-Arts" class="card Shadow-Arts">
+    <div class="mcontainer"><img src="Images/Shadow-Arts.png">
+    SHADOW ARTS</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Slash-Weapons" class="card Slash-Weapons">
+    <div class="mcontainer"><img src="Images/Slash-Weapons.png">
+    SLASH WEAPONS</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Spirit-Magic" class="card Spirit-Magic">
+    <div class="mcontainer"><img src="Images/Spirit-Magic.png">
+    SPIRIT MAGIC</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Summon" class="card alter Summon">
+    <div class="mcontainer"><img src="Images/Summon.png">
+    SUMMON</div>
+  </div>
+  <div onclick="selectMastery(this)" id="Weapon-Arts" class="card alter Weapon-Arts">
+    <div class="mcontainer"><img src="Images/Weapon-Arts.png">
+    WEAPON ARTS</div>
+  </div>
+</div>
+
+
+<div class="builder p2" id="P2Builder">
+  <div class="display" id="masterybar"></div>
+  <div class="equipmentranks">
+    <div class="weaponrank">
+      WEAPONS<br>
+      <img src="Images/Weapon-Rank.png">
+      Rank: <select id="WRank">
+        <option value=1 selected="selected">E</option>
+        <option value=2>D</option>
+        <option value=3>C</option>
+        <option value=4>B</option>
+        <option value=5>A</option>
+      </select>
+      <div>&nbsp;</div>
+    </div>
+    <div class="armorrank">
+      ARMOR<br>
+      <img src="Images/Armor-Rank.png">
+      Weight: <select id="AWeight">
+        <option value="light" selected="selected">Light</option>
+        <option value="medium">Medium</option>
+        <option value="heavy">Heavy</option>
+      </select>
+      Rank: <select id="ARank">
+        <option value=1 selected="selected">E</option>
+        <option value=2>D</option>
+        <option value=3>C</option>
+        <option value=4>B</option>
+        <option value=5>A</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="builder p3" id="P3Builder">
+  <div class="actions" id="StandardActions">
+    <div class='actioncard selectedcard standard' id='NormalAttack'>
+      <div class='actionname'>Normal Attack</div>
+      <div><hr></div>
+      <div>1d100 + modifiers</div>
+      <div><hr></div>
+      <div>A standard attack.<br>On a nat 100, double your total after adding modifiers.</div>
+      <div><hr></div>
+      <div>No restrictions</div>
+      <div><hr></div>
+      <div class='rollcode'>!r 1d100+MR+ER # thread/name/attack</div>
+    </div>
+
+    <div class='actioncard selectedcard standard' id='Recover'>
+      <div class='actionname'>Recover</div>
+      <div><hr></div>
+      <div>1d20</div>
+      <div><hr></div>
+      <div>Recover some HP</div>
+      <div><hr></div>
+      <div>1 per cycle</div>
+      <div><hr></div>
+      <div class='rollcode'>!r 1d20 # thread/name/recover</div>
+    </div>
+  </div>
+  <div class="actions" id="OtherActions"></div>
+</div>
+
+<div class="builder p4" id="P4Builder">
+  <div class="masteryarea" id="masteryarea">
+    <div class="equipmentspace" id="equipmentspace">
+      <div class="weaponspace" id="weaponspace"><img src="Images/Weapon-Rank.png"></div>
+      <div class="weapontext" id="weapontext">Weapon Rank<br></div>
+      <div class="armorspace" id="armorspace"><img src="Images/Armor-Rank.png"></div>
+      <div class="armortext" id="armortext">Armor Rank<br>(</div>
+    </div>
+    <div class="masteryspace" id="masteryspace">
+      <div class="mastery" id="mastery1"></div>
+      <div class="masterytext" id="mastery1text"></div>
+      <div class="mastery" id="mastery2"></div>
+      <div class="masterytext" id="mastery2text"></div>
+      <div class="mastery" id="mastery3"></div>
+      <div class="masterytext" id="mastery3text"></div>
+    </div>
+  </div>
+  <div class="savesandchecks" id="savesandchecks">
+    <div class="saves" id="saves">
+      <div class="savesandchecksheader" id="saveheader">SAVES</div>
+      <div class="savearea">
+        <div class="save" id="fortitude">Fortitude<br>+<span id="fortitudesave">0</span></div>
+        <div class="save" id="will">Will<br>+<span id="willsave">0</span></div>
+        <div class="save" id="reflex">Reflex<br>+<span id="reflexsave">0</span></div>
+      </div>
+    </div>
+    <div></div>
+    <div class="checks" id="checks">
+      <div class="savesandchecksheader" id="checkheader">SPECIALTIES</div>
+      <div class="checkarea">
+        <div class="check" id="fitness">Fitness<br>+<span id="fitnesscheck">0</span></div>
+        <div class="check" id="knowledge">Knowledge<br>+<span id="knowledgecheck">0</span></div>
+        <div class="check" id="knack">Knack<br>+<span id="knackcheck">0</span></div>
+        <div class="check" id="presence">Presence<br>+<span id="presencecheck">0</span></div>
+        <div class="check" id="awareness">Awareness<br>+<span id="awarenesscheck">0</span></div>
+        <div class="check" id="spirituality">Spirituality<br>+<span id="spiritualitycheck">0</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="actionspace" id="standardactionspace">
+    <div class='actioncard final finalstandard strong NormalAttack'>
+      <div class='actionname'>Normal Attack</div>
+      <div><hr></div>
+      <div>1d100 + modifiers</div>
+      <div><hr></div>
+      <div>A standard attack.<br>On a nat 100, double your total after adding modifiers.</div>
+      <div><hr></div>
+      <div>No restrictions</div>
+      <div><hr></div>
+      <div class="togglemastery" id="togglenormalattack"></div>
+      <div><hr></div>
+      <div class='rollcode'>!r 1d100+<span class="MR">MR</span>+ER # thread/name/attack</div>
+    </div>
+    <div class='actioncard final finalstandard NA Recover'>
+      <div class='actionname'>Recover</div>
+      <div><hr></div>
+      <div>1d20</div>
+      <div><hr></div>
+      <div>Recover some HP</div>
+      <div><hr></div>
+      <div>1 per cycle</div>
+      <div><hr></div>
+      <div class='rollcode'>!r 1d20 # thread/name/recover</div>
+    </div>
+  </div>
+  <div class="actionspace" id="chosenactionspace"></div>
+</div>
+
+
+<br><div class="navcontainer">
+  <div class="navigation p1" id="P1Next" onclick="goNextP2()">NEXT</div>
+  <div class="navigation p2" id="P2Next" onclick="goNextP3()">NEXT</div>
+  <div class="navigation p3" id="P3Next" onclick="goNextP4()">NEXT</div>
+</div>
+</body>
