@@ -1,0 +1,818 @@
+html {
+  background-image: url("https://terrarp.com/db/bg3.webp");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+#bodyback {
+  background-color: #eeeeee;
+  width: 75vw;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+#instructiontoggle, #helpfullinkstoggle {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  margin: auto;
+  width: auto;
+  cursor: pointer;
+  display: inline-block;
+  user-select: none;
+}
+
+#instructions, #helpfullinks {
+  display: none;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 10px 3px;
+  text-align: left;
+  padding-right: 1.8vw;
+}
+
+ol > li {
+  margin-bottom: 0.5vw;
+}
+
+ul {
+  font-size: 0.8rem;
+  color: #444444;
+}
+
+
+.mcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+  padding-right: -3vw;
+  margin-bottom: 2vw;
+}
+
+.masterycategory {
+  text-align: left;
+  margin-left: 10px;
+  font-size: 1.35rem;
+  padding: 0 5px;
+}
+
+.masterycircle {
+  height: 15vw;
+  width: 15vw;
+  max-width: 90px;
+  max-height: 90px;
+  border-radius: 50%;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+  background-color: #b0b0b0;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  user-select: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.mbox {
+  position: relative;
+  margin: 0;
+}
+
+.masterycircle > img {
+  height: 10vw;
+  width: 10vw;
+  max-width: 65px;
+  max-height: 65px;
+  margin: auto;
+}
+
+.tooltip {
+  z-index: 1;
+  visibility: hidden;
+  background-color: rgba(0,0,0,0.6);
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 1px 0.5px;
+  width: auto;
+  border-radius: 3px;
+  user-select: none;
+}
+
+.mbox:hover .tooltip {
+  visibility: visible;
+}
+
+.selectorheader {
+  text-decoration: underline;
+  text-decoration-style: double;
+  text-decoration-color: rgba(0,0,0,0.5);
+  font-weight: bold;
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+.selected {
+  border: 2px solid #a9357b;
+}
+
+.selected.arcanamancy {
+  background-color: #50cbe3;
+}
+
+.selected.evoke  {
+  background-color: #50c8cb;
+}
+
+.selected.pierce-weapons {
+  background-color: #46bcc8;
+}
+
+.selected.astramancy {
+  background-color: #ae43c3;
+}
+
+.selected.dark-magic {
+  background-color: #883cca;
+}
+
+.selected.animancy {
+  background-color: #53b159;
+}
+
+.selected.corrupt {
+  background-color: #813090;
+}
+
+.selected.beast-arts {
+  background-color: #db7233;
+}
+
+.selected.crush-weapons {
+  background-color: #ce5e32;
+}
+
+.selected.geomancy {
+  background-color: #a76a36;
+}
+
+.selected.guard-arts {
+  background-color: #f2bb36;
+}
+
+.selected.divine-magic {
+  background-color: #edb82a;
+}
+
+.selected.aura {
+  background-color: #e0b439;
+}
+
+.selected.hemomancy {
+  background-color: #c32222;
+}
+
+.selected.pyromancy {
+  background-color: #cb3739;
+}
+
+.selected.battle-spirits {
+  background-color: #b72c2c;
+}
+
+.selected.weapon-arts {
+  background-color: #cb5050;
+}
+
+.selected.hydromancy {
+  background-color: #66b8ea;
+}
+
+.selected.harmonic-magic {
+  background-color: #36a5e8;
+}
+
+.selected.illusion-magic {
+  background-color: #ea5694;
+}
+
+.selected.chronomancy {
+  background-color: #ec4a97;
+}
+
+.selected.metamorph {
+  background-color: #cc4e71;
+}
+
+.selected.aeromancy {
+  background-color: #48d1c3;
+}
+
+.selected.spirit-magic {
+  background-color: #50c8cb;
+}
+
+.selected.martial-arts {
+  background-color: #c9c9c9;
+}
+
+.selected.magitech {
+  background-color: #5c6779;
+}
+
+.selected.ranged-weapons {
+  background-color: #77b933;
+}
+
+.selected.nature-magic {
+  background-color: #91c023;
+}
+
+.selected.dynamism {
+  background-color: #87ad3d;
+}
+
+.selected.shadow-arts {
+  background-color: #383838;
+}
+
+.selected.slash-weapons {
+  background-color: #4263cb;
+}
+
+.selected.mend {
+  background-color: #2f8cc1;
+}
+
+.selected.summon {
+  background-color: #4a4da5;
+}
+
+.selected.alchemy {
+  background-color: #53b159;
+}
+
+.selected.hyper-sense {
+  background-color: #40883a;
+}
+
+.displaycircle.arcanamancy {
+  background-color: #50cbe3;
+}
+
+.displaycircle.evoke  {
+  background-color: #50c8cb;
+}
+
+.displaycircle.pierce-weapons {
+  background-color: #46bcc8;
+}
+
+.displaycircle.astramancy {
+  background-color: #ae43c3;
+}
+
+.displaycircle.dark-magic {
+  background-color: #883cca;
+}
+
+.displaycircle.animancy {
+  background-color: #53b159;
+}
+
+.displaycircle.corrupt {
+  background-color: #813090;
+}
+
+.displaycircle.beast-arts {
+  background-color: #db7233;
+}
+
+.displaycircle.crush-weapons {
+  background-color: #ce5e32;
+}
+
+.displaycircle.geomancy {
+  background-color: #a76a36;
+}
+
+.displaycircle.guard-arts {
+  background-color: #f2bb36;
+}
+
+.displaycircle.divine-magic {
+  background-color: #edb82a;
+}
+
+.displaycircle.aura {
+  background-color: #e0b439;
+}
+
+.displaycircle.hemomancy {
+  background-color: #c32222;
+}
+
+.displaycircle.pyromancy {
+  background-color: #cb3739;
+}
+
+.displaycircle.battle-spirits {
+  background-color: #b72c2c;
+}
+
+.displaycircle.weapon-arts {
+  background-color: #cb5050;
+}
+
+.displaycircle.hydromancy {
+  background-color: #66b8ea;
+}
+
+.displaycircle.harmonic-magic {
+  background-color: #36a5e8;
+}
+
+.displaycircle.illusion-magic {
+  background-color: #ea5694;
+}
+
+.displaycircle.chronomancy {
+  background-color: #ec4a97;
+}
+
+.displaycircle.metamorph {
+  background-color: #cc4e71;
+}
+
+.displaycircle.aeromancy {
+  background-color: #48d1c3;
+}
+
+.displaycircle.spirit-magic {
+  background-color: #50c8cb;
+}
+
+.displaycircle.martial-arts {
+  background-color: #c9c9c9;
+}
+
+.displaycircle.magitech {
+  background-color: #5c6779;
+}
+
+.displaycircle.ranged-weapons {
+  background-color: #77b933;
+}
+
+.displaycircle.nature-magic {
+  background-color: #91c023;
+}
+
+.displaycircle.dynamism {
+  background-color: #87ad3d;
+}
+
+.displaycircle.shadow-arts {
+  background-color: #383838;
+}
+
+.displaycircle.slash-weapons {
+  background-color: #4263cb;
+}
+
+.displaycircle.mend {
+  background-color: #2f8cc1;
+}
+
+.displaycircle.summon {
+  background-color: #4a4da5;
+}
+
+.displaycircle.alchemy {
+  background-color: #53b159;
+}
+
+.displaycircle.hyper-sense {
+  background-color: #40883a;
+}
+
+.display.arcanamancy {
+  background-color: #50cbe3;
+}
+
+.display.evoke  {
+  background-color: #50c8cb;
+}
+
+.display.pierce-weapons {
+  background-color: #46bcc8;
+}
+
+.display.astramancy {
+  background-color: #ae43c3;
+}
+
+.display.dark-magic {
+  background-color: #883cca;
+}
+
+.display.animancy {
+  background-color: #53b159;
+}
+
+.display.corrupt {
+  background-color: #813090;
+}
+
+.display.beast-arts {
+  background-color: #db7233;
+}
+
+.display.crush-weapons {
+  background-color: #ce5e32;
+}
+
+.display.geomancy {
+  background-color: #a76a36;
+}
+
+.display.guard-arts {
+  background-color: #f2bb36;
+}
+
+.display.divine-magic {
+  background-color: #edb82a;
+}
+
+.display.aura {
+  background-color: #e0b439;
+}
+
+.display.hemomancy {
+  background-color: #c32222;
+}
+
+.display.pyromancy {
+  background-color: #cb3739;
+}
+
+.display.battle-spirits {
+  background-color: #b72c2c;
+}
+
+.display.weapon-arts {
+  background-color: #cb5050;
+}
+
+.display.hydromancy {
+  background-color: #66b8ea;
+}
+
+.display.harmonic-magic {
+  background-color: #36a5e8;
+}
+
+.display.illusion-magic {
+  background-color: #ea5694;
+}
+
+.display.chronomancy {
+  background-color: #ec4a97;
+}
+
+.display.metamorph {
+  background-color: #cc4e71;
+}
+
+.display.aeromancy {
+  background-color: #48d1c3;
+}
+
+.display.spirit-magic {
+  background-color: #50c8cb;
+}
+
+.display.martial-arts {
+  background-color: #c9c9c9;
+}
+
+.display.magitech {
+  background-color: #5c6779;
+}
+
+.display.ranged-weapons {
+  background-color: #77b933;
+}
+
+.display.nature-magic {
+  background-color: #91c023;
+}
+
+.display.dynamism {
+  background-color: #87ad3d;
+}
+
+.display.shadow-arts {
+  background-color: #383838;
+}
+
+.display.slash-weapons {
+  background-color: #4263cb;
+}
+
+.display.mend {
+  background-color: #2f8cc1;
+}
+
+.display.summon {
+  background-color: #4a4da5;
+}
+
+.display.alchemy {
+  background-color: #53b159;
+}
+
+.display.hyper-sense {
+  background-color: #40883a;
+}
+
+.selected.armor {
+  background-color: rgba(220,200,25,1);
+}
+
+#masterycontainer, #rankselector, #actionselector, #builddisplay {
+  display: block;
+  margin-top: 25px;
+  padding: 10px;
+}
+
+#rankselector {
+  display: none;
+}
+
+#masteryrankpick {
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#actionselector {
+  display: none;
+}
+
+#builddisplay {
+  display: none;
+}
+
+#button1, #button2, #button3 {
+  display: inline-block;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #a9357b;
+  user-select: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#button2, #button3 {
+  display: none;
+ }
+
+.rankpick {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 5px;
+}
+
+.rankcontainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.6vw;
+  margin-right: 0.6vh;
+  text-align: center;
+}
+
+.card {
+  width: 20vw;
+  height: 25vw;
+  max-width: 300px;
+  max-height: 600px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  wrap: nowrap;
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 0.5vw;
+  user-select: none;
+  border-radius: 4px;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+  border: 2px solid;
+}
+
+.card.selected {
+  background-color: #dddddd;
+  border-color: #a9357b;
+}
+
+.cardtitle {
+  font-weight: bold;
+}
+
+.rollcode {
+  font-family: monospace;
+  user-select: all;
+}
+
+.line {
+  display: block;
+  height: 1px;
+  border-top: 1px solid black;
+}
+
+.card > div {
+  padding-bottom: 4px;
+}
+
+.freeactions {
+  display: flex;
+  justify-content: space-around;
+}
+
+#pickactions {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+#freeactiondisplay {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-top: 5px;
+}
+
+#actionsdisplay {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.display > img {
+  width: 1.8vw;
+  height: 1.8vw;
+}
+
+.display.masterycircle {
+  width: 2.1vw;
+  height: 2.1vw;
+}
+
+.masteryicon {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#masterydisplay {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  margin-top: 5px;
+  text-align: center;
+  margin-bottom: 2vw;
+}
+
+.masterydisplay {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.displaycircle {
+  height: 15vw;
+  width: 15vw;
+  max-width: 90px;
+  max-height: 90px;
+  border-radius: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.displaycircle > img {
+  height: 10vw;
+  width: 10vw;
+  max-width: 65px;
+  max-height: 65px;
+  margin: auto;
+}
+
+#equipmentdisplay {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  user-select: none;
+  text-align: center;
+  margin: 2vw 0;
+}
+
+.edisplay {
+  display: flex;
+  flex-direction: column;
+}
+
+.displaycircle.equipment {
+  background-color: #b0b0b0;
+}
+
+.passivecontainer {
+  border: 1px solid #444444;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 0.9rem;
+  padding: 5px;
+  max-width: 25vw;
+}
+
+#statsdisplay {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  user-select: none;
+  text-align: center;
+  margin: 2vw 0;
+}
+
+#statsdisplay > div {
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.displaycircle.hp {
+  background-color: #b0b0b0;
+}
+
+.savecontainer, .expertisecontainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#builddisplay .masterycategory {
+  margin: 2vw;
+}
+
+table {
+  border: none;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  text-align: center
+}
+
+.fas {
+  color: black;
+}
+
+td {
+  padding: 3px;
+}
+
+.expertcontainer {
+  display: flex;
+  max-height: 20vh;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.expert {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  padding: 5px;
+}
