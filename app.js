@@ -482,7 +482,7 @@ function passiveBonus() {
     y = y * 3;
     var x = document.getElementById("support-enhancementfinal").innerHTML
     document.getElementById("support-enhancementfinal").innerHTML = document.getElementById("support-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("suppport-enhancementfinal").innerHTML += "<div class='line'></div><div>Your bonus is +" + y + " extra healing/buffing</div></div>"
+    document.getElementById("support-enhancementfinal").innerHTML += "<div class='line'></div><div>Your bonus is +" + y + " extra healing/buffing</div></div>"
   } else if (document.querySelector("#movement-enhancementfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
     var message;

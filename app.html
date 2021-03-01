@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>TerraSphere Build Editor</title>
@@ -128,7 +128,7 @@
     </div>
     <div id="builddisplay">
       <span class="selectorheader">STATS</span><br>
-      <div class="masterycategory" id="statsdisplay">
+      <div class="masterycategory first" id="statsdisplay">
         <div class="hpcontainer"><div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div></div>
         <div class="savecontainer">
           <div>Saves</div>
@@ -151,39 +151,37 @@
         </div>
         <div class="expertisecontainer">
           Expertise<br>
-          <div class='expertcontainer'>
-          <div class='expert'>
-            <div><i class="fas fa-walking"></i></div>
-            <div>Fitness</div>
-            <div id="skillfitness">+</div>
+          <div>
+            <table>
+              <tr>
+                <td><i class="fas fa-walking"></i><br>Fitness</td>
+                <td id="skillfitness">+</td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-hand-paper"></i><br>Knack</td>
+                <td id="skillknack">+</td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-eye"></i><br>Awareness</td>
+                <td id="skillawareness">+</td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-book"></i><br>Knowledge</td>
+                <td id="skillknowledge">+</td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-users"></i><br>Presence</td>
+                <td id="skillpresence">+</td>
+              </tr>
+            </table>
           </div>
-          <div class='expert'>
-            <div><i class="fas fa-eye"></i></div>
-            <div>Awareness</div>
-            <div id="skillawareness">+</div>
           </div>
-          <div class='expert'>
-            <div><i class="fas fa-hand-paper"></i></div>
-            <div>Knack</div>
-            <div id="skillknack">+</div>
-          </div>
-          <div class='expert'>
-            <div><i class="fas fa-book"></i></div>
-            <div>Knowledge</div>
-            <div id="skillknowledge">+</div>
-          </div>
-          <div class='expert'>
-            <div><i class="fas fa-users"></i></div>
-            <div>Presence</div>
-            <div id="skillpresence">+</div>
-          </div>
-        </div></div>
       </div>
       <span class="selectorheader">MASTERIES</span><br>
       <div class="masterycategory" id="masterydisplay"></div>
       <span class="selectorheader">EQUIPMENT</span><br>
       <div class="masterycategory" id="equipmentdisplay">
-        <div class=" edisplay weaponrankdisplay"><div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div></div>
+        <div class="edisplay weaponrankdisplay"><div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div></div>
         <div class="edisplay armorrankdisplay"><div class='displaycircle equipment'><img id="armordisplay"></div><div>Armor Rank</div></div>
         <div class="edisplay armorskilldisplay"><div class="passivecontainer"><b>Armor Passive</b></div></div>
       </div>

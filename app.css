@@ -817,7 +817,7 @@ td {
   padding: 5px;
 }
 
-@media (max-width < 600px) {
+@media (max-width: 600px) {
   #bodyback {
     width: 90vw;
     margin-top: 30px;
@@ -828,12 +828,77 @@ td {
 
   .card {
     width: 60vw;
-    height: 50vw;
-    font-size: 0.5rem;
+    height: 70vw;
+    font-size: 0.65rem;
     margin: 0.5vw;
   }
 
   .tooltip {
-    display: none;
+    font-size: 0.6rem;
+  }
+
+  #statsdisplay {
+    font-size: 0.9rem;
+    margin: 0;
+    margin-bottom: 3vh;
+  }
+
+  .expertcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  table, td {
+    font-size: 0.7rem;
+    padding: 1px;
+  }
+
+  .masterycategory.first {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .expert {
+    padding: 0;
+    font-size: 0.5rem;
+    margin-bottom: 0.5vw;
+  }
+
+  .hp {
+    width: 12vw;
+    height: 12vw;
+  }
+
+  .hp > img {
+    width: 9vw;
+    height: 9vw;
+  }
+
+  #masterydisplay {
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  #equipmentdisplay {
+    font-size: 0.9rem;
+  }
+
+  .edisplay {
+    margin: 0 1vw;
+  }
+
+  .passivecontainer {
+    font-size: 0.6rem;
+  }
+
+  .display.masterycircle {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  .display > img {
+    width: 6.5vw;
+    height: 6.5vw;
   }
 }
