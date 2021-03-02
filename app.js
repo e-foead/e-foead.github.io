@@ -1,3 +1,7 @@
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
 function toggleInstructions() {
   if (document.getElementById("instructions").style.display !== "inline-block") {
     document.getElementById("instructions").style.display = "inline-block"
@@ -141,12 +145,27 @@ function nextButton1() {
     return;
   }
 
+  document.getElementById("masteryrankpick").innerHTML = "";
+
   fillMasteriesRank();
 
   document.getElementById("masterycontainer").style.display = "none";
   document.getElementById("rankselector").style.display = "block";
   document.getElementById("button1").style.display = "none";
   document.getElementById("button2").style.display = "inline-block";
+  document.getElementById("button2back").style.display = "inline-block";
+
+  window.scrollTo(0,0);
+}
+
+function backPart1() {
+  chosenMasteries.splice(0, chosenMasteries.length);
+
+  document.getElementById("masterycontainer").style.display = "block";
+  document.getElementById("rankselector").style.display = "none";
+  document.getElementById("button1").style.display = "inline-block";
+  document.getElementById("button2").style.display = "none";
+  document.getElementById("button2back").style.display = "none";
 
   window.scrollTo(0,0);
 }
@@ -177,13 +196,36 @@ function nextButton2() {
   document.getElementById("rankselector").style.display = "none";
   document.getElementById("actionselector").style.display = "block";
   document.getElementById("button2").style.display = "none";
+  document.getElementById("button2back").style.display = "none";
   document.getElementById("button3").style.display = "inline-block";
+  document.getElementById("button3back").style.display = "inline-block";
 
   saveMasteryRanks();
   saveEquipmentRanks();
 
   getActions();
   getCards();
+
+  window.scrollTo(0,0);
+}
+
+function backPart2() {
+
+  chosenMasteriesRanks.splice(0, chosenMasteriesRanks.length);
+  chosenMasteriesRanksLetter.splice(0, chosenMasteriesRanksLetter.length);
+  actionpool.splice(0, actionpool.length);
+  singlearraypool.splice(0, singlearraypool.length);
+  uniqueactionpool.splice(0, uniqueactionpool.length);
+  uniqueactions.splice(0, uniqueactions.length);
+
+  document.getElementById("pickactions").innerHTML = "";
+
+  document.getElementById("rankselector").style.display = "block";
+  document.getElementById("actionselector").style.display = "none";
+  document.getElementById("button2").style.display = "inline-block";
+  document.getElementById("button2back").style.display = "inline-block";
+  document.getElementById("button3").style.display = "none";
+  document.getElementById("button3back").style.display = "none";
 
   window.scrollTo(0,0);
 }
@@ -272,6 +314,8 @@ function nextButton3() {
   document.getElementById("actionselector").style.display = "none";
   document.getElementById("builddisplay").style.display = "block";
   document.getElementById("button3").style.display = "none";
+  document.getElementById("button3back").style.display = "none";
+  document.getElementById("button4back").style.display = "inline-block";
 
   saveActions();
   displayMasteries();
@@ -282,6 +326,49 @@ function nextButton3() {
   hpCalc();
   calcSaves();
   calcExpertise();
+
+  window.scrollTo(0,0);
+}
+
+function backPart3() {
+  document.getElementById("actionselector").style.display = "block";
+  document.getElementById("builddisplay").style.display = "none";
+  document.getElementById("button3").style.display = "inline-block";
+  document.getElementById("button3back").style.display = "inline-block";
+  document.getElementById("button4back").style.display = "none";
+
+  chosenActions.splice(0, chosenActions.length);
+
+  document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
+
+  document.getElementById("fortitudesave").innerHTML = "+";
+  document.getElementById("willsave").innerHTML = "+";
+  document.getElementById("reflexsave").innerHTML = "+";
+
+  document.getElementById("skillknack").innerHTML = "+";
+  document.getElementById("skillfitness").innerHTML = "+";
+  document.getElementById("skillpresence").innerHTML = "+";
+  document.getElementById("skillawareness").innerHTML = "+";
+  document.getElementById("skillknowledge").innerHTML = "+";
+
+  document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
+  document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
+  document.getElementsByClassName("passivecontainer")[0].innerHTML = "<b>Armor Passive</b>";
+
+  document.getElementById("masterydisplay").innerHTML = "";
+
+  document.getElementsByClassName("card normal")[0].innerHTML = "<div><span class='cardtitle'>Normal Attack</span></div><div class='line'></div><div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class='line'></div><div>1d100 + modifiers</div><div class='line'></div><div><span class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</span></div>";
+  document.getElementById("actionsdisplay").innerHTML = "";
+
+  fortitude = 0;
+  reflex = 0;
+  will = 0;
+
+  fitness = 0;
+  knack = 0;
+  awareness = 0;
+  knowledge = 0;
+  presence = 0;
 
   window.scrollTo(0,0);
 }
