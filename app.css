@@ -25,7 +25,7 @@ h1 {
   font-weight: bold;
 }
 
-#instructiontoggle, #helpfullinkstoggle {
+#instructiontoggle, #helpfullinkstoggle, #importtoggle {
   text-decoration: underline;
   text-decoration-style: dotted;
   margin: auto;
@@ -35,7 +35,7 @@ h1 {
   user-select: none;
 }
 
-#instructions, #helpfullinks {
+#instructions, #helpfullinks, #import {
   display: none;
   padding: 5px;
   border: 1px solid black;
@@ -43,6 +43,16 @@ h1 {
   margin: 10px 3px;
   text-align: left;
   padding-right: 1.8vw;
+}
+
+#import {
+  text-align: center;
+  padding-right: 5px;
+}
+
+#importfield, #finalcode {
+  font-family: monospace;
+  margin: auto;
 }
 
 ol > li {
@@ -580,7 +590,7 @@ ul {
   display: none;
 }
 
-#button1, #button2, #button3, #button2back, #button3back, #button4back {
+#button1, #button2, #button3, #button2back, #button3back, #button4back, #importbutton {
   display: inline-block;
   padding: 5px;
   box-sizing: border-box;
@@ -596,6 +606,10 @@ ul {
 
 #button2, #button3, #button2back, #button3back, #button4back {
   display: none;
+ }
+
+ #importbutton {
+   margin: auto;
  }
 
 .rankpick {
@@ -818,7 +832,11 @@ td {
   padding: 5px;
 }
 
-@media (max-width: 600px) {
+#buildcodedisplay {
+  text-align: center;
+}
+
+@media (max-width: 800px) {
   #bodyback {
     width: 90vw;
     margin-top: 30px;

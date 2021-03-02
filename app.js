@@ -18,6 +18,143 @@ function toggleLinks() {
   }
 }
 
+function toggleImport() {
+  if (document.getElementById("import").style.display !== "inline-block") {
+    document.getElementById("import").style.display = "inline-block"
+  } else {
+    document.getElementById("import").style.display = "none";
+  }
+}
+
+var errormessage = "";
+
+function importBuild() {
+  errormessage = "";
+  var code = document.getElementById("importfield").value;
+  if (code.indexOf("|") === -1) {
+    alert("Your build code is invalid");
+    return;
+  }
+
+  document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
+
+  document.getElementById("fortitudesave").innerHTML = "+";
+  document.getElementById("willsave").innerHTML = "+";
+  document.getElementById("reflexsave").innerHTML = "+";
+
+  document.getElementById("skillknack").innerHTML = "+";
+  document.getElementById("skillfitness").innerHTML = "+";
+  document.getElementById("skillpresence").innerHTML = "+";
+  document.getElementById("skillawareness").innerHTML = "+";
+  document.getElementById("skillknowledge").innerHTML = "+";
+
+  document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
+  document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
+  document.getElementsByClassName("passivecontainer")[0].innerHTML = "<b>Armor Passive</b>";
+
+  document.getElementById("masterydisplay").innerHTML = "";
+
+  document.getElementsByClassName("card normal")[0].innerHTML = "<div><span class='cardtitle'>Normal Attack</span></div><div class='line'></div><div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class='line'></div><div>1d100 + modifiers</div><div class='line'></div><div><span class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</span></div>";
+  document.getElementById("actionsdisplay").innerHTML = "";
+
+  fortitude = reflex = will = 0;
+  fitness = knack = awareness = presence = knowledge = 0;
+
+  var firstdeli = code.indexOf("|");
+  var masteryload = code.substring(0,firstdeli);
+
+  var seconddeli = code.indexOf("|", firstdeli + 1);
+  var masteryrankload = code.substring(firstdeli + 1, seconddeli);
+
+  var thirddeli = code.indexOf("|", seconddeli + 1);
+  armorweight = code.substring(seconddeli + 1, thirddeli);
+
+  var fourthdeli = code.indexOf("|", thirddeli + 1);
+  armorRank = code.substring(thirddeli + 1, fourthdeli);
+
+  var fifthdeli = code.indexOf("|", fourthdeli + 1);
+  weaponRank = code.substring(fourthdeli + 1, fifthdeli);
+
+  var actionsload = code.substring(fifthdeli + 1);
+
+  chosenMasteries = masteryload.split(",");
+  chosenMasteriesRanks = masteryrankload.split(",");
+  chosenActions = actionsload.split(",");
+
+  chosenMasteriesRanksLetter = [];
+
+  armorimg = "https://terrarp.com/db/wiki/armor-" + armorweight + ".png";
+
+  for (var i = 0; i < chosenMasteriesRanks.length; i++) {
+    if (chosenMasteriesRanks[i] === "1") {
+      chosenMasteriesRanksLetter.push("D")
+    } else if (chosenMasteriesRanks[i] === "2") {
+      chosenMasteriesRanksLetter.push("C")
+    } else if (chosenMasteriesRanks[i] === "3") {
+      chosenMasteriesRanksLetter.push("B")
+    } else if (chosenMasteriesRanks[i] === "4") {
+      chosenMasteriesRanksLetter.push("A")
+    } else if (chosenMasteriesRanks[i] === "5") {
+      chosenMasteriesRanksLetter.push("S")
+    } else {
+      errormessage = "Your build code is invalid."
+    }
+  }
+
+  if (armorRank === "1") {
+    armorRankLetter = "D"
+  } else if (armorRank === "2") {
+    armorRankLetter = "C"
+  } else if (armorRank === "3") {
+    armorRankLetter = "B"
+  } else if (armorRank === "4") {
+    armorRankLetter = "A"
+  } else if (armorRank === "5") {
+    armorRankLetter = "S"
+  } else {
+    errormessage = "Your build code is invalid."
+  }
+
+  if (weaponRank === "1") {
+    weaponRankLetter = "D"
+  } else if (weaponRank === "2") {
+    weaponRankLetter = "C"
+  } else if (weaponRank === "3") {
+    weaponRankLetter = "B"
+  } else if (weaponRank === "4") {
+    weaponRankLetter = "A"
+  } else if (armorRank === "5") {
+    weaponRankLetter = "S"
+  } else {
+    errormessage = "Your build code is invalid."
+  }
+
+  saveActions();
+  displayMasteries();
+  displayEquipment();
+  populateNormal();
+  displayActions();
+
+  hpCalc();
+  calcSaves();
+  calcExpertise();
+
+  getCode();
+
+  if (errormessage.length > 0) {
+    alert(errormessage);
+    return;
+  }
+
+  document.getElementById("masterycontainer").style.display = "none";
+  document.getElementById("button1").style.display = "none";
+  document.getElementById("builddisplay").style.display = "block";
+  document.getElementById("import").style.display = "none";
+
+  window.scrollTo(0,0);
+
+}
+
 function selectMastery(e) {
   var selectedlist = document.getElementsByClassName("selected");
 
@@ -159,7 +296,7 @@ function nextButton1() {
 }
 
 function backPart1() {
-  chosenMasteries.splice(0, chosenMasteries.length);
+  chosenMasteries = [];
 
   document.getElementById("masterycontainer").style.display = "block";
   document.getElementById("rankselector").style.display = "none";
@@ -211,12 +348,12 @@ function nextButton2() {
 
 function backPart2() {
 
-  chosenMasteriesRanks.splice(0, chosenMasteriesRanks.length);
-  chosenMasteriesRanksLetter.splice(0, chosenMasteriesRanksLetter.length);
-  actionpool.splice(0, actionpool.length);
-  singlearraypool.splice(0, singlearraypool.length);
-  uniqueactionpool.splice(0, uniqueactionpool.length);
-  uniqueactions.splice(0, uniqueactions.length);
+  chosenMasteriesRanks = [];
+  chosenMasteriesRanksLetter = [];
+  actionpool = [];
+  singlearraypool = [];
+  uniqueactionpool = [];
+  uniqueactions = [];
 
   document.getElementById("pickactions").innerHTML = "";
 
@@ -327,6 +464,8 @@ function nextButton3() {
   calcSaves();
   calcExpertise();
 
+  getCode();
+
   window.scrollTo(0,0);
 }
 
@@ -337,7 +476,7 @@ function backPart3() {
   document.getElementById("button3back").style.display = "inline-block";
   document.getElementById("button4back").style.display = "none";
 
-  chosenActions.splice(0, chosenActions.length);
+  chosenActions = [];
 
   document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
 
@@ -403,6 +542,11 @@ function displayActions() {
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color
     }
+  }
+
+  if (!validmastery.length) {
+    errormessage = "Your build code is invalid"
+    return;
   }
 
   valueReplace();
@@ -595,4 +739,14 @@ function passiveBonus() {
     document.getElementById("speed-enhancementfinal").innerHTML = document.getElementById("speed-enhancementfinal").innerHTML.substring(0, x.length - 6)
     document.getElementById("speed-enhancementfinal").innerHTML += "<div class='line'></div><div>" + message + "</div></div>"
   }
+}
+
+function getCode() {
+  var generatemasterycode = chosenMasteries.join(",");
+  var generatemasteryrankcode = chosenMasteriesRanks.join(",");
+  var generateactioncode = chosenActions.join(",");
+
+  var buildcode = generatemasterycode + "|" + generatemasteryrankcode + "|" + armorweight + "|" + armorRank.toString() + "|" + weaponRank.toString() + "|" + generateactioncode;
+
+  document.getElementById("finalcode").value = buildcode;
 }
