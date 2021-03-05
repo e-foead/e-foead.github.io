@@ -789,7 +789,7 @@ ul {
   margin-right: 5vw;
 }
 
-.displaycircle.hp {
+.displaycircle.hp, .displaycircle.move {
   background-color: #b0b0b0;
 }
 
@@ -857,9 +857,14 @@ td {
   }
 
   #statsdisplay {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin: 0;
     margin-bottom: 3vh;
+    flex-wrap: wrap;
+  }
+
+  #statsdisplay > div {
+    margin-bottom: 2vh;
   }
 
   .expertcontainer {
@@ -884,12 +889,12 @@ td {
     margin-bottom: 0.5vw;
   }
 
-  .hp {
+  .hp, .move {
     width: 12vw;
     height: 12vw;
   }
 
-  .hp > img {
+  .hp > img, .move > img {
     width: 9vw;
     height: 9vw;
   }

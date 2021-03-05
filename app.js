@@ -37,6 +37,7 @@ function importBuild() {
   }
 
   document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
+  document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div>Movement</div>";
 
   document.getElementById("fortitudesave").innerHTML = "+";
   document.getElementById("willsave").innerHTML = "+";
@@ -59,6 +60,7 @@ function importBuild() {
 
   fortitude = reflex = will = 0;
   fitness = knack = awareness = presence = knowledge = 0;
+  movement = 1;
 
   var firstdeli = code.indexOf("|");
   var masteryload = code.substring(0,firstdeli);
@@ -143,6 +145,38 @@ function importBuild() {
 
   if (errormessage.length > 0) {
     alert(errormessage);
+    chosenMasteries = chosenMasteriesRanks = chosenMasteriesRanksLetter = [];
+    chosenActions = [];
+    fortitude = reflex = will = 0;
+    fitness = knack = awareness = presence = knowledge = 0;
+    movement = 1;
+
+    document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
+    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div>Movement</div>";
+
+    document.getElementById("fortitudesave").innerHTML = "+";
+    document.getElementById("willsave").innerHTML = "+";
+    document.getElementById("reflexsave").innerHTML = "+";
+
+    document.getElementById("skillknack").innerHTML = "+";
+    document.getElementById("skillfitness").innerHTML = "+";
+    document.getElementById("skillpresence").innerHTML = "+";
+    document.getElementById("skillawareness").innerHTML = "+";
+    document.getElementById("skillknowledge").innerHTML = "+";
+
+    document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
+    document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML = "<b>Armor Passive</b>";
+
+    document.getElementById("masterydisplay").innerHTML = "";
+
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div><span class='cardtitle'>Normal Attack</span></div><div class='line'></div><div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class='line'></div><div>1d100 + modifiers</div><div class='line'></div><div><span class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</span></div>";
+    document.getElementById("actionsdisplay").innerHTML = "";
+
+    document.getElementById("builddisplay").style.display = "none";
+    document.getElementById("masterycontainer").style.display = "block";
+    document.getElementById("button1").style.display = "inline-block"
+
     return;
   }
 
@@ -409,7 +443,7 @@ function getActions() {
     }
   }
   uniqueactionpool = [...new Set(singlearraypool)];
-  uniqueactions = uniqueactionpool.slice(2)
+  uniqueactions = uniqueactionpool.slice(3)
 }
 
 function getCards() {
@@ -439,7 +473,7 @@ function selectAction(e) {
 
   if (e.classList.contains("selected")) {
     e.classList.remove("selected")
-  } else if (document.getElementsByClassName("card selected").length === slots + 2) {
+  } else if (document.getElementsByClassName("card selected").length === slots + 3) {
     alert("You may only select " + slots + " additional actions.")
     return;
   } else {
@@ -532,6 +566,9 @@ function displayActions() {
           var z = masterylist.findIndex(q => q.lookup === chosenMasteries[a]);
           validmastery.push("<div class='display masterycircle " + chosenMasteries[a] + "'><img onclick='clickMastery(this)' class='" + masterylist[z].lookup + "' src=" + masterylist[z].image + "></div>")
         }
+        if (!validmastery.length) {
+          errormessage = "Your build code is invalid"
+        }
       }
       displaycard = displaycard.substring(0, displaycard.length - 6);
       displaycard += "<div class='line'></div><div class='masteryicon'>" + validmastery.join("",) + "</div></div>"
@@ -542,11 +579,6 @@ function displayActions() {
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color
     }
-  }
-
-  if (!validmastery.length) {
-    errormessage = "Your build code is invalid"
-    return;
   }
 
   valueReplace();
@@ -695,50 +727,75 @@ function calcExpertise() {
   document.getElementById("skillpresence").innerHTML += presence;
 }
 
+var movement = 1;
+
 function passiveBonus() {
+
   if (document.querySelector("#defense-enhancementfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1])
     y = y * 5;
     var x = document.getElementById("defense-enhancementfinal").innerHTML
     document.getElementById("defense-enhancementfinal").innerHTML = document.getElementById("defense-enhancementfinal").innerHTML.substring(0, x.length - 6)
     document.getElementById("defense-enhancementfinal").innerHTML += "<div class='line'></div><div>Your bonus is " + y + " extra HP</div></div>"
-  } else if (document.querySelector("#damage-enhancementfinal")) {
+  }
+
+  if (document.querySelector("#damage-enhancementfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1])
     y = y * 3;
     var x = document.getElementById("damage-enhancementfinal").innerHTML
     document.getElementById("damage-enhancementfinal").innerHTML = document.getElementById("damage-enhancementfinal").innerHTML.substring(0, x.length - 6)
     document.getElementById("damage-enhancementfinal").innerHTML += "<div class='line'></div><div>Your bonus is +" + y + " extra damage</div></div>"
-  } else if (document.querySelector("#support-enhancementfinal")) {
+  }
+
+  if (document.querySelector("#support-enhancementfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1])
     y = y * 3;
     var x = document.getElementById("support-enhancementfinal").innerHTML
     document.getElementById("support-enhancementfinal").innerHTML = document.getElementById("support-enhancementfinal").innerHTML.substring(0, x.length - 6)
     document.getElementById("support-enhancementfinal").innerHTML += "<div class='line'></div><div>Your bonus is +" + y + " extra healing/buffing</div></div>"
-  } else if (document.querySelector("#movement-enhancementfinal")) {
+  }
+
+  if (document.querySelector("#dynamic-maneuverfinal")) {
+    var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
+    var message = "You may move 1 extra zone per post";
+    movement += 1
+
+    var x = document.getElementById("dynamic-maneuverfinal").innerHTML
+    document.getElementById("dynamic-maneuverfinal").innerHTML = document.getElementById("dynamic-maneuverfinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("dynamic-maneuverfinal").innerHTML += "<div class='line'></div><div>" + message + "</div></div>"
+  }
+
+  if (document.querySelector("#speed-enhancementfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
     var message;
-    if (y === 5) {
-      message = "You may move 3 zones per post"
-    } else if (y > 1) {
-      message = "You may move 2 zones per post"
+    if (y === 1 || y === 2) {
+      message = "You do not have additional zones of movement"
     } else {
-      message = "You may move 1 zone per post"
-    }
-    var x = document.getElementById("movement-enhancementfinal").innerHTML
-    document.getElementById("movement-enhancementfinal").innerHTML = document.getElementById("movement-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("movement-enhancementfinal").innerHTML += "<div class='line'></div><div>" + message + "</div></div>"
-  } else if (document.querySelector("#speed-enhancementfinal")) {
-    var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
-    var message;
-    if (y === 1) {
-      message = "You may move 1 zone per post"
-    } else {
-      message = "You may move " + y + " zones per post"
+      var z = y - 2
+      message = "You may move " + z + " extra zone(s) per post"
+      movement += z
     }
     var x = document.getElementById("speed-enhancementfinal").innerHTML
     document.getElementById("speed-enhancementfinal").innerHTML = document.getElementById("speed-enhancementfinal").innerHTML.substring(0, x.length - 6)
     document.getElementById("speed-enhancementfinal").innerHTML += "<div class='line'></div><div>" + message + "</div></div>"
   }
+
+  if (document.querySelector("#dynamic-utilityfinal")) {
+    var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
+    var message;
+    if (y === 1) {
+      message = "You do not have additional zones of movement"
+    } else {
+      message = "You may move 1 extra zone per post"
+      movement += 1
+    }
+    var x = document.getElementById("dynamic-utilityfinal").innerHTML
+    document.getElementById("dynamic-utilityfinal").innerHTML = document.getElementById("dynamic-utilityfinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("dynamic-utilityfinal").innerHTML += "<div class='line'></div><div>" + message + "</div></div>"
+  }
+
+  movementmessage = movement + " zones per post"
+  document.getElementsByClassName("movementcontainer")[0].innerHTML += movementmessage
 }
 
 function getCode() {

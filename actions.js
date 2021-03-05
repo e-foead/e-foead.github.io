@@ -22,6 +22,28 @@ const actionlist = [
     category: "normal"
   },
   {
+    lookup: "rush",
+    name: "Rush",
+    color: "#b0b0b0",
+    image: "https://terrarp.com/db/action/rush.png",
+    description: "You focus all your effort into moving. Gain 1 extra movement this post.<br>Your movement ignores difficult terrain (impassable terrains are excluded).",
+    dice: "-",
+    roll: "-",
+    masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons",
+    category: "normal"
+  },
+  {
+    lookup: "taunt",
+    name: "Taunt",
+    color: "#d78747",
+    image: "https://terrarp.com/db/action/taunt.png",
+    description: "Enemies are more likely to attack you this cycle. You can indicate if 'Taunt' is on or off in your post without using an action.",
+    dice: "-",
+    roll: "-",
+    masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura hyper-sense",
+    category: "normal"
+  },
+  {
     lookup: "guard",
     name: "Guard",
     color: "#d78747",
@@ -70,8 +92,8 @@ const actionlist = [
     name: "Ultra Protect",
     color: "#da6c41",
     image: "https://terrarp.com/db/action/uprotect.png",
-    description: "<i>(Special Action)</i><br>Perform a big attack that damage the enemy and protect nearby allies. Give 3 allies in the same zone the Protected status.<br><br>Gain the Vulnerable status. If you roll one nat100, double your total after adding modifiers. If you roll two nat100s, multiply your total by 5.",
-    dice: "2d100 + modifiers",
+    description: "<i>(Special Action)</i><br>Perform a big attack that damage the enemy and protect nearby allies. Give 3 allies in the same zone the Protected status.<br><br>Gain the Vulnerable status. If you roll a nat100, double your total after adding modifiers.",
+    dice: "1d100 + modifiers",
     roll: "?r ultraprotect<span class='masteryreplace'> MR </span>WR # character-name/thread-code",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura hyper-sense",
     category: "normal"
@@ -220,14 +242,25 @@ const actionlist = [
     category: "passive"
   },
   {
-    lookup: "movement-enhancement",
-    name: "Movement Enhancement",
+    lookup: "dynamic-maneuver",
+    name: "Dynamic Maneuver",
     color: "#6845a2",
-    image: "https://terrarp.com/db/action/movement.png",
-    description: "<i>(Passive)</i><br>Your Alter Mastery enhances your movement abilities. At rank C, you can move 2 zones per post. At rank S, you can move 3 zones per post.",
+    image: "https://terrarp.com/db/action/maneuver.png",
+    description: "<i>(Passive)</i><br>At D-rank, gain 1 extra movement per post (stackable with Speed Enhancement). Your movement ignores difficult terrain (impassable terrains are excluded).<br>In addition, you can move through monster zones, but you cannot end your turn there.",
     dice: "-",
     roll: "-",
-    masteries: "battle-spirits metamorph",
+    masteries: "battle-spirits dynamism",
+    category: "passive"
+  },
+  {
+    lookup: "dynamic-utility",
+    name: "Dynamic Utility",
+    color: "#6845a2",
+    image: "https://terrarp.com/db/action/utility.png",
+    description: "<i>(Passive)</i><br>At C-rank, gain 1 extra movement per post (stackable with Speed Enhancement).<br>In addition, you can choose up to 2 willing targets in the same zone as you to move with you. They must end their movement at the same place as you. 1 movement is required for each person moving this way, including yourself.",
+    dice: "-",
+    roll: "-",
+    masteries: "metamorph dynamism",
     category: "passive"
   },
   {
@@ -235,7 +268,7 @@ const actionlist = [
     name: "Speed Enhancement",
     color: "#6845a2",
     image: "https://terrarp.com/db/action/speed.png",
-    description: "<i>(Passive)</i><br>Your mastery grants you unrivaled speed and mobility. Starting from rank C, gain 1 extra zone movement per mastery each post (C:2, B:3, A:4, S:5).",
+    description: "<i>(Passive)</i><br>Your mastery grants you unrivaled speed and mobility. Your mastery grants you incredible speed. Gain extra movement at B (+1), A (+2), and S (+3).",
     dice: "-",
     roll: "-",
     masteries: "dynamism",
