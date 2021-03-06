@@ -25,7 +25,7 @@ h1 {
   font-weight: bold;
 }
 
-#instructiontoggle, #helpfullinkstoggle, #importtoggle {
+#instructiontoggle, #helpfullinkstoggle {
   text-decoration: underline;
   text-decoration-style: dotted;
   margin: auto;
@@ -35,7 +35,7 @@ h1 {
   user-select: none;
 }
 
-#instructions, #helpfullinks, #import {
+#instructions, #helpfullinks {
   display: none;
   padding: 5px;
   border: 1px solid black;
@@ -45,12 +45,7 @@ h1 {
   padding-right: 1.8vw;
 }
 
-#import {
-  text-align: center;
-  padding-right: 5px;
-}
-
-#importfield, #finalcode {
+#finalcode {
   font-family: monospace;
   margin: auto;
 }
@@ -566,7 +561,7 @@ ul {
   background-color: rgba(220,200,25,1);
 }
 
-#masterycontainer, #rankselector, #actionselector, #builddisplay {
+#masterycontainer, #rankselector, #actionselector, #builddisplay, #importdisplay {
   display: block;
   margin-top: 25px;
   padding: 10px;
@@ -590,7 +585,11 @@ ul {
   display: none;
 }
 
-#button1, #button2, #button3, #button2back, #button3back, #button4back, #importbutton {
+#importdisplay {
+  display: none;
+}
+
+#button1, #button2, #button3, #button2back, #button3back, #button4back {
   display: inline-block;
   padding: 5px;
   box-sizing: border-box;
@@ -606,10 +605,6 @@ ul {
 
 #button2, #button3, #button2back, #button3back, #button4back {
   display: none;
- }
-
- #importbutton {
-   margin: auto;
  }
 
 .rankpick {

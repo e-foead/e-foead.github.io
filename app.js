@@ -2,157 +2,24 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 }
 
-function toggleInstructions() {
-  if (document.getElementById("instructions").style.display !== "inline-block") {
-    document.getElementById("instructions").style.display = "inline-block"
-  } else {
-    document.getElementById("instructions").style.display = "none"
-  }
-}
+window.addEventListener('hashchange', function() {
+  if (window.location.href.toString().includes("#")) {
+    var hash = new URL(window.location.href).hash;
+    var importstats = hash.slice(1).split("|");
+    var errormessage = "";
 
-function toggleLinks() {
-  if (document.getElementById("helpfullinks").style.display !== "inline-block") {
-    document.getElementById("helpfullinks").style.display = "inline-block"
-  } else {
-    document.getElementById("helpfullinks").style.display = "none"
-  }
-}
-
-function toggleImport() {
-  if (document.getElementById("import").style.display !== "inline-block") {
-    document.getElementById("import").style.display = "inline-block"
-  } else {
-    document.getElementById("import").style.display = "none";
-  }
-}
-
-var errormessage = "";
-
-function importBuild() {
-  errormessage = "";
-  var code = document.getElementById("importfield").value;
-  if (code.indexOf("|") === -1) {
-    alert("Your build code is invalid");
-    return;
-  }
-
-  document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
-  document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div>Movement</div>";
-
-  document.getElementById("fortitudesave").innerHTML = "+";
-  document.getElementById("willsave").innerHTML = "+";
-  document.getElementById("reflexsave").innerHTML = "+";
-
-  document.getElementById("skillknack").innerHTML = "+";
-  document.getElementById("skillfitness").innerHTML = "+";
-  document.getElementById("skillpresence").innerHTML = "+";
-  document.getElementById("skillawareness").innerHTML = "+";
-  document.getElementById("skillknowledge").innerHTML = "+";
-
-  document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
-  document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
-  document.getElementsByClassName("passivecontainer")[0].innerHTML = "<b>Armor Passive</b>";
-
-  document.getElementById("masterydisplay").innerHTML = "";
-
-  document.getElementsByClassName("card normal")[0].innerHTML = "<div><span class='cardtitle'>Normal Attack</span></div><div class='line'></div><div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class='line'></div><div>1d100 + modifiers</div><div class='line'></div><div><span class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</span></div>";
-  document.getElementById("actionsdisplay").innerHTML = "";
-
-  fortitude = reflex = will = 0;
-  fitness = knack = awareness = presence = knowledge = 0;
-  movement = 1;
-
-  var firstdeli = code.indexOf("|");
-  var masteryload = code.substring(0,firstdeli);
-
-  var seconddeli = code.indexOf("|", firstdeli + 1);
-  var masteryrankload = code.substring(firstdeli + 1, seconddeli);
-
-  var thirddeli = code.indexOf("|", seconddeli + 1);
-  armorweight = code.substring(seconddeli + 1, thirddeli);
-
-  var fourthdeli = code.indexOf("|", thirddeli + 1);
-  armorRank = code.substring(thirddeli + 1, fourthdeli);
-
-  var fifthdeli = code.indexOf("|", fourthdeli + 1);
-  weaponRank = code.substring(fourthdeli + 1, fifthdeli);
-
-  var actionsload = code.substring(fifthdeli + 1);
-
-  chosenMasteries = masteryload.split(",");
-  chosenMasteriesRanks = masteryrankload.split(",");
-  chosenActions = actionsload.split(",");
-
-  chosenMasteriesRanksLetter = [];
-
-  armorimg = "https://terrarp.com/db/wiki/armor-" + armorweight + ".png";
-
-  for (var i = 0; i < chosenMasteriesRanks.length; i++) {
-    if (chosenMasteriesRanks[i] === "1") {
-      chosenMasteriesRanksLetter.push("D")
-    } else if (chosenMasteriesRanks[i] === "2") {
-      chosenMasteriesRanksLetter.push("C")
-    } else if (chosenMasteriesRanks[i] === "3") {
-      chosenMasteriesRanksLetter.push("B")
-    } else if (chosenMasteriesRanks[i] === "4") {
-      chosenMasteriesRanksLetter.push("A")
-    } else if (chosenMasteriesRanks[i] === "5") {
-      chosenMasteriesRanksLetter.push("S")
-    } else {
-      errormessage = "Your build code is invalid."
-    }
-  }
-
-  if (armorRank === "1") {
-    armorRankLetter = "D"
-  } else if (armorRank === "2") {
-    armorRankLetter = "C"
-  } else if (armorRank === "3") {
-    armorRankLetter = "B"
-  } else if (armorRank === "4") {
-    armorRankLetter = "A"
-  } else if (armorRank === "5") {
-    armorRankLetter = "S"
-  } else {
-    errormessage = "Your build code is invalid."
-  }
-
-  if (weaponRank === "1") {
-    weaponRankLetter = "D"
-  } else if (weaponRank === "2") {
-    weaponRankLetter = "C"
-  } else if (weaponRank === "3") {
-    weaponRankLetter = "B"
-  } else if (weaponRank === "4") {
-    weaponRankLetter = "A"
-  } else if (armorRank === "5") {
-    weaponRankLetter = "S"
-  } else {
-    errormessage = "Your build code is invalid."
-  }
-
-  saveActions();
-  displayMasteries();
-  displayEquipment();
-  populateNormal();
-  displayActions();
-
-  hpCalc();
-  calcSaves();
-  calcExpertise();
-
-  getCode();
-
-  if (errormessage.length > 0) {
-    alert(errormessage);
-    chosenMasteries = chosenMasteriesRanks = chosenMasteriesRanksLetter = [];
+    chosenMasteries = [];
+    chosenMasteriesRanks = [];
+    chosenMasteriesRanksLetter = [];
     chosenActions = [];
+
     fortitude = reflex = will = 0;
-    fitness = knack = awareness = presence = knowledge = 0;
+    fitness = knack = awareness = knowledge = presence = 0;
+    hp = 0;
     movement = 1;
 
     document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
-    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div>Movement</div>";
+    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div><b>Movement</b></div>"
 
     document.getElementById("fortitudesave").innerHTML = "+";
     document.getElementById("willsave").innerHTML = "+";
@@ -173,20 +40,422 @@ function importBuild() {
     document.getElementsByClassName("card normal")[0].innerHTML = "<div><span class='cardtitle'>Normal Attack</span></div><div class='line'></div><div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class='line'></div><div>1d100 + modifiers</div><div class='line'></div><div><span class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</span></div>";
     document.getElementById("actionsdisplay").innerHTML = "";
 
-    document.getElementById("builddisplay").style.display = "none";
-    document.getElementById("masterycontainer").style.display = "block";
-    document.getElementById("button1").style.display = "inline-block"
+    var checkMasteries = importstats[0].split(",");
+    for (var i = 0; i < checkMasteries.length; i++) {
+      var z = 0;
+      var x = masterylist.findIndex(item => item.lookup === checkMasteries[i]);
+      if (x === -1) {
+        errormessage = "Your chosen masteries are invalid."
+      }
+      if (masterylist[x].save === "-") {
+        z++;
+      }
+      if (z > 1) {
+        errormessage = "You have selected more than 1 Alter Mastery."
+      }
+    }
+    if (checkMasteries.length > 5) {
+      errormessage = "You have too many masteries."
+    }
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      return;
+    } else {
+      chosenMasteries = checkMasteries;
+    }
 
-    return;
+    var checkMasteryRanks = importstats[1].split(",");
+    for (var i = 0; i < checkMasteryRanks.length; i++) {
+      if (checkMasteryRanks[i] !== "1" && checkMasteryRanks[i] !== "2" && checkMasteryRanks[i] !== "3" && checkMasteryRanks[i] !== "3" && checkMasteryRanks[i] !== "4" && checkMasteryRanks[i] !== "5") {
+        errormessage = "Your mastery ranks are invalid."
+      }
+    }
+
+    if (checkMasteryRanks.length > 5) {
+      errormessage = "You have too many masteries."
+    }
+
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      chosenMasteries = [];
+      return;
+    } else {
+      for (var i = 0; i < checkMasteryRanks.length; i++) {
+        chosenMasteriesRanks.push(parseInt(checkMasteryRanks[i]))
+        if (checkMasteryRanks[i] === "1") {
+          chosenMasteriesRanksLetter.push("D")
+        } else if (checkMasteryRanks[i] === "2") {
+          chosenMasteriesRanksLetter.push("C")
+        } else if (checkMasteryRanks[i] === "3") {
+          chosenMasteriesRanksLetter.push("B")
+        } else if (checkMasteryRanks[i] === "4") {
+          chosenMasteriesRanksLetter.push("A")
+        } else if (checkMasteryRanks[i] === "5") {
+          chosenMasteriesRanksLetter.push("S")
+        }
+      }
+    }
+
+    var checkweight = importstats[2];
+    if (checkweight !== "light" && checkweight !== "medium" && checkweight !== "heavy") {
+      errormessage = "Your armor weight is invalid."
+    }
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      chosenMasteries = [];
+      chosenMasteriesRanks = [];
+      chosenMasteriesRanksLetter = [];
+      return;
+    } else {
+      armorweight = checkweight;
+      armorimg = "https://terrarp.com/db/wiki/armor-" + armorweight + ".png";
+    }
+
+    var checkarank = importstats[3];
+    if (checkarank !== "1" && checkarank !== "2" && checkarank !== "3" && checkarank !== "4" && checkarank !== "5") {
+      errormessage = "Your armor rank is invalid."
+    }
+    if (errormessage.length > 0) {
+      alert(errormessage)
+      chosenMasteries = [];
+      chosenMasteriesRanks = [];
+      chosenMasteriesRanksLetter = [];
+      return;
+    } else {
+      armorRank = parseInt(checkarank)
+      if (checkarank === "1") {
+        armorRankLetter = "D"
+      } else if (checkarank === "2") {
+        armorRankLetter = "C"
+      } else if (checkarank === "3") {
+        armorRankLetter = "B"
+      } else if (checkarank === "4") {
+        armorRankLetter = "A"
+      } else if (checkarank === "5") {
+        armorRankLetter = "S"
+      }
+    }
+
+    var checkwrank = importstats[4];
+    if (checkwrank !== "1" && checkwrank !== "2" && checkwrank !== "3" && checkwrank !== "4" && checkwrank !== "5") {
+      errormessage = "Your weapon rank is invalid."
+    }
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      chosenMasteries = [];
+      chosenMasteriesRanks = [];
+      chosenMasteriesRanksLetter = [];
+      return;
+    } else {
+      weaponRank = parseInt(checkwrank)
+      if (checkwrank === "1") {
+        weaponRankLetter = "D"
+      } else if (checkwrank === "2") {
+        weaponRankLetter = "C"
+      } else if (checkwrank === "3") {
+        weaponRankLetter = "B"
+      } else if (checkwrank === "4") {
+        weaponRankLetter = "A"
+      } else if (checkwrank === "5") {
+        weaponRankLetter = "S"
+      }
+    }
+
+    var checkactions = importstats[5].split(",");
+    for (var i = 0; i < checkactions.length; i++) {
+      var x = 0;
+      for (var j = 0; j < chosenMasteries.length; j++) {
+        var z = actionlist.findIndex(item => item.lookup === checkactions[i]);
+        if (actionlist[z].masteries.indexOf(chosenMasteries[j]) !== -1) {
+          x++
+        }
+      }
+      if (x === 0) {
+        errormessage = "Your actions are not compatible with your chosen masteries."
+      }
+    }
+
+    if (checkactions.length > 5) {
+      errormessage = "You have too many actions."
+    }
+
+    if (armorweight !== "light" && checkactions.length > 4) {
+      errormessage = "You have too many actions for your armor weight";
+    }
+
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      chosenMasteries = [];
+      chosenMasteriesRanks = [];
+      chosenMasteriesRanksLetter = [];
+      return;
+    } else {
+      for (var i = 0; i < checkactions.length; i++) {
+        chosenActions.push(checkactions[i])
+      }
+    }
+
+    document.getElementById("builddisplay").style.display = "block";
+    document.getElementById("masterycontainer").style.display = "none";
+    document.getElementById("rankselector").style.display = "none";
+    document.getElementById("actionselector").style.display = "none";
+    for (var i = 0; i < document.getElementsByClassName("button").length; i++) {
+      document.getElementsByClassName("button")[i].style.display = "none";
+    }
+    document.getElementById("buildcodedisplay").style.display = "none";
+
+    fortitude = reflex = will = 0;
+    fitness = knack = awareness = knowledge = presence = 0;
+    hp = 0;
+    move = 0;
+
+    displayMasteries();
+    displayEquipment();
+    populateNormal();
+    displayActions();
+
+    hpCalc();
+    calcSaves();
+    calcExpertise();
+
+    window.scrollTo(0,0)
   }
+});
 
-  document.getElementById("masterycontainer").style.display = "none";
-  document.getElementById("button1").style.display = "none";
-  document.getElementById("builddisplay").style.display = "block";
-  document.getElementById("import").style.display = "none";
+window.onload = function() {
+  if (window.location.href.toString().includes("#")) {
+    var hash = new URL(window.location.href).hash;
+    var importstats = hash.slice(1).split("|");
+    var errormessage = "";
 
-  window.scrollTo(0,0);
+    chosenMasteries = [];
+    chosenMasteriesRanks = [];
+    chosenMasteriesRanksLetter = [];
+    chosenActions = [];
 
+    fortitude = reflex = will = 0;
+    fitness = knack = awareness = knowledge = presence = 0;
+    hp = 0;
+    movement = 1;
+
+    document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
+    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div><b>Movement</b></div>"
+
+    document.getElementById("fortitudesave").innerHTML = "+";
+    document.getElementById("willsave").innerHTML = "+";
+    document.getElementById("reflexsave").innerHTML = "+";
+
+    document.getElementById("skillknack").innerHTML = "+";
+    document.getElementById("skillfitness").innerHTML = "+";
+    document.getElementById("skillpresence").innerHTML = "+";
+    document.getElementById("skillawareness").innerHTML = "+";
+    document.getElementById("skillknowledge").innerHTML = "+";
+
+    document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
+    document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML = "<b>Armor Passive</b>";
+
+    document.getElementById("masterydisplay").innerHTML = "";
+
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div><span class='cardtitle'>Normal Attack</span></div><div class='line'></div><div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class='line'></div><div>1d100 + modifiers</div><div class='line'></div><div><span class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</span></div>";
+    document.getElementById("actionsdisplay").innerHTML = "";
+
+    var checkMasteries = importstats[0].split(",");
+    for (var i = 0; i < checkMasteries.length; i++) {
+      var z = 0;
+      var x = masterylist.findIndex(item => item.lookup === checkMasteries[i]);
+      if (x === -1) {
+        errormessage = "Your chosen masteries are invalid."
+      }
+      if (masterylist[x].save === "-") {
+        z++;
+      }
+      if (z > 1) {
+        errormessage = "You have selected more than 1 Alter Mastery."
+      }
+    }
+    if (checkMasteries.length > 5) {
+      errormessage = "You have too many masteries."
+    }
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      return;
+    } else {
+      chosenMasteries = checkMasteries;
+    }
+
+    var checkMasteryRanks = importstats[1].split(",");
+    for (var i = 0; i < checkMasteryRanks.length; i++) {
+      if (checkMasteryRanks[i] !== "1" && checkMasteryRanks[i] !== "2" && checkMasteryRanks[i] !== "3" && checkMasteryRanks[i] !== "3" && checkMasteryRanks[i] !== "4" && checkMasteryRanks[i] !== "5") {
+        errormessage = "Your mastery ranks are invalid."
+      }
+    }
+
+    if (checkMasteryRanks.length > 5) {
+      errormessage = "You have too many masteries."
+    }
+
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      chosenMasteries = [];
+      return;
+    } else {
+      for (var i = 0; i < checkMasteryRanks.length; i++) {
+        chosenMasteriesRanks.push(parseInt(checkMasteryRanks[i]))
+        if (checkMasteryRanks[i] === "1") {
+          chosenMasteriesRanksLetter.push("D")
+        } else if (checkMasteryRanks[i] === "2") {
+          chosenMasteriesRanksLetter.push("C")
+        } else if (checkMasteryRanks[i] === "3") {
+          chosenMasteriesRanksLetter.push("B")
+        } else if (checkMasteryRanks[i] === "4") {
+          chosenMasteriesRanksLetter.push("A")
+        } else if (checkMasteryRanks[i] === "5") {
+          chosenMasteriesRanksLetter.push("S")
+        }
+      }
+    }
+
+    var checkweight = importstats[2];
+    if (checkweight !== "light" && checkweight !== "medium" && checkweight !== "heavy") {
+      errormessage = "Your armor weight is invalid."
+    }
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      chosenMasteries = [];
+      chosenMasteriesRanks = [];
+      chosenMasteriesRanksLetter = [];
+      return;
+    } else {
+      armorweight = checkweight;
+      armorimg = "https://terrarp.com/db/wiki/armor-" + armorweight + ".png";
+    }
+
+    var checkarank = importstats[3];
+    if (checkarank !== "1" && checkarank !== "2" && checkarank !== "3" && checkarank !== "4" && checkarank !== "5") {
+      errormessage = "Your armor rank is invalid."
+    }
+    if (errormessage.length > 0) {
+      alert(errormessage)
+      chosenMasteries = [];
+      chosenMasteriesRanks = [];
+      chosenMasteriesRanksLetter = [];
+      return;
+    } else {
+      armorRank = parseInt(checkarank)
+      if (checkarank === "1") {
+        armorRankLetter = "D"
+      } else if (checkarank === "2") {
+        armorRankLetter = "C"
+      } else if (checkarank === "3") {
+        armorRankLetter = "B"
+      } else if (checkarank === "4") {
+        armorRankLetter = "A"
+      } else if (checkarank === "5") {
+        armorRankLetter = "S"
+      }
+    }
+
+    var checkwrank = importstats[4];
+    if (checkwrank !== "1" && checkwrank !== "2" && checkwrank !== "3" && checkwrank !== "4" && checkwrank !== "5") {
+      errormessage = "Your weapon rank is invalid."
+    }
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      chosenMasteries = [];
+      chosenMasteriesRanks = [];
+      chosenMasteriesRanksLetter = [];
+      return;
+    } else {
+      weaponRank = parseInt(checkwrank)
+      if (checkwrank === "1") {
+        weaponRankLetter = "D"
+      } else if (checkwrank === "2") {
+        weaponRankLetter = "C"
+      } else if (checkwrank === "3") {
+        weaponRankLetter = "B"
+      } else if (checkwrank === "4") {
+        weaponRankLetter = "A"
+      } else if (checkwrank === "5") {
+        weaponRankLetter = "S"
+      }
+    }
+
+    var checkactions = importstats[5].split(",");
+    for (var i = 0; i < checkactions.length; i++) {
+      var x = 0;
+      for (var j = 0; j < chosenMasteries.length; j++) {
+        var z = actionlist.findIndex(item => item.lookup === checkactions[i]);
+        if (actionlist[z].masteries.indexOf(chosenMasteries[j]) !== -1) {
+          x++
+        }
+      }
+      if (x === 0) {
+        errormessage = "Your actions are not compatible with your chosen masteries."
+      }
+    }
+
+    if (checkactions.length > 5) {
+      errormessage = "You have too many actions."
+    }
+
+    if (armorweight !== "light" && checkactions.length > 4) {
+      errormessage = "You have too many actions for your armor weight";
+    }
+
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      chosenMasteries = [];
+      chosenMasteriesRanks = [];
+      chosenMasteriesRanksLetter = [];
+      return;
+    } else {
+      for (var i = 0; i < checkactions.length; i++) {
+        chosenActions.push(checkactions[i])
+      }
+    }
+
+    document.getElementById("builddisplay").style.display = "block";
+    document.getElementById("masterycontainer").style.display = "none";
+    document.getElementById("rankselector").style.display = "none";
+    document.getElementById("actionselector").style.display = "none";
+    for (var i = 0; i < document.getElementsByClassName("button").length; i++) {
+      document.getElementsByClassName("button")[i].style.display = "none";
+    }
+    document.getElementById("buildcodedisplay").style.display = "none";
+
+    fortitude = reflex = will = 0;
+    fitness = knack = awareness = knowledge = presence = 0;
+    hp = 0;
+    move = 0;
+
+    displayMasteries();
+    displayEquipment();
+    populateNormal();
+    displayActions();
+
+    hpCalc();
+    calcSaves();
+    calcExpertise();
+
+    window.scrollTo(0,0)
+  }
+}
+
+function toggleInstructions() {
+  if (document.getElementById("instructions").style.display !== "inline-block") {
+    document.getElementById("instructions").style.display = "inline-block"
+  } else {
+    document.getElementById("instructions").style.display = "none"
+  }
+}
+
+function toggleLinks() {
+  if (document.getElementById("helpfullinks").style.display !== "inline-block") {
+    document.getElementById("helpfullinks").style.display = "inline-block"
+  } else {
+    document.getElementById("helpfullinks").style.display = "none"
+  }
 }
 
 function selectMastery(e) {
@@ -513,6 +782,7 @@ function backPart3() {
   chosenActions = [];
 
   document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
+  document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div><b>Movement</b></div>"
 
   document.getElementById("fortitudesave").innerHTML = "+";
   document.getElementById("willsave").innerHTML = "+";
@@ -565,9 +835,6 @@ function displayActions() {
         if (actionlist[x].masteries.includes(chosenMasteries[a])) {
           var z = masterylist.findIndex(q => q.lookup === chosenMasteries[a]);
           validmastery.push("<div class='display masterycircle " + chosenMasteries[a] + "'><img onclick='clickMastery(this)' class='" + masterylist[z].lookup + "' src=" + masterylist[z].image + "></div>")
-        }
-        if (!validmastery.length) {
-          errormessage = "Your build code is invalid"
         }
       }
       displaycard = displaycard.substring(0, displaycard.length - 6);
@@ -803,7 +1070,7 @@ function getCode() {
   var generatemasteryrankcode = chosenMasteriesRanks.join(",");
   var generateactioncode = chosenActions.join(",");
 
-  var buildcode = generatemasterycode + "|" + generatemasteryrankcode + "|" + armorweight + "|" + armorRank.toString() + "|" + weaponRank.toString() + "|" + generateactioncode;
+  var buildcode = "https://e-foead.github.io/app.html#" + generatemasterycode + "|" + generatemasteryrankcode + "|" + armorweight + "|" + armorRank.toString() + "|" + weaponRank.toString() + "|" + generateactioncode;
 
   document.getElementById("finalcode").value = buildcode;
 }
