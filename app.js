@@ -1065,7 +1065,7 @@ function passiveBonus() {
     document.getElementById("dynamic-utilityfinal").innerHTML += "<div class='line'></div><div>" + message + "</div></div>"
   }
 
-  movementmessage = movement + " zones per post"
+  movementmessage = movement + " zone(s) per post"
   document.getElementsByClassName("movementcontainer")[0].innerHTML += movementmessage
 }
 
