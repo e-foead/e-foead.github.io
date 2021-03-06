@@ -46,12 +46,12 @@ window.addEventListener('hashchange', function() {
       var x = masterylist.findIndex(item => item.lookup === checkMasteries[i]);
       if (x === -1) {
         errormessage = "Your chosen masteries are invalid."
-      }
-      if (masterylist[x].save === "-") {
+        if (masterylist[x].save === "-") {
         z++;
-      }
-      if (z > 1) {
+        }
+        if (z > 1) {
         errormessage = "You have selected more than 1 Alter Mastery."
+        }
       }
     }
     if (checkMasteries.length > 5) {
@@ -268,12 +268,12 @@ window.onload = function() {
       var x = masterylist.findIndex(item => item.lookup === checkMasteries[i]);
       if (x === -1) {
         errormessage = "Your chosen masteries are invalid."
-      }
-      if (masterylist[x].save === "-") {
+        if (masterylist[x].save === "-") {
         z++;
-      }
-      if (z > 1) {
+        }
+        if (z > 1) {
         errormessage = "You have selected more than 1 Alter Mastery."
+        }
       }
     }
     if (checkMasteries.length > 5) {
