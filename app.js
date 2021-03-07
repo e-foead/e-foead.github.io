@@ -904,6 +904,8 @@ function displayEquipment() {
 function clickMastery(e) {
   var x = chosenMasteries.indexOf(e.classList.toString())
   e.parentElement.parentElement.parentElement.getElementsByClassName("masteryreplace")[0].innerHTML = " " + chosenMasteriesRanksLetter[x] + " ";
+  var y = masterylist.findIndex(a => a.lookup === e.classList.toString());
+  e.parentElement.parentElement.parentElement.getElementsByClassName("mnamereplace")[0].innerHTML = masterylist[y].name;
 }
 
 function valueReplace() {
