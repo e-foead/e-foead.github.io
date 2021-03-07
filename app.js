@@ -860,7 +860,7 @@ function displayMasteries() {
   var displaym;
   for (var i = 0; i < chosenMasteries.length; i++) {
     var x = masterylist.findIndex(a => a.lookup === chosenMasteries[i]);
-    displaym = "<div class='masterydisplay'><div class='displaycircle " + masterylist[x].lookup + "'><img src='" + masterylist[x].image + "'></div><div>" + masterylist[x].name + "</div><div>" + chosenMasteriesRanksLetter[i] + "</div></div>"
+    displaym = "<div class='masterydisplay'><div class='displaycircle " + masterylist[x].lookup + "'><img src='" + masterylist[x].image + "'></div><div class='displaytitle'>" + masterylist[x].name + "</div><div class='displayrank'>" + chosenMasteriesRanksLetter[i] + "</div></div>"
     document.getElementById("masterydisplay").innerHTML += displaym;
   }
 }
@@ -879,8 +879,8 @@ function populateNormal() {
 }
 
 function displayEquipment() {
-  document.getElementsByClassName("weaponrankdisplay")[0].innerHTML += "<div>" + weaponRankLetter + "</div>";
-  document.getElementsByClassName("armorrankdisplay")[0].innerHTML += "<div>" + armorRankLetter + "</div>";
+  document.getElementsByClassName("weaponrankdisplay")[0].innerHTML += "<div class='displayrank'>" + weaponRankLetter + "</div>";
+  document.getElementsByClassName("armorrankdisplay")[0].innerHTML += "<div class='displayrank'>" + armorRankLetter + "</div>";
   document.getElementById("armordisplay").src = armorimg;
 
   if (armorweight === "light") {
