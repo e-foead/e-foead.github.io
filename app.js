@@ -37,7 +37,7 @@ window.addEventListener('hashchange', function() {
 
     document.getElementById("masterydisplay").innerHTML = "";
 
-    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack MR WR # character-name/thread-code</div>";
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code</div>";
     document.getElementById("actionsdisplay").innerHTML = "";
 
     var checkMasteries = importstats[0].split(",");
@@ -257,7 +257,7 @@ window.onload = function() {
 
     document.getElementById("masterydisplay").innerHTML = "";
 
-    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack MR WR # character-name/thread-code</div>";
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code</div>";
     document.getElementById("actionsdisplay").innerHTML = "";
 
     var checkMasteries = importstats[0].split(",");
@@ -1018,7 +1018,7 @@ function passiveBonus() {
     y = y * 5;
     var x = document.getElementById("defense-enhancementfinal").innerHTML
     document.getElementById("defense-enhancementfinal").innerHTML = document.getElementById("defense-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("defense-enhancementfinal").innerHTML += "<div>Your bonus is " + y + " extra HP</div></div>"
+    document.getElementById("defense-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is " + y + " extra HP</div></div>"
   }
 
   if (document.querySelector("#damage-enhancementfinal")) {
@@ -1026,7 +1026,7 @@ function passiveBonus() {
     y = y * 3;
     var x = document.getElementById("damage-enhancementfinal").innerHTML
     document.getElementById("damage-enhancementfinal").innerHTML = document.getElementById("damage-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("damage-enhancementfinal").innerHTML += "<div>Your bonus is +" + y + " extra damage</div></div>"
+    document.getElementById("damage-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage</div></div>"
   }
 
   if (document.querySelector("#support-enhancementfinal")) {
@@ -1034,7 +1034,7 @@ function passiveBonus() {
     y = y * 3;
     var x = document.getElementById("support-enhancementfinal").innerHTML
     document.getElementById("support-enhancementfinal").innerHTML = document.getElementById("support-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("support-enhancementfinal").innerHTML += "<div>Your bonus is +" + y + " extra healing/buffing</div></div>"
+    document.getElementById("support-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra healing/buffing</div></div>"
   }
 
   if (document.querySelector("#dynamic-maneuverfinal")) {
@@ -1044,7 +1044,7 @@ function passiveBonus() {
 
     var x = document.getElementById("dynamic-maneuverfinal").innerHTML
     document.getElementById("dynamic-maneuverfinal").innerHTML = document.getElementById("dynamic-maneuverfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("dynamic-maneuverfinal").innerHTML += "<div>" + message + "</div></div>"
+    document.getElementById("dynamic-maneuverfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
   if (document.querySelector("#speed-enhancementfinal")) {
@@ -1059,7 +1059,7 @@ function passiveBonus() {
     }
     var x = document.getElementById("speed-enhancementfinal").innerHTML
     document.getElementById("speed-enhancementfinal").innerHTML = document.getElementById("speed-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("speed-enhancementfinal").innerHTML += "<div>" + message + "</div></div>"
+    document.getElementById("speed-enhancementfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
   if (document.querySelector("#dynamic-utilityfinal")) {
@@ -1073,7 +1073,7 @@ function passiveBonus() {
     }
     var x = document.getElementById("dynamic-utilityfinal").innerHTML
     document.getElementById("dynamic-utilityfinal").innerHTML = document.getElementById("dynamic-utilityfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("dynamic-utilityfinal").innerHTML += "<div>" + message + "</div></div>"
+    document.getElementById("dynamic-utilityfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
   movementmessage = movement + " zone(s) per post"
