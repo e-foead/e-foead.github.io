@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="app.css">
   <link rel="shortcut icon" href="https://www.terrarp.com//favicon.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script async src="app.js"></script>
   <script async src="masteries.js"></script>
   <script async src="actions.js"></script>
@@ -22,74 +21,76 @@
 
 <body>
   <div id="bodyback">
-    <h1>Terrasphere Build Editor</h1>
+    <a href="https://terrarp.com/wiki/"><div class="ts-logo"><img src="https://terrarp.com/db/tool/logo-be-m.webp" alt="TS">
+    </div></a>
+<!--
     <div id="instructiontoggle" onclick="toggleInstructions()">Toggle Instructions</div><br><br>
     <div id="instructions"><ol><li>Select your masteries and armor weight.<ul><li>You must select at least 3 masteries and no more than 5</li><li>You can only have 1 Alter Mastery at maximum</li><li>Certain masteries have compatability restrictions; check the wiki for more info</li></ul></li><li>Select the ranks for your Equipment and Masteries.</li><li>Select the actions you wish to take.<ul><li>If you have selected light armor, you may choose 5 additional actions.</li><li>Otherwise you may select 4 additional actions.</li></ul></li><li>Your final build will be displayed.<ul><li>Click on the mastery icon in each action card to change the roll code according to the selected mastery.</li><li>Numbers in the STATS section already take your actions and equipment ranks into account.</li><li>A URL with a build code will be displayed at the bottom of the build display page. You can copy/paste it into the address bar to showcase your build.</li></ul></li></ol></div><br>
     <div id="helpfullinkstoggle" onclick="toggleLinks()">Helpful Links</div><br><br>
     <div id="helpfullinks"><ol><li><a href="https://terrarp.com/wiki/Mastery" target="_blank" rel="noopener noreferrer">Masteries</a></li><li><a href="https://terrarp.com/wiki/Build_Guide" target="_blank" rel="noopener noreferrer">Build Guide</a></li><li><a href="https://terrarp.com/wiki/Equipment" target="_blank" rel="noopener noreferrer">Equipment</a></li><li><a href="https://terrarp.com/wiki/RPG_Mechanics" target="_blank" rel="noopener noreferrer">RPG Mechanics</a></li></ol></div><br>
-
+-->
     <div id="masterycontainer">
-      <div class="masterycategory"><span class="selectorheader">DEFENSE MASTERIES</span></div>
-      <div id="defensemasteries" class="mcontainer">
-        <div class="mbox"><div class="masterycircle mastery arcanamancy" id="arcanamancy" onclick="selectMastery(this)"><img id="arcanamancy-img" src="https://terrarp.com/db/mastery/w-arcanamancy.png"></div><div class="tooltip">Arcanamancy</div></div>
-        <div class="mbox"><div class="masterycircle mastery astramancy" id="astramancy" onclick="selectMastery(this)"><img id="astramancy-img" src="https://terrarp.com/db/mastery/w-astramancy.png"></div><div class="tooltip">Astramancy</div></div>
-        <div class="mbox"><div class="masterycircle mastery beast-arts" id="beast-arts" onclick="selectMastery(this)"><img id="beast-arts-img" src="https://terrarp.com/db/mastery/w-beast.png"></div><div class="tooltip">Beast Arts</div></div>
-        <div class="mbox"><div class="masterycircle mastery geomancy" id="geomancy" onclick="selectMastery(this)"><img id="geomancy-img" src="https://terrarp.com/db/mastery/w-geomancy.png"></div><div class="tooltip">Geomancy</div></div>
-        <div class="mbox"><div class="masterycircle mastery guard-arts" id="guard-arts" onclick="selectMastery(this)"><img id="guard-arts-img" src="https://terrarp.com/db/mastery/w-guard.png"></div><div class="tooltip">Guard Arts</div></div>
-        <div class="mbox"><div class="masterycircle mastery hemomancy" id="hemomancy" onclick="selectMastery(this)"><img id="hemomancy-img" src="https://terrarp.com/db/mastery/w-hemomancy.png"></div><div class="tooltip">Hemomancy</div></div>
-        <div class="mbox"><div class="masterycircle mastery hydromancy" id="hydromancy" onclick="selectMastery(this)"><img id="hydromancy-img" src="https://terrarp.com/db/mastery/w-hydromancy.png"></div><div class="tooltip">Hydromancy</div></div>
-        <div class="mbox"><div class="masterycircle mastery illusion-magic" id="illusion-magic" onclick="selectMastery(this)"><img id="illusion-magic-img" src="https://terrarp.com/db/mastery/w-illusion.png"></div><div class="tooltip">Illusion<br>Magic</div></div>
-      </div>
-      <div class="masterycategory"><span class="selectorheader">OFFENSE MASTERIES</span></div>
-      <div id="offensemasteries" class="mcontainer">
-        <div class="mbox"><div class="masterycircle mastery aeromancy" id="aeromancy" onclick="selectMastery(this)"><img id="aeromancy-img" src="https://terrarp.com/db/mastery/w-aeromancy.png"></div><div class="tooltip">Aeromancy</div></div>
-        <div class="mbox"><div class="masterycircle mastery crush-weapons" id="crush-weapons" onclick="selectMastery(this)"><img id="crush-weapons-img" src="https://terrarp.com/db/mastery/w-crush.png"></div><div class="tooltip">Crush<br>Weapons</div></div>
-        <div class="mbox"><div class="masterycircle mastery dark-magic" id="dark-magic" onclick="selectMastery(this)"><img id="dark-magic-img" src="https://terrarp.com/db/mastery/w-dark.png"></div><div class="tooltip">Dark Magic</div></div>
-        <div class="mbox"><div class="masterycircle mastery martial-arts" id="martial-arts" onclick="selectMastery(this)"><img id="martial-arts-img" src="https://terrarp.com/db/mastery/w-martial.png"></div><div class="tooltip">Martial<br>Arts</div></div>
-        <div class="mbox"><div class="masterycircle mastery pierce-weapons" id="pierce-weapons" onclick="selectMastery(this)"><img id="pierce-weapons-img" src="https://terrarp.com/db/mastery/w-pierce.png"></div><div class="tooltip">Pierce<br>Weapons</div></div>
-        <div class="mbox"><div class="masterycircle mastery pyromancy" id="pyromancy" onclick="selectMastery(this)"><img id="pyromancy-img" src="https://terrarp.com/db/mastery/w-pyromancy.png"></div><div class="tooltip">Pyromancy</div></div>
-        <div class="mbox"><div class="masterycircle mastery ranged-weapons" id="ranged-weapons" onclick="selectMastery(this)"><img id="ranged-weapons-img" src="https://terrarp.com/db/mastery/w-ranged.png"></div><div class="tooltip">Ranged<br>Weapons</div></div>
-        <div class="mbox"><div class="masterycircle mastery shadow-arts" id="shadow-arts" onclick="selectMastery(this)"><img id="shadow-arts-img" src="https://terrarp.com/db/mastery/w-shadow.png"></div><div class="tooltip">Shadow<br>Arts</div></div>
-        <div class="mbox"><div class="masterycircle mastery slash-weapons" id="slash-weapons" onclick="selectMastery(this)"><img id="slash-weapons-img" src="https://terrarp.com/db/mastery/w-slash.png"></div><div class="tooltip">Slash<br>Weapons</div></div>
-      </div>
-      <div class="masterycategory"><span class="selectorheader">SUPPORT MASTERIES</span></div>
-      <div id="supportmasteries" class="mcontainer">
-        <div class="mbox"><div class="masterycircle mastery alchemy" id="alchemy" onclick="selectMastery(this)"><img id="alchemy-img" src="https://terrarp.com/db/mastery/w-alchemy.png"></div><div class="tooltip">Alchemy</div></div>
-        <div class="mbox"><div class="masterycircle mastery animancy" id="animancy" onclick="selectMastery(this)"><img id="animancy-img" src="https://terrarp.com/db/mastery/w-animancy.png"></div><div class="tooltip">Animancy</div></div>
-        <div class="mbox"><div class="masterycircle mastery chronomancy" id="chronomancy" onclick="selectMastery(this)"><img id="chronomancy-img" src="https://terrarp.com/db/mastery/w-chronomancy.png"></div><div class="tooltip">Chronomancy</div></div>
-        <div class="mbox"><div class="masterycircle mastery divine-magic" id="divine-magic" onclick="selectMastery(this)"><img id="divine-magic-img" src="https://terrarp.com/db/mastery/w-divine.png"></div><div class="tooltip">Divine<br>Magic</div></div>
-        <div class="mbox"><div class="masterycircle mastery harmonic-magic" id="harmonic-magic" onclick="selectMastery(this)"><img id="harmonic-magic-img" src="https://terrarp.com/db/mastery/w-harmonic.png"></div><div class="tooltip">Harmonic<br>Magic</div></div>
-        <div class="mbox"><div class="masterycircle mastery magitech" id="magitech" onclick="selectMastery(this)"><img id="magitech-img" src="https://terrarp.com/db/mastery/w-magitech.png"></div><div class="tooltip">Magitech</div></div>
-        <div class="mbox"><div class="masterycircle mastery nature-magic" id="nature-magic" onclick="selectMastery(this)"><img id="nature-magic-img" src="https://terrarp.com/db/mastery/w-nature.png"></div><div class="tooltip">Nature<br>Magic</div></div>
-        <div class="mbox"><div class="masterycircle mastery spirit-magic" id="spirit-magic" onclick="selectMastery(this)"><img id="spirit-magic-img" src="https://terrarp.com/db/mastery/w-spirit.png"></div><div class="tooltip">Spirit<br>Magic</div></div>
-      </div>
-      <div class="masterycategory"><span class="selectorheader">ALTER MASTERIES</span></div>
-      <div id="altermasteries" class="mcontainer">
-        <div class="mbox"><div class="masterycircle mastery alter aura" id="aura" onclick="selectMastery(this)"><img id="aura-img" src="https://terrarp.com/db/mastery/w-aura.png"></div><div class="tooltip">Aura</div></div>
-        <div class="mbox"><div class="masterycircle mastery alter battle-spirits" id="battle-spirits" onclick="selectMastery(this)"><img id="battle-spirits-img" src="https://terrarp.com/db/mastery/w-battle-spirits.png"></div><div class="tooltip">Battle<br>Spirits</div></div>
-        <div class="mbox"><div class="masterycircle mastery alter corrupt" id="corrupt" onclick="selectMastery(this)"><img id="corrupt-img" src="https://terrarp.com/db/mastery/w-corrupt.png"></div><div class="tooltip">Corrupt</div></div>
-        <div class="mbox"><div class="masterycircle mastery alter dynamism" id="dynamism" onclick="selectMastery(this)"><img id="dynamism-img" src="https://terrarp.com/db/mastery/w-dynamism.png"></div><div class="tooltip">Dynamism</div></div>
-        <div class="mbox"><div class="masterycircle mastery alter evoke" id="evoke" onclick="selectMastery(this)"><img id="evoke-img" src="https://terrarp.com/db/mastery/w-evoke.png"></div><div class="tooltip">Evoke</div></div>
-        <div class="mbox"><div class="masterycircle mastery alter hyper-sense" id="hyper-sense" onclick="selectMastery(this)"><img id="hyper-sense-img" src="https://terrarp.com/db/mastery/w-hyper-sense.png"></div><div class="tooltip">Hyper<br>Sense</div></div>
-        <div class="mbox"><div class="masterycircle mastery alter mend" id="mend" onclick="selectMastery(this)"><img id="mend-img" src="https://terrarp.com/db/mastery/w-mend.png"></div><div class="tooltip">Mend</div></div>
-        <div class="mbox"><div class="masterycircle mastery alter metamorph" id="metamorph" onclick="selectMastery(this)"><img id="metamorph-img" src="https://terrarp.com/db/mastery/w-metamorph.png"></div><div class="tooltip">Metamorph</div></div>
-        <div class="mbox"><div class="masterycircle mastery alter summon" id="summon" onclick="selectMastery(this)"><img id="summon-img" src="https://terrarp.com/db/mastery/w-summon.png"></div><div class="tooltip">Summon</div></div>
-        <div class="mbox"><div class="masterycircle mastery alter weapon-arts" id="weapon-arts" onclick="selectMastery(this)"><img id="weapon-arts-img" src="https://terrarp.com/db/mastery/w-weapon-arts.png"></div><div class="tooltip">Weapon<br>Arts</div></div>
-      </div>
-      <div class="masterycategory"><span class="selectorheader">ARMOR</span></div>
+      <div class="masterycategory"><h1 class="selectorheader">Armor Type</h1></div>
       <div id="equipment" class="mcontainer">
-        <div class="mbox"><div class="masterycircle armor" onclick="selectMastery(this)" id="heavy"><img src="https://terrarp.com/db/wiki/armor-heavy.png"></div><div class="tooltip">Heavy</div></div>
-        <div class="mbox"><div class="masterycircle armor" onclick="selectMastery(this)" id="medium"><img src="https://terrarp.com/db/wiki/armor-medium.png"></div><div class="tooltip">Medium</div></div>
-        <div class="mbox"><div class="masterycircle armor" onclick="selectMastery(this)" id="light"><img src="https://terrarp.com/db/wiki/armor-light.png"></div><div class="tooltip">Light</div></div>
+        <div class="mbox"><div class="mselector masterycircle armor" onclick="selectMastery(this)" id="heavy"><img src="https://terrarp.com/db/wiki/armor-heavy.png"></div><div class="tooltip">Heavy</div></div>
+        <div class="mbox"><div class="mselector masterycircle armor" onclick="selectMastery(this)" id="medium"><img src="https://terrarp.com/db/wiki/armor-medium.png"></div><div class="tooltip">Medium</div></div>
+        <div class="mbox"><div class="mselector masterycircle armor" onclick="selectMastery(this)" id="light"><img src="https://terrarp.com/db/wiki/armor-light.png"></div><div class="tooltip">Light</div></div>
+      </div>
+      <div class="masterycategory"><h1 class="selectorheader">Defense Mastery</h1></div>
+      <div id="defensemasteries" class="mcontainer">
+        <div class="mbox"><div class="mselector masterycircle mastery arcanamancy" id="arcanamancy" onclick="selectMastery(this)"><img id="arcanamancy-img" src="https://terrarp.com/db/mastery/w-arcanamancy.png"></div><div class="tooltip">Arcanamancy</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery astramancy" id="astramancy" onclick="selectMastery(this)"><img id="astramancy-img" src="https://terrarp.com/db/mastery/w-astramancy.png"></div><div class="tooltip">Astramancy</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery beast-arts" id="beast-arts" onclick="selectMastery(this)"><img id="beast-arts-img" src="https://terrarp.com/db/mastery/w-beast.png"></div><div class="tooltip">Beast Arts</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery geomancy" id="geomancy" onclick="selectMastery(this)"><img id="geomancy-img" src="https://terrarp.com/db/mastery/w-geomancy.png"></div><div class="tooltip">Geomancy</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery guard-arts" id="guard-arts" onclick="selectMastery(this)"><img id="guard-arts-img" src="https://terrarp.com/db/mastery/w-guard.png"></div><div class="tooltip">Guard Arts</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery hemomancy" id="hemomancy" onclick="selectMastery(this)"><img id="hemomancy-img" src="https://terrarp.com/db/mastery/w-hemomancy.png"></div><div class="tooltip">Hemomancy</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery hydromancy" id="hydromancy" onclick="selectMastery(this)"><img id="hydromancy-img" src="https://terrarp.com/db/mastery/w-hydromancy.png"></div><div class="tooltip">Hydromancy</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery illusion-magic" id="illusion-magic" onclick="selectMastery(this)"><img id="illusion-magic-img" src="https://terrarp.com/db/mastery/w-illusion.png"></div><div class="tooltip">Illusion<br>Magic</div></div>
+      </div>
+      <div class="masterycategory"><h1 class="selectorheader">Offense Mastery</h1></div>
+      <div id="offensemasteries" class="mcontainer">
+        <div class="mbox"><div class="mselector masterycircle mastery aeromancy" id="aeromancy" onclick="selectMastery(this)"><img id="aeromancy-img" src="https://terrarp.com/db/mastery/w-aeromancy.png"></div><div class="tooltip">Aeromancy</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery crush-weapons" id="crush-weapons" onclick="selectMastery(this)"><img id="crush-weapons-img" src="https://terrarp.com/db/mastery/w-crush.png"></div><div class="tooltip">Crush<br>Weapons</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery dark-magic" id="dark-magic" onclick="selectMastery(this)"><img id="dark-magic-img" src="https://terrarp.com/db/mastery/w-dark.png"></div><div class="tooltip">Dark Magic</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery martial-arts" id="martial-arts" onclick="selectMastery(this)"><img id="martial-arts-img" src="https://terrarp.com/db/mastery/w-martial.png"></div><div class="tooltip">Martial<br>Arts</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery pierce-weapons" id="pierce-weapons" onclick="selectMastery(this)"><img id="pierce-weapons-img" src="https://terrarp.com/db/mastery/w-pierce.png"></div><div class="tooltip">Pierce<br>Weapons</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery pyromancy" id="pyromancy" onclick="selectMastery(this)"><img id="pyromancy-img" src="https://terrarp.com/db/mastery/w-pyromancy.png"></div><div class="tooltip">Pyromancy</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery ranged-weapons" id="ranged-weapons" onclick="selectMastery(this)"><img id="ranged-weapons-img" src="https://terrarp.com/db/mastery/w-ranged.png"></div><div class="tooltip">Ranged<br>Weapons</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery shadow-arts" id="shadow-arts" onclick="selectMastery(this)"><img id="shadow-arts-img" src="https://terrarp.com/db/mastery/w-shadow.png"></div><div class="tooltip">Shadow<br>Arts</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery slash-weapons" id="slash-weapons" onclick="selectMastery(this)"><img id="slash-weapons-img" src="https://terrarp.com/db/mastery/w-slash.png"></div><div class="tooltip">Slash<br>Weapons</div></div>
+      </div>
+      <div class="masterycategory"><h1 class="selectorheader">Support Mastery</h1></div>
+      <div id="supportmasteries" class="mcontainer">
+        <div class="mbox"><div class="mselector masterycircle mastery alchemy" id="alchemy" onclick="selectMastery(this)"><img id="alchemy-img" src="https://terrarp.com/db/mastery/w-alchemy.png"></div><div class="tooltip">Alchemy</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery animancy" id="animancy" onclick="selectMastery(this)"><img id="animancy-img" src="https://terrarp.com/db/mastery/w-animancy.png"></div><div class="tooltip">Animancy</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery chronomancy" id="chronomancy" onclick="selectMastery(this)"><img id="chronomancy-img" src="https://terrarp.com/db/mastery/w-chronomancy.png"></div><div class="tooltip">Chronomancy</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery divine-magic" id="divine-magic" onclick="selectMastery(this)"><img id="divine-magic-img" src="https://terrarp.com/db/mastery/w-divine.png"></div><div class="tooltip">Divine<br>Magic</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery harmonic-magic" id="harmonic-magic" onclick="selectMastery(this)"><img id="harmonic-magic-img" src="https://terrarp.com/db/mastery/w-harmonic.png"></div><div class="tooltip">Harmonic<br>Magic</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery magitech" id="magitech" onclick="selectMastery(this)"><img id="magitech-img" src="https://terrarp.com/db/mastery/w-magitech.png"></div><div class="tooltip">Magitech</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery nature-magic" id="nature-magic" onclick="selectMastery(this)"><img id="nature-magic-img" src="https://terrarp.com/db/mastery/w-nature.png"></div><div class="tooltip">Nature<br>Magic</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery spirit-magic" id="spirit-magic" onclick="selectMastery(this)"><img id="spirit-magic-img" src="https://terrarp.com/db/mastery/w-spirit.png"></div><div class="tooltip">Spirit<br>Magic</div></div>
+      </div>
+      <div class="masterycategory"><h1 class="selectorheader">Alter Mastery</h1></div>
+      <div id="altermasteries" class="mcontainer">
+        <div class="mbox"><div class="mselector masterycircle mastery alter aura" id="aura" onclick="selectMastery(this)"><img id="aura-img" src="https://terrarp.com/db/mastery/w-aura.png"></div><div class="tooltip">Aura</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery alter battle-spirits" id="battle-spirits" onclick="selectMastery(this)"><img id="battle-spirits-img" src="https://terrarp.com/db/mastery/w-battle-spirits.png"></div><div class="tooltip">Battle<br>Spirits</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery alter corrupt" id="corrupt" onclick="selectMastery(this)"><img id="corrupt-img" src="https://terrarp.com/db/mastery/w-corrupt.png"></div><div class="tooltip">Corrupt</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery alter dynamism" id="dynamism" onclick="selectMastery(this)"><img id="dynamism-img" src="https://terrarp.com/db/mastery/w-dynamism.png"></div><div class="tooltip">Dynamism</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery alter evoke" id="evoke" onclick="selectMastery(this)"><img id="evoke-img" src="https://terrarp.com/db/mastery/w-evoke.png"></div><div class="tooltip">Evoke</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery alter hyper-sense" id="hyper-sense" onclick="selectMastery(this)"><img id="hyper-sense-img" src="https://terrarp.com/db/mastery/w-hyper-sense.png"></div><div class="tooltip">Hyper<br>Sense</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery alter mend" id="mend" onclick="selectMastery(this)"><img id="mend-img" src="https://terrarp.com/db/mastery/w-mend.png"></div><div class="tooltip">Mend</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery alter metamorph" id="metamorph" onclick="selectMastery(this)"><img id="metamorph-img" src="https://terrarp.com/db/mastery/w-metamorph.png"></div><div class="tooltip">Metamorph</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery alter summon" id="summon" onclick="selectMastery(this)"><img id="summon-img" src="https://terrarp.com/db/mastery/w-summon.png"></div><div class="tooltip">Summon</div></div>
+        <div class="mbox"><div class="mselector masterycircle mastery alter weapon-arts" id="weapon-arts" onclick="selectMastery(this)"><img id="weapon-arts-img" src="https://terrarp.com/db/mastery/w-weapon-arts.png"></div><div class="tooltip">Weapon<br>Arts</div></div>
       </div>
     </div>
     <div id="rankselector">
-      <div class="masterycategory"><span class="selectorheader">EQUIPMENT</span><br>
+      <div class="masterycategory"><h1 class="selectorheader">Equipment</h1>
         <div class="rankpick">
           <div class="rankcontainer">
-            <div class="masterycircle"><img src="https://e-foead.github.io/Images/Weapon-Rank.png"></div>
-            Weapon<br>
-            <select id="weaponrank" autocomplete="off">
+            <div class="masterycircle"><img src="https://terrarp.com/db/wiki/weapon-rank.png"></div>
+            Weapon
+            <select id="weaponrank" autocomplete="off" class="dropdown">
               <option value="1" selected>D</option>
               <option value="2">C</option>
               <option value="3">B</option>
@@ -99,8 +100,8 @@
           </div>
           <div class="rankcontainer">
             <div class="masterycircle"><img id="armorimage"></div>
-            Armor<br>
-            <select id="armorrank" autocomplete="off">
+            Armor
+            <select id="armorrank" autocomplete="off" class="dropdown">
               <option value="1" selected>D</option>
               <option value="2">C</option>
               <option value="3">B</option>
@@ -110,121 +111,157 @@
           </div>
         </div>
       </div>
-      <div class="masterycategory"><span class="selectorheader">MASTERIES</span><br>
+      <div class="masterycategory"><h1 class="selectorheader">Masteries</h1>
         <div class="rankpick" id="masteryrankpick">
         </div>
       </div>
     </div>
     <div id="actionselector">
+      <h1 class="selectorheader">Free Actions</h1>
       <div class="masterycategory freeactions">
         <div class="card selected">
-          <div><span class="cardtitle">Normal Attack</span></div><div class="line"></div>
-          <div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class="line"></div>
-          <div>1d100 + modifiers</div><div class="line"></div>
-          <div><span class="rollcode">?r attack MR WR # character-name/thread-code</span></div>
+          <div class="cardicon aci-attack"></div>
+          <div class="cardtitle">Attack</div>
+          <div class="cardinfo">
+          <p>A spell, physical, or combo attack flavored by your mastery.</p>
+          <p>On a natural 100, double your total after adding modifiers.</p>
+          </div>
+          <div class="cardroll"><b>Roll:</b> 1d100 + modifiers</div>
+          <div class="rollcode">?r attack MR WR # character-name/thread-code</div>
         </div>
         <div class="card selected">
-          <div><span class="cardtitle">Recover</span></div><div class="line"></div>
-          <div>Recover HP. You can flavor this action as taking a breather, patching up a wound, drinking a potion, calming down, etc.</div><div class="line"></div>
-          <div>1d20</div><div class="line"></div>
-          <div><span class="rollcode">?r recover # character-name/thread-code</span></div>
+          <div class="cardicon aci-recover"></div>
+          <div class="cardtitle">Recover</div>
+          <div class="cardinfo">Recover HP</div>
+          <div class="cardroll"><b>Roll:</b> 1d20</div>
+          <div class="rollcode">?r recover # character-name/thread-code</div>
         </div>
         <div class="card selected">
-          <div><span class="cardtitle">Rush</span></div><div class="line"></div>
-          <div>You focus all your effort into moving. Gain 1 extra movement this post.<br>Your movement ignores difficult terrain (impassable terrains are excluded).</div>
+          <div class="cardicon aci-rush"></div>
+          <div class="cardtitle">Rush</div>
+          <div class="cardinfo">
+          <p>You focus all your effort into moving. Gain 1 extra movement this post.</p>
+          <p>Your movement ignores difficult terrain (impassable terrains are excluded).</p>
+          </div>
         </div>
       </div>
+      <h1 class="selectorheader">Pick your actions...</h1>
       <div class="masterycategory" id="pickactions"></div>
     </div>
     <div id="builddisplay">
-      <span class="selectorheader">STATS</span><br>
+      <h3 class="selectorheader">Stats</h3>
       <div class="masterycategory first" id="statsdisplay">
-        <div class="hpcontainer"><div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div><b>HP</b></div></div>
-        <div class="movementcontainer"><div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div><b>Movement</b></div></div>
+        <div class="hpcontainer"><div class='hp'><div class="stat-text">Health</div><img src='https://terrarp.com/db/tool/health.png'></div></div>
+        <div class="movementcontainer"><div class='move'><div class="stat-text">Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div></div>
         <div class="savecontainer">
           <div><b>Saves</b></div>
           <div>
-            <table>
+            <table class="stat-numbers">
               <tr>
-                <td><i class="fas fa-heartbeat"></i><br>Fortitude</td>
+                <td><i class="fas fa-heartbeat"></i></td>
+                <td>Fortitude</td>
                 <td id="fortitudesave">+</td>
               </tr>
               <tr>
-                <td><i class="fas fa-shoe-prints"></i><br>Reflex</td>
+                <td><i class="fas fa-shoe-prints"></i></td>
+                <td>Reflex</td>
                 <td id="reflexsave">+</td>
               </tr>
               <tr>
-                <td><i class="fas fa-head-side-virus"></i><br>Will</td>
+                <td><i class="fas fa-head-side-virus"></i></td>
+                <td>Will</td>
                 <td id="willsave">+</td>
               </tr>
             </table>
           </div>
         </div>
         <div class="expertisecontainer">
-          <b>Expertise</b><br>
+          <b>Expertise</b>
           <div>
-            <table>
+            <table class="stat-numbers">
               <tr>
-                <td><i class="fas fa-walking"></i><br>Fitness</td>
+                <td><i class="fas fa-walking"></i></td>
+                <td>Fitness</td>
                 <td id="skillfitness">+</td>
               </tr>
               <tr>
-                <td><i class="fas fa-hand-paper"></i><br>Knack</td>
+                <td><i class="fas fa-hand-paper"></i></td>
+                <td>Knack</td>
                 <td id="skillknack">+</td>
               </tr>
               <tr>
-                <td><i class="fas fa-eye"></i><br>Awareness</td>
+                <td><i class="fas fa-eye"></i></td>
+                <td>Awareness</td>
                 <td id="skillawareness">+</td>
               </tr>
               <tr>
-                <td><i class="fas fa-book"></i><br>Knowledge</td>
+                <td><i class="fas fa-book"></i></td>
+                <td>Knowledge</td>
                 <td id="skillknowledge">+</td>
               </tr>
               <tr>
-                <td><i class="fas fa-users"></i><br>Presence</td>
+                <td><i class="fas fa-users"></i></td>
+                <td>Presence</td>
                 <td id="skillpresence">+</td>
               </tr>
             </table>
           </div>
           </div>
       </div>
-      <span class="selectorheader">MASTERIES</span><br>
+      <h3 class="selectorheader">Mastery</h3>
       <div class="masterycategory" id="masterydisplay"></div>
-      <span class="selectorheader">EQUIPMENT</span><br>
+      <h3 class="selectorheader">Equipment</h3>
       <div class="masterycategory" id="equipmentdisplay">
-        <div class="edisplay weaponrankdisplay"><div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div></div>
+        <div class="edisplay weaponrankdisplay"><div class='displaycircle equipment'><img src='https://terrarp.com/db/wiki/weapon-rank.png'></div><div>Weapon Rank</div></div>
         <div class="edisplay armorrankdisplay"><div class='displaycircle equipment'><img id="armordisplay"></div><div>Armor Rank</div></div>
         <div class="edisplay armorskilldisplay"><div class="passivecontainer"><b>Armor Passive</b></div></div>
       </div>
-      <span class="selectorheader">ACTIONS</span><br>
+      <h3 class="selectorheader">Actions</h3>
       <div class="masterycategory" id="freeactiondisplay">
         <div class="card normal">
-          <div><span class="cardtitle">Normal Attack</span></div><div class="line"></div>
-          <div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class="line"></div>
-          <div>1d100 + modifiers</div><div class="line"></div>
-          <div><span class="rollcode">?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</span></div>
+          <div class="cardicon aci-attack"></div>
+          <div class="cardtitle">Attack</div>
+          <div class="cardinfo">
+          <p>A spell, physical, or combo attack flavored by your mastery.</p>
+          <p>On a natural 100, double your total after adding modifiers.</p>
+          </div>
+          <div class="cardroll"><b>Roll:</b> 1d100 + modifiers</div>
+          <div class="rollcode">?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</div>
         </div>
         <div class="card">
-          <div><span class="cardtitle">Recover</span></div><div class="line"></div>
-          <div>Recover HP. You can flavor this action as taking a breather, patching up a wound, drinking a potion, calming down, etc.</div><div class="line"></div>
-          <div>1d20</div><div class="line"></div>
-          <div><span class="rollcode">?r recover # character-name/thread-code</span></div>
+          <div class="cardicon aci-recover"></div>
+          <div class="cardtitle">Recover</div>
+          <div class="cardinfo">Recover HP</div>
+          <div class="cardroll"><b>Roll:</b> 1d20</div>
+          <div class="rollcode">?r recover # character-name/thread-code</div>
         </div>
         <div class="card">
-          <div><span class="cardtitle">Rush</span></div><div class="line"></div>
-          <div>You focus all your effort into moving. Gain 1 extra movement this post.<br>Your movement ignores difficult terrain (impassable terrains are excluded).</div>
+          <div class="cardicon aci-rush"></div>
+          <div class="cardtitle">Rush</div>
+          <div class="cardinfo">
+          <p>You focus all your effort into moving. Gain 1 extra movement this post.</p>
+          <p>Your movement ignores difficult terrain (impassable terrains are excluded).</p>
+          </div>
         </div>
       </div>
       <div class="masterycategory" id="actionsdisplay"></div>
       <div class="masterycategory" id="buildcodedisplay">
-        <span class="selectorheader">Build Code</span><br>
-        <textarea id="finalcode" autocomplete="off" cols="30" rows="10" readonly onclick="this.select()">
+        <h3 class="selectorheader">Build Code</h3>
+        <textarea id="finalcode" autocomplete="off" cols="30" rows="5" readonly onclick="this.select()">
         </textarea>
       </div>
     </div>
     <div id="importdisplay">
     </div>
-    <br><div class="button" id="button1" onclick="nextButton1()">NEXT</div><div class="button" id="button2back" onclick="backPart1()">BACK</div><div class="button" id="button2" onclick="nextButton2()">NEXT</div><div class="button" id="button3back" onclick="backPart2()">BACK</div><div class="button" id="button3" onclick="nextButton3()">NEXT</div><div class="button" id="button4back" onclick="backPart3()">BACK</div>
+    <br>
+    <div class="button-container">
+      <div class="button" id="button1" onclick="nextButton1()">Next</div>
+      <div class="button" id="button2back" onclick="backPart1()">Back</div>
+      <div class="button" id="button2" onclick="nextButton2()">Next</div>
+      <div class="button" id="button3back" onclick="backPart2()">Back</div>
+      <div class="button" id="button3" onclick="nextButton3()">Next</div>
+      <div class="button" id="button4back" onclick="backPart3()">Back</div>
+    </div>
   </div>
 </body>
 </html>

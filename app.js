@@ -18,8 +18,8 @@ window.addEventListener('hashchange', function() {
     hp = 0;
     movement = 1;
 
-    document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
-    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div><b>Movement</b></div>"
+    document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
+    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>"
 
     document.getElementById("fortitudesave").innerHTML = "+";
     document.getElementById("willsave").innerHTML = "+";
@@ -37,7 +37,7 @@ window.addEventListener('hashchange', function() {
 
     document.getElementById("masterydisplay").innerHTML = "";
 
-    document.getElementsByClassName("card normal")[0].innerHTML = "<div><span class='cardtitle'>Normal Attack</span></div><div class='line'></div><div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class='line'></div><div>1d100 + modifiers</div><div class='line'></div><div><span class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</span></div>";
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack MR WR # character-name/thread-code</div>";
     document.getElementById("actionsdisplay").innerHTML = "";
 
     var checkMasteries = importstats[0].split(",");
@@ -240,8 +240,8 @@ window.onload = function() {
     hp = 0;
     movement = 1;
 
-    document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
-    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div><b>Movement</b></div>"
+    document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
+    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>"
 
     document.getElementById("fortitudesave").innerHTML = "+";
     document.getElementById("willsave").innerHTML = "+";
@@ -259,7 +259,7 @@ window.onload = function() {
 
     document.getElementById("masterydisplay").innerHTML = "";
 
-    document.getElementsByClassName("card normal")[0].innerHTML = "<div><span class='cardtitle'>Normal Attack</span></div><div class='line'></div><div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class='line'></div><div>1d100 + modifiers</div><div class='line'></div><div><span class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</span></div>";
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack MR WR # character-name/thread-code</div>";
     document.getElementById("actionsdisplay").innerHTML = "";
 
     var checkMasteries = importstats[0].split(",");
@@ -628,7 +628,7 @@ function fillMasteriesRank() {
   for (var i = 0; i < chosenMasteries.length; i++) {
     for (var j = 0; j < masterylist.length; j++) {
       if (chosenMasteries[i] === masterylist[j].lookup) {
-        document.getElementById("masteryrankpick").innerHTML += "<div class='rankcontainer' id='rank" + i + "'><div id='mastery" + i + "' class='masterycircle'><img src=" + masterylist[j].image + "></div>" + masterylist[j].name + "<br><select id='masteryrank" + i + "' autocomplete='off'><option value='1' selected>D</option><option value='2'>C</option><option value='3'>B</option><option value='4'>A</option><option value='5'>S</option></select></div>";
+        document.getElementById("masteryrankpick").innerHTML += "<div class='rankcontainer' id='rank" + i + "'><div id='mastery" + i + "' class='masterycircle'><img src=" + masterylist[j].image + "></div>" + masterylist[j].name + "<br><select class='dropdown' id='masteryrank" + i + "' autocomplete='off'><option value='1' selected>D</option><option value='2'>C</option><option value='3'>B</option><option value='4'>A</option><option value='5'>S</option></select></div>";
         document.getElementById("mastery" + i).style.backgroundColor = masterylist[j].color;
         document.getElementById("rank" + i).style.marginBottom = "1vw";
       }
@@ -723,14 +723,16 @@ function getCards() {
   var actioncard;
   for (var i = 0; i < uniqueactions.length; i++) {
     var x = actionlist.findIndex(a => a.name === uniqueactions[i]);
-    if (actionlist[x].category !== "passive") {
-      actioncard = "<div class='card choice' id='" + actionlist[x].lookup + "' onclick='selectAction(this)'><div><span class='cardtitle'>" + actionlist[x].name + "</span></div><div class='line'></div><div>" + actionlist[x].description + "</div><div class='line'></div><div>" + actionlist[x].dice + "</div><div class='line'></div><div><span class='rollcode'>" + actionlist[x].roll + "</span></div></div>";
+    if (actionlist[x].roll !== "-") {
+      actioncard = "<div class='card choice' id='" + actionlist[x].lookup + "' onclick='selectAction(this)'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='cardroll'><b>Roll:</b> " + actionlist[x].dice + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
       document.getElementById("pickactions").innerHTML += actioncard;
-      document.getElementById(actionlist[x].lookup).style.borderColor = actionlist[x].color
+      document.getElementById(actionlist[x].lookup).style.borderColor = actionlist[x].color;
+      document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
     } else {
-      actioncard = "<div class='card choice' id='" + actionlist[x].lookup + "' onclick='selectAction(this)'><div><span class='cardtitle'>" + actionlist[x].name + "</span></div><div class='line'></div><div>" + actionlist[x].description + "</div></div>";
+      actioncard = "<div class='card choice' id='" + actionlist[x].lookup + "' onclick='selectAction(this)'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div></div>";
       document.getElementById("pickactions").innerHTML += actioncard;
-      document.getElementById(actionlist[x].lookup).style.borderColor = actionlist[x].color
+      document.getElementById(actionlist[x].lookup).style.borderColor = actionlist[x].color;
+      document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
     }
   }
 }
@@ -804,7 +806,7 @@ function backPart3() {
 
   document.getElementById("masterydisplay").innerHTML = "";
 
-  document.getElementsByClassName("card normal")[0].innerHTML = "<div><span class='cardtitle'>Normal Attack</span></div><div class='line'></div><div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class='line'></div><div>1d100 + modifiers</div><div class='line'></div><div><span class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</span></div>";
+  document.getElementsByClassName("card normal")[0].innerHTML = "<div><span class='cardtitle'>Normal Attack</span></div><div class='line'></div><div>A spell, physical, or combo attack flavored by your mastery.<br>On a natural 100, double your total after adding modifiers.</div><div class='line'></div><div>1d100 + modifiers</div><div class='line'></div><div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # character-name/thread-code</div></div>";
   document.getElementById("actionsdisplay").innerHTML = "";
 
   fortitude = 0;
@@ -834,7 +836,7 @@ function displayActions() {
     var validmastery = [];
     var x = actionlist.findIndex(a => a.lookup === chosenActions[i]);
     if (actionlist[x].category !== "passive") {
-      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div><span class='cardtitle'>" + actionlist[x].name + "</span></div><div class='line'></div><div>" + actionlist[x].description + "</div><div class='line'></div><div>" + actionlist[x].dice + "</div><div class='line'></div><div><span class='rollcode " + actionlist[x].lookup + "'>" + actionlist[x].roll + "</span></div></div>";
+      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='cardroll'><b>Roll:</b> " + actionlist[x].dice + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
       for (var a = 0; a < chosenMasteries.length; a++) {
         if (actionlist[x].masteries.includes(chosenMasteries[a])) {
           var z = masterylist.findIndex(q => q.lookup === chosenMasteries[a]);
@@ -845,10 +847,12 @@ function displayActions() {
       displaycard += "<div class='line'></div><div class='masteryicon'>" + validmastery.join("",) + "</div></div>"
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
+      document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
     } else {
-      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div><span class='cardtitle'>" + actionlist[x].name + "</span></div><div class='line'></div><div>" + actionlist[x].description + "</div></div>";
+      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon'><img src='" + actionlist[x].image + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div></div>";
       document.getElementById("actionsdisplay").innerHTML += displaycard;
-      document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color
+      document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
+      document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
     }
   }
 
@@ -875,7 +879,7 @@ function populateNormal() {
   }
 
   document.getElementsByClassName("normal")[0].innerHTML = document.getElementsByClassName("normal")[0].innerHTML.substring(0, document.getElementsByClassName("normal")[0].innerHTML.length - 6);
-  document.getElementsByClassName("normal")[0].innerHTML += "<div class='line'></div><div class='masteryicon'>" + normalm.join("",) + "</div></div>"
+  document.getElementsByClassName("normal")[0].innerHTML += "<div class='masteryicon'>" + normalm.join("",) + "</div></div>"
 }
 
 function displayEquipment() {
@@ -1007,7 +1011,7 @@ function passiveBonus() {
     y = y * 5;
     var x = document.getElementById("defense-enhancementfinal").innerHTML
     document.getElementById("defense-enhancementfinal").innerHTML = document.getElementById("defense-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("defense-enhancementfinal").innerHTML += "<div class='line'></div><div>Your bonus is " + y + " extra HP</div></div>"
+    document.getElementById("defense-enhancementfinal").innerHTML += "<div>Your bonus is " + y + " extra HP</div></div>"
   }
 
   if (document.querySelector("#damage-enhancementfinal")) {
@@ -1015,7 +1019,7 @@ function passiveBonus() {
     y = y * 3;
     var x = document.getElementById("damage-enhancementfinal").innerHTML
     document.getElementById("damage-enhancementfinal").innerHTML = document.getElementById("damage-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("damage-enhancementfinal").innerHTML += "<div class='line'></div><div>Your bonus is +" + y + " extra damage</div></div>"
+    document.getElementById("damage-enhancementfinal").innerHTML += "<div>Your bonus is +" + y + " extra damage</div></div>"
   }
 
   if (document.querySelector("#support-enhancementfinal")) {
@@ -1023,7 +1027,7 @@ function passiveBonus() {
     y = y * 3;
     var x = document.getElementById("support-enhancementfinal").innerHTML
     document.getElementById("support-enhancementfinal").innerHTML = document.getElementById("support-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("support-enhancementfinal").innerHTML += "<div class='line'></div><div>Your bonus is +" + y + " extra healing/buffing</div></div>"
+    document.getElementById("support-enhancementfinal").innerHTML += "<div>Your bonus is +" + y + " extra healing/buffing</div></div>"
   }
 
   if (document.querySelector("#dynamic-maneuverfinal")) {
@@ -1033,7 +1037,7 @@ function passiveBonus() {
 
     var x = document.getElementById("dynamic-maneuverfinal").innerHTML
     document.getElementById("dynamic-maneuverfinal").innerHTML = document.getElementById("dynamic-maneuverfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("dynamic-maneuverfinal").innerHTML += "<div class='line'></div><div>" + message + "</div></div>"
+    document.getElementById("dynamic-maneuverfinal").innerHTML += "<div>" + message + "</div></div>"
   }
 
   if (document.querySelector("#speed-enhancementfinal")) {
@@ -1048,7 +1052,7 @@ function passiveBonus() {
     }
     var x = document.getElementById("speed-enhancementfinal").innerHTML
     document.getElementById("speed-enhancementfinal").innerHTML = document.getElementById("speed-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("speed-enhancementfinal").innerHTML += "<div class='line'></div><div>" + message + "</div></div>"
+    document.getElementById("speed-enhancementfinal").innerHTML += "<div>" + message + "</div></div>"
   }
 
   if (document.querySelector("#dynamic-utilityfinal")) {
@@ -1062,7 +1066,7 @@ function passiveBonus() {
     }
     var x = document.getElementById("dynamic-utilityfinal").innerHTML
     document.getElementById("dynamic-utilityfinal").innerHTML = document.getElementById("dynamic-utilityfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("dynamic-utilityfinal").innerHTML += "<div class='line'></div><div>" + message + "</div></div>"
+    document.getElementById("dynamic-utilityfinal").innerHTML += "<div>" + message + "</div></div>"
   }
 
   movementmessage = movement + " zone(s) per post"
