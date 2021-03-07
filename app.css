@@ -1039,12 +1039,17 @@ ul {
 .movementcontainer{
   background: #6dc347;
 }
-.movementcontainer, .hpcontainer{
+
+.rangecontainer {
+  background: #9802d9;
+  display: none;
+}
+.movementcontainer, .hpcontainer, .rangecontainer{
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
 }
-.move img, .hp img{
+.move img, .hp img, .range img{
   width: 60px;
 }
 .stat-text{

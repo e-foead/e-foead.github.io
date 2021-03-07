@@ -19,7 +19,9 @@ window.addEventListener('hashchange', function() {
     movement = 1;
 
     document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
-    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>"
+    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>";
+    document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://i.ibb.co/9VRLZWF/human-target.png'></div>";
+    document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
 
     document.getElementById("fortitudesave").innerHTML = "+";
     document.getElementById("willsave").innerHTML = "+";
@@ -207,7 +209,7 @@ window.addEventListener('hashchange', function() {
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
-    move = 0;
+    movement = 1;
 
     displayMasteries();
     displayEquipment();
@@ -239,7 +241,9 @@ window.onload = function() {
     movement = 1;
 
     document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
-    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>"
+    document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>";
+    document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://i.ibb.co/9VRLZWF/human-target.png'></div>";
+    document.getElementsByClassName("rangecontainer")[0].style.display = "none";
 
     document.getElementById("fortitudesave").innerHTML = "+";
     document.getElementById("willsave").innerHTML = "+";
@@ -427,7 +431,7 @@ window.onload = function() {
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
-    move = 0;
+    movement = 0;
 
     displayMasteries();
     displayEquipment();
@@ -437,6 +441,10 @@ window.onload = function() {
     hpCalc();
     calcSaves();
     calcExpertise();
+
+    if (targeting !== 0) {
+      document.getElementsByClassName("rangecontainer")[0].style.display = "inline-block";
+    }
 
     window.scrollTo(0,0)
   }
@@ -759,6 +767,8 @@ function nextButton3() {
   document.getElementById("button3back").style.display = "none";
   document.getElementById("button4back").style.display = "inline-block";
 
+  document.getElementsByClassName("rangecontainer")[0].style.display = "none";
+
   saveActions();
   displayMasteries();
   displayEquipment();
@@ -783,8 +793,10 @@ function backPart3() {
 
   chosenActions = [];
 
-  document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='displaycircle hp'><img src='https://i.ibb.co/3hY7zsS/heart-plus.png'></div><div>HP</div>";
-  document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='displaycircle move'><img src='https://i.ibb.co/dG2Bwwd/footsteps.png'></div><div><b>Movement</b></div>"
+  document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
+  document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>";
+  document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://i.ibb.co/9VRLZWF/human-target.png'></div>";
+  document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
 
   document.getElementById("fortitudesave").innerHTML = "+";
   document.getElementById("willsave").innerHTML = "+";
@@ -1010,6 +1022,7 @@ function calcExpertise() {
 }
 
 var movement = 1;
+var targeting = 0;
 
 function passiveBonus() {
 
@@ -1113,16 +1126,29 @@ function passiveBonus() {
     var x = Math.max(...checkranknum);
 
     if (x === 5) {
-      message = "Your actions can target enemies/allies up to 2 zones away"
+      message = "Your actions can target enemies/allies up to 2 zones away";
+      targeting = 2;
     } else if (x > 1) {
       message = "Your actions can target enemies/allies up to 1 zone away"
+      targeting = 1;
     } else {
       message = "Your actions can only target enemies/allies in your zone"
+      targeting = 0;
     }
 
     var z = document.getElementById("extensionfinal").innerHTML
     document.getElementById("extensionfinal").innerHTML = document.getElementById("extensionfinal").innerHTML.substring(0, z.length - 6)
     document.getElementById("extensionfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+
+    if (targeting === 2) {
+      document.getElementsByClassName("rangecontainer")[0].style.display = "inline-block";
+      document.getElementsByClassName("rangecontainer")[0].innerHTML += "Up to 2 zones away"
+    } else if (targeting === 1) {
+      document.getElementsByClassName("rangecontainer")[0].style.display = "inline-block";
+      document.getElementsByClassName("rangecontainer")[0].innerHTML += "Up to 1 zone away"
+    } else {
+      document.getElementsByClassName("rangecontainer")[0].style.display = "none";
+    }
   }
 
   movementmessage = movement + " zone(s) per post"
