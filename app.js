@@ -203,8 +203,6 @@ window.addEventListener('hashchange', function() {
       document.getElementsByClassName("button")[i].style.display = "none";
     }
     document.getElementById("buildcodedisplay").style.display = "none";
-    document.getElementById("instructiontoggle").style.display = "none";
-    document.getElementById("helpfullinkstoggle").style.display = "none";
 
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
@@ -425,8 +423,6 @@ window.onload = function() {
       document.getElementsByClassName("button")[i].style.display = "none";
     }
     document.getElementById("buildcodedisplay").style.display = "none";
-    document.getElementById("instructiontoggle").style.display = "none";
-    document.getElementById("helpfullinkstoggle").style.display = "none";
 
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
