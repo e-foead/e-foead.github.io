@@ -844,7 +844,7 @@ function displayActions() {
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
-      if (document.getElementsByClassName("aci" + actionlist[x].lookup).length > 1) {
+      if (document.getElementsByClassName("aci" + actionlist[x].lookup).length !== 1) {
         document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
       }
     } else {
@@ -852,7 +852,7 @@ function displayActions() {
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
-      if (document.getElementsByClassName("aci" + actionlist[x].lookup).length > 1) {
+      if (document.getElementsByClassName("aci" + actionlist[x].lookup).length !== 1) {
         document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
       }
     }
