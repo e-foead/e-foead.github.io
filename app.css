@@ -676,6 +676,23 @@ ul {
   flex: 1 1 300px;
 }
 
+.displaytitle{
+  font-size: 1rem;
+  font-weight: 600;
+}
+.displayrank{
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: #555;
+}
+.passivecontainer h4{
+  margin: 5px;
+  font-weight: bold;
+}
+.passivecontainer p{
+  margin: 5px;
+}
+
 @media (min-width: 768px){
 .card {
     flex: 1 1 30%;
