@@ -844,13 +844,17 @@ function displayActions() {
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
-      document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
+      if document.getElementsByClassName("aci" + actionlist[x].lookup.).length > 1 {
+        document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
+      }
     } else {
       displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div></div>";
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
-      document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
+      if document.getElementsByClassName("aci" + actionlist[x].lookup.).length > 1 {
+        document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
+      }
     }
   }
 
