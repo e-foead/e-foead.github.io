@@ -33,7 +33,7 @@ window.addEventListener('hashchange', function() {
 
     document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
     document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML = "<b>Armor Passive</b>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML = "<span class='armorpassive'></span>";
 
     document.getElementById("masterydisplay").innerHTML = "";
 
@@ -253,7 +253,7 @@ window.onload = function() {
 
     document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
     document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML = "<b>Armor Passive</b>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML = "<span class='armorpassive'></span>";
 
     document.getElementById("masterydisplay").innerHTML = "";
 
@@ -798,7 +798,7 @@ function backPart3() {
 
   document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
   document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
-  document.getElementsByClassName("passivecontainer")[0].innerHTML = "<b>Armor Passive</b>";
+  document.getElementsByClassName("passivecontainer")[0].innerHTML = "<span class='armorpassive'></span>";
 
   document.getElementById("masterydisplay").innerHTML = "";
 
@@ -884,11 +884,14 @@ function displayEquipment() {
   document.getElementById("armordisplay").src = armorimg;
 
   if (armorweight === "light") {
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += " <b>(Light)</b><br><br>Once per thread, you may swap out your chosen actions for a new loadout that thread.";
+    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Armor Passive: Light</h4>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, you may swap out your chosen actions for a new loadout that thread.</p>";
   } else if (armorweight === "medium") {
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += " <b>(Medium)</b><br><br>Once per thread, you may add +20 per Armor Rank to any roll you make before multipliers.";
+    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Armor Passive: Medium</h4>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, you may add +20 per Armor Rank to any roll you make before multipliers.</p>";
   } else {
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += " <b>(Heavy)</b><br><br>Once per thread, you may recover 20 HP per Armor Rank.";
+    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Armor Passive: Heavy</h4>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, you may recover 20 HP per Armor Rank.</p>";
   }
 }
 
