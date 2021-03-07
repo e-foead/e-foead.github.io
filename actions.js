@@ -99,10 +99,21 @@ const actionlist = [
     category: "normal"
   },
   {
+    lookup: "movement-enhancement",
+    name: "Movement Enhancement",
+    color: "#d84848",
+    image: "https://terrarp.com/db/action/extension.png",
+    description: "<p><i>(Passive)</i></p><p>Your mastery increases your movement potential. From C-rank, your movement increases by 1.</p>",
+    dice: "-",
+    roll: "-",
+    masteries: "aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons",
+    category: "passive"
+  },
+  {
     lookup: "steady",
     name: "Steady",
     color: "#d84848",
-    image: "https://terrarp.com/db/action/steady.png",
+    image: "https://terrarp.com/db/action/movement.png",
     description: "<p>Execute an attack with higher base damage, but does not have critical.</p>",
     dice: "6d20 + modifiers",
     roll: "?r steady <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
@@ -216,7 +227,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your Alter Mastery makes you more resilient to damage. Add 5 per mastery rank (up to a max of 25) to your HP.</p>",
     dice: "-",
     roll: "-",
-    masteries: "aura hyper-sense",
+    masteries: "aura mend summon",
     category: "passive"
   },
   {
@@ -227,7 +238,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your Alter Mastery enhances your attacks. Add 3 per mastery rank (up to a max of 15) to all standard and special attacks.</p>",
     dice: "-",
     roll: "-",
-    masteries: "battle-spirits corrupt evoke hyper-sense metamorph summon weapon-arts",
+    masteries: "battle-spirits corrupt evoke hyper-sense metamorph weapon-arts",
     category: "passive"
   },
   {
@@ -242,30 +253,30 @@ const actionlist = [
     category: "passive"
   },
   {
-    lookup: "dynamic-maneuver",
-    name: "Dynamic Maneuver",
+    lookup: "maneuver",
+    name: "Maneuver",
     color: "#6845a2",
     image: "https://terrarp.com/db/action/maneuver.png",
-    description: "<p><i>(Passive)</i></p><p>At D-rank, gain 1 extra movement per post (stackable with Speed Enhancement). Your movement ignores difficult terrain (impassable terrains are excluded).<br>In addition, you can move through monster zones, but you cannot end your turn there.</p>",
+    description: "<p><i>(Passive)</i></p><p>From D-rank, your movement increases by 1. All your movements ignore difficult terrain but not impassable terrain. Also, you can move through monster zones as though they are regular zone.</p>",
     dice: "-",
     roll: "-",
     masteries: "battle-spirits dynamism",
     category: "passive"
   },
   {
-    lookup: "dynamic-utility",
-    name: "Dynamic Utility",
+    lookup: "ferrier",
+    name: "Ferrier",
     color: "#6845a2",
-    image: "https://terrarp.com/db/action/utility.png",
-    description: "<p><i>(Passive)</i></p><p>At C-rank, gain 1 extra movement per post (stackable with Speed Enhancement).<br>In addition, you can choose up to 2 willing targets in the same zone as you to move with you. They must end their movement at the same place as you. 1 movement is required for each person moving this way, including yourself.</p>",
+    image: "https://terrarp.com/db/action/ferrier.png",
+    description: "<p><i>(Passive)</i></p><p>From C-rank, your movement increases by 1. In addition, you can choose up to 2 willing targets in the same zone to move with you, stopping where you do without spending their movement. Reduce your movement by 1 for every person that moving in this way, including yourself.</p>",
     dice: "-",
     roll: "-",
     masteries: "metamorph dynamism",
     category: "passive"
   },
   {
-    lookup: "speed-enhancement",
-    name: "Speed Enhancement",
+    lookup: "speed-up",
+    name: "Speed Up",
     color: "#6845a2",
     image: "https://terrarp.com/db/action/speed.png",
     description: "<p><i>(Passive)</i></p><p>Your mastery grants you unrivaled speed and mobility. Your mastery grants you incredible speed. Gain extra movement at B (+1), A (+2), and S (+3).</p>",
@@ -282,7 +293,18 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your mastery grants your Hinder and Ultra Hinder actions more flexibility. Instead of splitting the damage evenly between the enemy's HP and its Stability, you can pick which of the two to use your full roll result on.</p>",
     dice: "-",
     roll: "-",
-    masteries: "aura summon weapon-arts",
+    masteries: "aura weapon-arts",
+    category: "passive"
+  },
+  {
+    lookup: "extension",
+    name: "Extension",
+    color: "#6845a2",
+    image: "https://terrarp.com/db/action/extension.png",
+    description: "<p><i>(Passive)</i></p><p>At C-rank, your actions (excluding those with the Self-targeted tag) can target an ally or enemy 1 zone away. At S-rank, this range increases to 2.</p>",
+    dice: "-",
+    roll: "-",
+    masteries: "hyper-sense summon",
     category: "passive"
   },
 ]

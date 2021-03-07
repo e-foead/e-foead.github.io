@@ -832,15 +832,15 @@ ul {
 	background-image: url(https://terrarp.com/db/action/defense.png);
 	background-repeat: no-repeat;
 }
-.aci-speed-enhancement{
+.aci-speed-up{
 	background-image: url(https://terrarp.com/db/action/speed.png);
 	background-repeat: no-repeat;
 }
-.aci-dynamic-maneuver{
+.aci-maneuver{
 	background-image: url(https://terrarp.com/db/action/maneuver.png);
 	background-repeat: no-repeat;
 }
-.aci-dynamic-utility{
+.aci-ferrier{
 	background-image: url(https://terrarp.com/db/action/ferrier.png);
 	background-repeat: no-repeat;
 }

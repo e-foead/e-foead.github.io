@@ -1037,17 +1037,17 @@ function passiveBonus() {
     document.getElementById("support-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra healing/buffing</div></div>"
   }
 
-  if (document.querySelector("#dynamic-maneuverfinal")) {
+  if (document.querySelector("#maneuverfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
     var message = "You may move 1 extra zone per post";
     movement += 1
 
-    var x = document.getElementById("dynamic-maneuverfinal").innerHTML
-    document.getElementById("dynamic-maneuverfinal").innerHTML = document.getElementById("dynamic-maneuverfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("dynamic-maneuverfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+    var x = document.getElementById("maneuverfinal").innerHTML
+    document.getElementById("maneuverfinal").innerHTML = document.getElementById("maneuverfinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("maneuverfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
-  if (document.querySelector("#speed-enhancementfinal")) {
+  if (document.querySelector("#speed-upfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
     var message;
     if (y === 1 || y === 2) {
@@ -1057,12 +1057,40 @@ function passiveBonus() {
       message = "You may move " + z + " extra zone(s) per post"
       movement += z
     }
-    var x = document.getElementById("speed-enhancementfinal").innerHTML
-    document.getElementById("speed-enhancementfinal").innerHTML = document.getElementById("speed-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("speed-enhancementfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+    var x = document.getElementById("speed-upfinal").innerHTML
+    document.getElementById("speed-upfinal").innerHTML = document.getElementById("speed-upfinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("speed-upfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
-  if (document.querySelector("#dynamic-utilityfinal")) {
+  if (document.querySelector("#movement-enhancementfinal")) {
+    var offense = [];
+    for (var i = 0; i < chosenMasteries.length; i++) {
+      var y = masterylist.findIndex(item => item.lookup === chosenMasteries[i]);
+      if (masterylist[y].role === "offense") {
+        offense.push(chosenMasteries[i])
+      }
+    }
+
+    var movecheck = false;
+    for (var i = 0; i < offense.length; i++) {
+      if (chosenMasteriesRanks[chosenMasteries.indexOf(offense[i])] > 1) {
+        movecheck = true;
+      }
+    }
+
+    if (movecheck === true) {
+      movement += 1
+      message = "You may move 1 extra zone per post"
+    } else {
+      message = "You do not have additional zones of movement"
+    }
+
+    var x = document.getElementById("movement-enhancementfinal").innerHTML;
+    document.getElementById("movement-enhancementfinal").innerHTML = document.getElementById("movement-enhancementfinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("movement-enhancementfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+  }
+
+  if (document.querySelector("#ferrierfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
     var message;
     if (y === 1) {
@@ -1071,9 +1099,30 @@ function passiveBonus() {
       message = "You may move 1 extra zone per post"
       movement += 1
     }
-    var x = document.getElementById("dynamic-utilityfinal").innerHTML
-    document.getElementById("dynamic-utilityfinal").innerHTML = document.getElementById("dynamic-utilityfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("dynamic-utilityfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+    var x = document.getElementById("ferrierfinal").innerHTML
+    document.getElementById("ferrierfinal").innerHTML = document.getElementById("ferrierfinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("ferrierfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+  }
+
+  if (document.querySelector("#extensionfinal")) {
+    var checkranknum = [];
+    for (var i = 0; i < chosenMasteriesRanks.length; i++) {
+      checkranknum.push(parseInt(chosenMasteriesRanks[i]))
+    }
+
+    var x = Math.max(...checkranknum);
+
+    if (x === 5) {
+      message = "Your actions can target enemies/allies up to 2 zones away"
+    } else if (x > 1) {
+      message = "Your actions can target enemies/allies up to 1 zone away"
+    } else {
+      message = "Your actions can only target enemies/allies in your zone"
+    }
+
+    var z = document.getElementById("extensionfinal").innerHTML
+    document.getElementById("extensionfinal").innerHTML = document.getElementById("extensionfinal").innerHTML.substring(0, z.length - 6)
+    document.getElementById("extensionfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
   movementmessage = movement + " zone(s) per post"
