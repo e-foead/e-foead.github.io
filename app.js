@@ -20,7 +20,7 @@ window.addEventListener('hashchange', function() {
 
     document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
     document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>";
-    document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://i.ibb.co/9VRLZWF/human-target.png'></div>";
+    document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://terrarp.com/db/tool/range.png'></div>";
     document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
 
     document.getElementById("fortitudesave").innerHTML = "+";
@@ -33,8 +33,8 @@ window.addEventListener('hashchange', function() {
     document.getElementById("skillawareness").innerHTML = "+";
     document.getElementById("skillknowledge").innerHTML = "+";
 
-    document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
-    document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
+    document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://terrarp.com/db/tool/weapon-rank.png'></div><div class='displaytitle'>Weapon Rank</div>";
+    document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div class='displaytitle'>Armor Rank</div>";
     document.getElementsByClassName("passivecontainer")[0].innerHTML = "<span class='armorpassive'></span>";
 
     document.getElementById("masterydisplay").innerHTML = "";
@@ -110,7 +110,7 @@ window.addEventListener('hashchange', function() {
       return;
     } else {
       armorweight = checkweight;
-      armorimg = "https://terrarp.com/db/wiki/armor-" + armorweight + ".png";
+      armorimg = "https://terrarp.com/db/tool/armor-" + armorweight + ".png";
     }
 
     var checkarank = importstats[3];
@@ -255,8 +255,8 @@ window.onload = function() {
     document.getElementById("skillawareness").innerHTML = "+";
     document.getElementById("skillknowledge").innerHTML = "+";
 
-    document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
-    document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
+    document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://terrarp.com/db/tool/weapon-rank.png'></div><div class='displaytitle'>Weapon Rank</div>";
+    document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div class='displaytitle'>Armor Rank</div>";
     document.getElementsByClassName("passivecontainer")[0].innerHTML = "<span class='armorpassive'></span>";
 
     document.getElementById("masterydisplay").innerHTML = "";
@@ -386,6 +386,9 @@ window.onload = function() {
     }
 
     var checkactions = importstats[5].split(",");
+    if (!checkactions.length) {
+      errormessage = "You have not selected any actions."
+    }
     for (var i = 0; i < checkactions.length; i++) {
       var x = 0;
       for (var j = 0; j < chosenMasteries.length; j++) {
@@ -585,7 +588,7 @@ function nextButton1() {
 
   saveMasteries();
   armorweight = document.getElementsByClassName("armor selected")[0].id;
-  armorimg = "https://terrarp.com/db/wiki/armor-" + armorweight + ".png";
+  armorimg = "https://terrarp.com/db/tool/armor-" + armorweight + ".png";
   document.getElementById("armorimage").src = armorimg;
 
   compatabilityCheck();
@@ -808,8 +811,8 @@ function backPart3() {
   document.getElementById("skillawareness").innerHTML = "+";
   document.getElementById("skillknowledge").innerHTML = "+";
 
-  document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://e-foead.github.io/Images/Weapon-Rank.png'></div><div>Weapon Rank</div>";
-  document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div>Armor Rank</div>";
+  document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://terrarp.com/db/tool/weapon-rank.png'></div><div class='displaytitle'>Weapon Rank</div>";
+  document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div class='displaytitle'>Armor Rank</div>";
   document.getElementsByClassName("passivecontainer")[0].innerHTML = "<span class='armorpassive'></span>";
 
   document.getElementById("masterydisplay").innerHTML = "";
