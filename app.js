@@ -43,6 +43,15 @@ window.addEventListener('hashchange', function() {
     document.getElementById("actionsdisplay").innerHTML = "";
 
     var checkMasteries = importstats[0].split(",");
+    if (checkMasteries[0] === "") {
+      errormessage = "You have not selected any masteries."
+    }
+
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      return;
+    }
+
     for (var i = 0; i < checkMasteries.length; i++) {
       var z = 0;
       var x = masterylist.findIndex(item => item.lookup === checkMasteries[i]);
@@ -222,7 +231,7 @@ window.addEventListener('hashchange', function() {
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
-    movement = 0;
+    movement = 1;
 
     displayMasteries();
     displayEquipment();
@@ -461,7 +470,7 @@ window.onload = function() {
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
-    movement = 0;
+    movement = 1;
 
     displayMasteries();
     displayEquipment();
