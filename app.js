@@ -22,6 +22,7 @@ window.addEventListener('hashchange', function() {
     document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>";
     document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://terrarp.com/db/tool/range.png'></div>";
     document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
+    document.getElementsByClassName("rangecontainer")[0].style.visibility = "hidden";
 
     document.getElementById("fortitudesave").innerHTML = "+";
     document.getElementById("willsave").innerHTML = "+";
@@ -244,7 +245,13 @@ window.addEventListener('hashchange', function() {
 
     if (targeting !== 0) {
       document.getElementsByClassName("rangecontainer")[0].style.display = "inline-block";
+      document.getElementsByClassName("rangecontainer")[0].style.visibility = "visible";
+    } else {
+      document.getElementsByClassName("rangecontainer")[0].style.display = "none";
+      document.getElementsByClassName("rangecontainer")[0].style.visibility = "hidden";
     }
+
+    console.log(targeting)
 
     window.scrollTo(0,0)
   }
@@ -270,6 +277,7 @@ window.onload = function() {
     document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>";
     document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://terrarp.com/db/tool/range.png'></div>";
     document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
+    document.getElementsByClassName("rangecontainer")[0].style.visibility = "hidden";
 
     document.getElementById("fortitudesave").innerHTML = "+";
     document.getElementById("willsave").innerHTML = "+";
@@ -483,6 +491,10 @@ window.onload = function() {
 
     if (targeting !== 0) {
       document.getElementsByClassName("rangecontainer")[0].style.display = "inline-block";
+      document.getElementsByClassName("rangecontainer")[0].style.visibility = "visible";
+    } else {
+      document.getElementsByClassName("rangecontainer")[0].style.display = "none";
+      document.getElementsByClassName("rangecontainer")[0].style.visibility = "hidden";
     }
 
     window.scrollTo(0,0)
@@ -807,6 +819,7 @@ function nextButton3() {
   document.getElementById("button4back").style.display = "inline-block";
 
   document.getElementsByClassName("rangecontainer")[0].style.display = "none";
+  document.getElementsByClassName("rangecontainer")[0].style.visibility = "hidden";
 
   saveActions();
   displayMasteries();
@@ -836,6 +849,7 @@ function backPart3() {
   document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>";
   document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://terrarp.com/db/tool/range.png'></div>";
   document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
+  document.getElementsByClassName("rangecontainer")[0].style.display = "hidden";
 
   document.getElementById("fortitudesave").innerHTML = "+";
   document.getElementById("willsave").innerHTML = "+";
@@ -1181,12 +1195,15 @@ function passiveBonus() {
 
     if (targeting === 2) {
       document.getElementsByClassName("rangecontainer")[0].style.display = "inline-block";
+      document.getElementsByClassName("rangecontainer")[0].style.visibility = "visible";
       document.getElementsByClassName("rangecontainer")[0].innerHTML += "Up to 2 zones away"
     } else if (targeting === 1) {
       document.getElementsByClassName("rangecontainer")[0].style.display = "inline-block";
+      document.getElementsByClassName("rangecontainer")[0].style.visibility = "visible";
       document.getElementsByClassName("rangecontainer")[0].innerHTML += "Up to 1 zone away"
     } else {
       document.getElementsByClassName("rangecontainer")[0].style.display = "none";
+      document.getElementsByClassName("rangecontainer")[0].style.visibility = "hidden";
     }
   }
 
