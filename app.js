@@ -48,12 +48,12 @@ window.addEventListener('hashchange', function() {
       var x = masterylist.findIndex(item => item.lookup === checkMasteries[i]);
       if (x === -1) {
         errormessage = "Your chosen masteries are invalid."
-        if (masterylist[x].save === "-") {
+      }
+      if (masterylist[x].save === "-") {
         z++;
-        }
-        if (z > 1) {
+      }
+      if (z > 1) {
         errormessage = "You have selected more than 1 Alter Mastery."
-        }
       }
     }
     if (checkMasteries.length > 5) {
@@ -110,7 +110,7 @@ window.addEventListener('hashchange', function() {
       return;
     } else {
       armorweight = checkweight;
-      armorimg = "https://terrarp.com/db/tool/armor-" + armorweight + ".png";
+      armorimg = "https://terrarp.com/db/wiki/armor-" + armorweight + ".png";
     }
 
     var checkarank = importstats[3];
@@ -164,6 +164,18 @@ window.addEventListener('hashchange', function() {
     }
 
     var checkactions = importstats[5].split(",");
+    if (!checkactions.length) {
+      errormessage = "You have not selected any actions."
+    }
+
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      chosenMasteries = [];
+      chosenMasteriesRanks = [];
+      chosenMasteriesRanksLetter = [];
+      return;
+    }
+
     for (var i = 0; i < checkactions.length; i++) {
       var x = 0;
       for (var j = 0; j < chosenMasteries.length; j++) {
@@ -209,7 +221,7 @@ window.addEventListener('hashchange', function() {
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
-    movement = 1;
+    movement = 0;
 
     displayMasteries();
     displayEquipment();
@@ -219,6 +231,10 @@ window.addEventListener('hashchange', function() {
     hpCalc();
     calcSaves();
     calcExpertise();
+
+    if (targeting !== 0) {
+      document.getElementsByClassName("rangecontainer")[0].style.display = "inline-block";
+    }
 
     window.scrollTo(0,0)
   }
@@ -270,12 +286,12 @@ window.onload = function() {
       var x = masterylist.findIndex(item => item.lookup === checkMasteries[i]);
       if (x === -1) {
         errormessage = "Your chosen masteries are invalid."
-        if (masterylist[x].save === "-") {
+      }
+      if (masterylist[x].save === "-") {
         z++;
-        }
-        if (z > 1) {
+      }
+      if (z > 1) {
         errormessage = "You have selected more than 1 Alter Mastery."
-        }
       }
     }
     if (checkMasteries.length > 5) {
