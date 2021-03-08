@@ -907,7 +907,7 @@ function displayActions() {
   for (var i = 0; i < chosenActions.length; i++) {
     var validmastery = [];
     var x = actionlist.findIndex(a => a.lookup === chosenActions[i]);
-    if (actioncard[x].name === "Taunt") {
+    if (actionlist[x].name === "Taunt") {
       displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div></div>";
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
