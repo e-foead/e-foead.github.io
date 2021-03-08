@@ -1160,7 +1160,7 @@ function passiveBonus() {
     y = y * 3;
     var x = document.getElementById("damage-enhancementfinal").innerHTML
     document.getElementById("damage-enhancementfinal").innerHTML = document.getElementById("damage-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("damage-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage</div></div>"
+    document.getElementById("damage-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage. Add the total of your buffs, if any, and this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r attack A B " + y + " # Comment</p></div></div>"
   }
 
   if (document.querySelector("#support-enhancementfinal")) {
@@ -1168,7 +1168,7 @@ function passiveBonus() {
     y = y * 3;
     var x = document.getElementById("support-enhancementfinal").innerHTML
     document.getElementById("support-enhancementfinal").innerHTML = document.getElementById("support-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("support-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra healing/buffing</div></div>"
+    document.getElementById("support-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra healing/buffing. Add this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r heal single A B " + y + " # Comment</p></div></div>"
   }
 
   if (document.querySelector("#maneuverfinal")) {
