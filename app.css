@@ -683,8 +683,9 @@ ul {
 }
 
 .card.selected {
-  background-color: #dddddd;
+  background-color: #cacaca;
   border-color: #d1d1d1;/*a9357b*/
+  box-shadow: 2px 2px 3px #444444;
 }
 
 .cardtitle {
