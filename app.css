@@ -1008,7 +1008,7 @@ ul {
   background-color: #b0b0b0;
 }
 
-.savecontainer, .expertisecontainer {
+.savecontainer, .expertisecontainer, .rangecontainer {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -1019,7 +1019,12 @@ ul {
 .movementcontainer{
   background: #6dc347;
 }
-.movementcontainer, .hpcontainer{
+
+.rangecontainer {
+  background: #9802d9;
+}
+
+.movementcontainer, .hpcontainer, .rangecontainer {
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
