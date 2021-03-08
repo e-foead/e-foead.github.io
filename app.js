@@ -389,6 +389,15 @@ window.onload = function() {
     if (!checkactions.length) {
       errormessage = "You have not selected any actions."
     }
+
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      chosenMasteries = [];
+      chosenMasteriesRanks = [];
+      chosenMasteriesRanksLetter = [];
+      return;
+    }
+
     for (var i = 0; i < checkactions.length; i++) {
       var x = 0;
       for (var j = 0; j < chosenMasteries.length; j++) {
