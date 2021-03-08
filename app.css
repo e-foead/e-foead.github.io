@@ -112,6 +112,8 @@ ul {
 }
 
 .masterycircle > img {
+  width: 12vw;
+  height: 12vw;
   max-width: 70px;
   max-height: 70px;
   margin: auto;
@@ -320,7 +322,7 @@ ul {
 }
 
 .displaycircle.animancy {
-  background-color: #53b159;
+  background-color: #6c319d;
 }
 
 .displaycircle.corrupt {
@@ -460,7 +462,7 @@ ul {
 }
 
 .display.animancy {
-  background-color: #53b159;
+  background-color: #6c319d;
 }
 
 .display.corrupt {
@@ -674,7 +676,7 @@ ul {
 .displaytitle{
   font-size: 1rem;
   font-weight: 600;
-  margin-top: 5px;
+  margin: 5px 10px 0 10px;
 }
 .masterycategory.displayrank{
   font-size: 170%!important;
@@ -698,6 +700,13 @@ ul {
 }
 .edisplay .displayrank{
   width: 20%;
+}
+
+@media (max-width: 768px) and (min-width: 422px) {
+.passivecontainer{
+  width: 720px;
+  max-width: none;
+}
 }
 
 @media (min-width: 768px){
@@ -1165,6 +1174,12 @@ table {
 
 #inputbox table {
   width: auto;
+  margin: 0 auto;
+}
+
+#inputbox table td{
+  text-align: right;
+  font-weight: 600;
 }
 
 .fas {
