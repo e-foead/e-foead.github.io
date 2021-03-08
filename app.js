@@ -1152,7 +1152,7 @@ function passiveBonus() {
     y = y * 5;
     var x = document.getElementById("defense-enhancementfinal").innerHTML
     document.getElementById("defense-enhancementfinal").innerHTML = document.getElementById("defense-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("defense-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is " + y + " extra HP</div></div>"
+    document.getElementById("defense-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is " + y + " extra HP, which has already been accounted for in your stats</div></div>"
   }
 
   if (document.querySelector("#damage-enhancementfinal")) {
@@ -1173,7 +1173,7 @@ function passiveBonus() {
 
   if (document.querySelector("#maneuverfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
-    var message = "You may move 1 extra zone per post";
+    var message = "You may move 1 extra zone per post, which has already been accounted for in your stats";
     movement += 1
 
     var x = document.getElementById("maneuverfinal").innerHTML
@@ -1188,7 +1188,7 @@ function passiveBonus() {
       message = "You do not have additional zones of movement"
     } else {
       var z = y - 2
-      message = "You may move " + z + " extra zone(s) per post"
+      message = "You may move " + z + " extra zone(s) per post, which has already been accounted for in your stats"
       movement += z
     }
     var x = document.getElementById("speed-upfinal").innerHTML
@@ -1214,7 +1214,7 @@ function passiveBonus() {
 
     if (movecheck === true) {
       movement += 1
-      message = "You may move 1 extra zone per post"
+      message = "You may move 1 extra zone per post, which has already been accounted for in your stats"
     } else {
       message = "You do not have additional zones of movement"
     }
@@ -1230,7 +1230,7 @@ function passiveBonus() {
     if (y === 1) {
       message = "You do not have additional zones of movement"
     } else {
-      message = "You may move 1 extra zone per post"
+      message = "You may move 1 extra zone per post, which has already been accounted for in your stats"
       movement += 1
     }
     var x = document.getElementById("ferrierfinal").innerHTML
