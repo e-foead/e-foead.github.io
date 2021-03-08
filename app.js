@@ -284,6 +284,7 @@ window.onload = function() {
     for (var i = 0; i < checkMasteries.length; i++) {
       var z = 0;
       var x = masterylist.findIndex(item => item.lookup === checkMasteries[i]);
+      console.log(masterylist[x])
       if (x === -1) {
         errormessage = "Your chosen masteries are invalid."
       }
