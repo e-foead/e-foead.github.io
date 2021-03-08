@@ -242,8 +242,8 @@ window.onload = function() {
 
     document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
     document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>";
-    document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://i.ibb.co/9VRLZWF/human-target.png'></div>";
-    document.getElementsByClassName("rangecontainer")[0].style.display = "none";
+    document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://terrarp.com/db/tool/range.png'></div>";
+    document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
 
     document.getElementById("fortitudesave").innerHTML = "+";
     document.getElementById("willsave").innerHTML = "+";
@@ -807,7 +807,7 @@ function backPart3() {
 
   document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
   document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>";
-  document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://i.ibb.co/9VRLZWF/human-target.png'></div>";
+  document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://terrarp.com/db/tool/range.png'></div>";
   document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
 
   document.getElementById("fortitudesave").innerHTML = "+";
