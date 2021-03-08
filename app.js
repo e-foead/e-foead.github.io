@@ -5,7 +5,7 @@ window.onbeforeunload = function () {
 window.addEventListener('hashchange', function() {
   if (window.location.href.toString().includes("#")) {
     var hash = new URL(window.location.href).hash;
-    var importstats = hash.slice(1).split("|");
+    var importstats = hash.slice(1).split("_");
     var errormessage = "";
 
     chosenMasteries = [];
@@ -255,11 +255,15 @@ window.addEventListener('hashchange', function() {
   }
 });
 
+var hash;
+var importstats;
+var errormessage;
+
 window.onload = function() {
   if (window.location.href.toString().includes("#")) {
-    var hash = new URL(window.location.href).hash;
-    var importstats = hash.slice(1).split("|");
-    var errormessage = "";
+    hash = new URL(window.location.href).hash;
+    importstats = hash.slice(1).split("_");
+    errormessage = "";
 
     chosenMasteries = [];
     chosenMasteriesRanks = [];
@@ -1223,7 +1227,7 @@ function getCode() {
   var generatemasteryrankcode = chosenMasteriesRanks.join(",");
   var generateactioncode = chosenActions.join(",");
 
-  var buildcode = "https://e-foead.github.io/app.html#" + generatemasterycode + "|" + generatemasteryrankcode + "|" + armorweight + "|" + armorRank.toString() + "|" + weaponRank.toString() + "|" + generateactioncode;
+  var buildcode = "https://e-foead.github.io/app.html#" + generatemasterycode + "_" + generatemasteryrankcode + "_" + armorweight + "_" + armorRank.toString() + "_" + weaponRank.toString() + "_" + generateactioncode;
 
   document.getElementById("finalcode").value = buildcode;
 }
