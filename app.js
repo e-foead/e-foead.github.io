@@ -25,6 +25,8 @@ window.addEventListener('hashchange', function() {
     document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
     document.getElementsByClassName("rangecontainer")[0].style.visibility = "hidden";
 
+    document.getElementsByClassName("charname")[0].innerHTML = "";
+
     document.getElementById("fortitudesave").innerHTML = "+";
     document.getElementById("willsave").innerHTML = "+";
     document.getElementById("reflexsave").innerHTML = "+";
@@ -299,6 +301,8 @@ window.onload = function() {
     document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://terrarp.com/db/tool/range.png'></div>";
     document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
     document.getElementsByClassName("rangecontainer")[0].style.visibility = "hidden";
+
+    document.getElementsByClassName("charname")[0].innerHTML = "";
 
     document.getElementById("fortitudesave").innerHTML = "+";
     document.getElementById("willsave").innerHTML = "+";
@@ -902,6 +906,8 @@ function backPart3() {
   document.getElementsByClassName("rangecontainer")[0].style.dislay = "none";
   document.getElementsByClassName("rangecontainer")[0].style.display = "hidden";
 
+  document.getElementsByClassName("charname")[0].innerHTML = "";
+
   document.getElementById("fortitudesave").innerHTML = "+";
   document.getElementById("willsave").innerHTML = "+";
   document.getElementById("reflexsave").innerHTML = "+";
@@ -1281,6 +1287,7 @@ function namesReplace() {
   if (name !== "") {
     document.getElementById("freeactiondisplay").innerHTML = document.getElementById("freeactiondisplay").innerHTML.replace(/Character Name/g, name);
     document.getElementById("actionsdisplay").innerHTML = document.getElementById("actionsdisplay").innerHTML.replace(/Character Name/g, name);
+    document.getElementsByClassName("charname")[0].innerHTML = name + "'s ";
   }
 
   if (threadcode !== "") {
