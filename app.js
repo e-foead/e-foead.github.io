@@ -251,8 +251,6 @@ window.addEventListener('hashchange', function() {
       document.getElementsByClassName("rangecontainer")[0].style.visibility = "hidden";
     }
 
-    console.log(targeting)
-
     window.scrollTo(0,0)
   }
 });
@@ -299,6 +297,15 @@ window.onload = function() {
     document.getElementById("actionsdisplay").innerHTML = "";
 
     var checkMasteries = importstats[0].split(",");
+    if (checkMasteries[0] === "") {
+      errormessage = "You have not selected any masteries."
+    }
+
+    if (errormessage.length > 0) {
+      alert(errormessage);
+      return;
+    }
+
     for (var i = 0; i < checkMasteries.length; i++) {
       var z = 0;
       var x = masterylist.findIndex(item => item.lookup === checkMasteries[i]);
