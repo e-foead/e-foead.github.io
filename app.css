@@ -76,6 +76,10 @@ ul {
   padding: 0 5px;
 }
 
+#inputbox {
+  margin: 5px;
+}
+
 .masterycircle {
   height: 15vw;
   width: 15vw;
