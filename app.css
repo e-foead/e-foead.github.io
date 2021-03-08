@@ -5,7 +5,7 @@ html {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-  font-family: Segoe UI, 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
 #bodyback {
@@ -27,6 +27,14 @@ h1 {
 
 .button-container{
   text-align: center;
+}
+
+.actionboxinfo {
+    background: #fff;
+    border-radius: 4px;
+    margin: 10px 5px;
+    padding: 10px 20px;
+    border: 1px solid #e1e1e1;
 }
 
 #instructiontoggle, #helpfullinkstoggle {
@@ -104,10 +112,8 @@ ul {
 }
 
 .masterycircle > img {
-  height: 10vw;
-  width: 10vw;
-  max-width: 65px;
-  max-height: 65px;
+  max-width: 70px;
+  max-height: 70px;
   margin: auto;
 }
 
@@ -129,15 +135,6 @@ ul {
 .mbox:hover .tooltip {
   visibility: visible;
 }
-
-/*.selectorheader {
-  text-decoration: underline;
-  text-decoration-style: double;
-  text-decoration-color: rgba(0,0,0,0.5);
-  font-weight: bold;
-  font-size: 1.2rem;
-  user-select: none;
-}*/
 
 .selectorheader{
   font-weight: 500;
@@ -588,7 +585,6 @@ ul {
 
 #masterycontainer, #rankselector, #actionselector, #builddisplay, #importdisplay {
   display: block;
-  /*margin-top: 25px;*/
   padding: 10px;
 }
 
@@ -632,10 +628,19 @@ ul {
   display: none;
  }
 
+ @media (max-width: 344px){
+#button1, #button2, #button3, #button2back, #button3back, #button4back{
+  width: 95%!important;
+  margin: 5px auto!important;
+}
+}
+
 .rankpick {
   display: flex;
   justify-content: space-around;
   padding: 10px 5px;
+  font-size: 1rem;
+  flex-wrap: wrap;
 }
 
 .rankcontainer {
@@ -648,26 +653,6 @@ ul {
   line-height: 220%;
   font-size: 1.1rem;
 }
-
-/*.card {
-  width: 20vw;
-  height: 25vw;
-  max-width: 300px;
-  max-height: 600px;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  wrap: nowrap;
-  font-size: 0.7rem;
-  text-align: center;
-  padding: 0.5vw;
-  user-select: none;
-  border-radius: 4px;
-  margin-left: 1vw;
-  margin-right: 1vw;
-  margin-bottom: 1vw;
-  border: 2px solid;
-}*/
 
 .card{
   margin: 5px;
@@ -686,10 +671,76 @@ ul {
 }
 }
 
-.card.selected {
-  background-color: #cacaca;
-  border-color: #d1d1d1;/*a9357b*/
-  box-shadow: 2px 2px 3px #444444;
+.displaytitle{
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 5px;
+}
+.masterycategory.displayrank{
+  font-size: 170%!important;
+}
+.displayrank{
+  font-weight: 900;
+  font-size: 1.5em;
+  color: #555;
+  line-height: 110%;
+}
+.passivecontainer h4{
+  margin: 5px;
+  font-weight: bold;
+}
+.passivecontainer p{
+  margin: 5px;
+}
+
+.edisplay .displaytitle{
+  width: 40%;
+}
+.edisplay .displayrank{
+  width: 20%;
+}
+
+@media (min-width: 768px){
+.card {
+    flex: 1 1 30%;
+}
+.test{
+    flex: 1 1 60%!important;
+}
+.edisplay.armorskilldisplay, .edisplay.armorrankdisplay, .edisplay.weaponrankdisplay{
+    flex: 1 1 30%!important;
+}
+}
+@media (max-width: 768px){
+.edisplay .displaycircle{
+  margin: auto;
+}
+.edisplay .displaytitle{
+  width: 40%;
+}
+.edisplay .displayrank{
+  width: 20%;
+}
+#button1, #button2, #button3, #button2back, #button3back, #button4back{
+  width: 48%!important;
+  margin: 5px auto!important;
+}
+}
+
+.card.choice.selected .rollcode{
+  background: #333;
+  border: 1px solid #333;
+}
+.card.choice.selected .cardtitle{
+    color: #fff;
+}
+.card.choice.selected .cardtitle, .card.choice.selected .cardroll, .card.choice.selected .cardinfo {
+    border-bottom: 1px solid #444;
+}
+.card.choice.selected {
+  background-color: #222;
+  color: #eee;
+  border-color: #aaa;
 }
 
 .cardtitle {
@@ -704,8 +755,7 @@ ul {
 }
 
 .cardroll, .cardinfo{
-  padding: 5px;
-  padding-bottom: 10px;
+  padding: 0 5px 10px 5px;
 }
 
 .cardroll{
@@ -724,6 +774,48 @@ ul {
 
 .cardinfo p{
   margin-bottom: 5px;
+}
+
+.actiontype{
+  font-style: italic;
+}
+
+p {
+    display: block;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.displaycircle.equipment{
+  background-color: transparent!important;
+}
+.edisplay .displaycircle, .edisplay.armorrankdisplay img, .edisplay.weaponrankdisplay img{
+  max-width: 40px;
+  max-height: 40px;
+}
+.edisplay.armorskilldisplay, .edisplay.armorrankdisplay, .edisplay.weaponrankdisplay{
+    flex: 1 1 300px;
+}
+.edisplay.armorrankdisplay,.edisplay.weaponrankdisplay{
+  padding: 0 10px;
+  background-color: #d1d1d1;
+  margin: 0 5px 5px 0;
+  border-radius: 4px;
+}
+.edisplay{
+  min-width: 145px;
+}
+.edisplay .displaytitle{
+  align-items: center;
+  text-align: center;
+  display: flex;
+  padding: 5px;
+}
+.edisplay .displayrank{
+  padding: 15px 10px;
+  align-items: center;
+  display: flex;
 }
 
 .aci-rush {
@@ -914,8 +1006,8 @@ ul {
 }
 
 .display > img {
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
 }
 
 .display.masterycircle {
@@ -936,7 +1028,6 @@ ul {
   flex-wrap: nowrap;
   margin-top: 5px;
   text-align: center;
-  margin-bottom: 2vw;
 }
 
 .masterydisplay {
@@ -948,8 +1039,8 @@ ul {
 .displaycircle {
   height: 15vw;
   width: 15vw;
-  max-width: 90px;
-  max-height: 90px;
+  max-width: 95px;
+  max-height: 95px;
   border-radius: 50%;
   margin: auto;
   display: flex;
@@ -959,10 +1050,10 @@ ul {
 }
 
 .displaycircle > img {
-  height: 10vw;
-  width: 10vw;
-  max-width: 65px;
-  max-height: 65px;
+  height: 12vw;
+  width: 12vw;
+  max-width: 70px;
+  max-height: 70px;
   margin: auto;
 }
 
@@ -972,12 +1063,12 @@ ul {
   justify-content: space-between;
   user-select: none;
   text-align: center;
-  margin: 2vw 0;
+  flex-wrap: wrap;
 }
 
 .edisplay {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .displaycircle.equipment {
@@ -989,8 +1080,8 @@ ul {
   border-radius: 4px;
   background-color: #ffffff;
   font-size: 0.9rem;
-  padding: 10px;
-  max-width: 25vw;
+  padding: 5px;
+  max-width: 100%;
 }
 
 #statsdisplay {
@@ -1003,20 +1094,23 @@ ul {
 }
 
 #statsdisplay > div {
-  margin-left: 10px;
   margin-right: 10px;
 }
 .stat-numbers tr td{
   text-align: left;
 }
 .displaycircle.hp, .displaycircle.move {
-  background-color: #b0b0b0;
+  background-color: rgba(0,0,0,0);
 }
 
-.savecontainer, .expertisecontainer, .rangecontainer {
+.savecontainer, .expertisecontainer {
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  background: #e1e1e1;
+  flex: 1 1 0;
 }
 .hpcontainer{
   background: #c34747;
@@ -1027,35 +1121,50 @@ ul {
 
 .rangecontainer {
   background: #9802d9;
+  display: none;
 }
 
-.movementcontainer, .hpcontainer, .rangecontainer {
-  padding: 10px 20px;
+.statoutput{
+  font-size: 80%;
+  line-height: 90%;
+}
+
+.hpcontainer, .movementcontainer, .rangecontainer{
+  padding: 10px;
   border-radius: 4px;
   color: #fff;
+  flex: 1 1 0;
 }
-.move img, .hp img{
+
+.move img, .hp img, .range img{
   width: 60px;
 }
+
 .stat-text{
   font-weight: 700;
   font-size: 1em;
   margin-bottom: 10px;
+  line-height: 100%;
 }
 
 #builddisplay .masterycategory {
-  /*margin: 2vw;*/
+  margin: 0.5vw 0;
 }
 
 #builddisplay .first{
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 table {
   border: none;
   font-size: 0.8rem;
   margin-top: 5px;
-  text-align: center
+  text-align: center;
+  width: 100%;
+}
+
+#inputbox table {
+  width: auto;
 }
 
 .fas {
@@ -1084,6 +1193,11 @@ td {
   text-align: center;
 }
 
+@media (min-width: 800px) {
+.passivecontainer{
+  margin-bottom: 5px;
+}
+}
 @media (max-width: 800px) {
   #bodyback{
     width: 100%;
@@ -1094,23 +1208,13 @@ td {
   body{
     margin:0;
   }
+  html{
+    background-image: none!important;
+    background-color: #eee;
+  }
 }
 
 @media (max-width: 800px) {
-  /*#bodyback {
-    width: 90vw;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 5px;
-    padding-bottom: 10px;
-  }
-
-  .card {
-    width: 60vw;
-    height: 70vw;
-    font-size: 0.65rem;
-    margin: 0.5vw;
-  }*/
 
   .tooltip {
     font-size: 0.6rem;
@@ -1149,11 +1253,6 @@ td {
     margin-bottom: 0.5vw;
   }
 
-  /*.hp, .move {
-    width: 12vw;
-    height: 12vw;
-  }*/
-
   #masterydisplay {
     font-size: 0.94rem;
     flex-wrap: wrap;
@@ -1164,11 +1263,7 @@ td {
   }
 
   .edisplay {
-    margin: 0 1vw;
-  }
-
-  .passivecontainer {
-    font-size: 0.6rem;
+    margin: 0 5px 5px 0;
   }
 
   .display.masterycircle {
