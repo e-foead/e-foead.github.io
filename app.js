@@ -938,6 +938,11 @@ function backPart3() {
   knowledge = 0;
   presence = 0;
 
+  movement = 1;
+  targeting = 0;
+
+  passivehp = 0;
+
   window.scrollTo(0,0);
 }
 
