@@ -224,18 +224,26 @@ window.addEventListener('hashchange', function() {
       }
     }
 
-    var getname = importstats[6];
-    if (getname === "") {
+    if (!importstats[6]) {
       name = "";
     } else {
-      name = getname.replace(/_/g, " ")
+      var getname = importstats[6];
+      if (getname === "") {
+        name = "";
+      } else {
+        name = getname.replace(/_/g, " ")
+      }
     }
 
-    var getcode = importstats[7];
-    if (getcode === "") {
+    if (!importstats[7]) {
       threadcode = "";
     } else {
-      threadcode = getcode;
+      var getcode = importstats[7];
+      if (getcode === "") {
+        threadcode = "";
+      } else {
+        threadcode = getcode;
+      }
     }
 
     document.getElementById("builddisplay").style.display = "block";
@@ -501,18 +509,26 @@ window.onload = function() {
       }
     }
 
-    var getname = importstats[6];
-    if (getname === "") {
+    if (!importstats[6]) {
       name = "";
     } else {
-      name = getname.replace(/_/g, " ")
+      var getname = importstats[6];
+      if (getname === "") {
+        name = "";
+      } else {
+        name = getname.replace(/_/g, " ")
+      }
     }
 
-    var getcode = importstats[7];
-    if (getcode === "") {
+    if (!importstats[7]) {
       threadcode = "";
     } else {
-      threadcode = getcode;
+      var getcode = importstats[7];
+      if (getcode === "") {
+        threadcode = "";
+      } else {
+        threadcode = getcode;
+      }
     }
 
     document.getElementById("builddisplay").style.display = "block";
