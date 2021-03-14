@@ -895,8 +895,8 @@ p {
 	background-image: url(https://terrarp.com/db/action/buff.png);
 	background-repeat: no-repeat;
 }
-.aci-cleanse{
-	background-image: url(https://terrarp.com/db/action/cleanse.png);
+.aci-dispel{
+	background-image: url(https://terrarp.com/db/action/dispel.png);
 	background-repeat: no-repeat;
 }
 .aci-power-heal{
@@ -941,6 +941,11 @@ p {
 }
 .aci-alter-hinder{
 	background-image: url(https://terrarp.com/db/action/alter-hinder.png);
+	background-repeat: no-repeat;
+}
+
+.aci-alter-dispel{
+	background-image: url(https://terrarp.com/db/action/alter-dispel.png);
 	background-repeat: no-repeat;
 }
 
