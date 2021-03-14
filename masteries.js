@@ -176,7 +176,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-alchemy.png",
     save: "fortitude",
     expertise: "knowledge",
-    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Cleanse", "Power Heal", "Power Buff"],
+    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Dispel", "Power Heal", "Power Buff"],
     role: "support"
   },
   {
@@ -186,7 +186,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-animancy.png",
     save: "will",
     expertise: "knowledge",
-    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Cleanse", "Power Heal", "Power Buff"],
+    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Dispel", "Power Heal", "Power Buff"],
     role: "support"
   },
   {
@@ -196,7 +196,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-chronomancy.png",
     save: "reflex",
     expertise: "awareness",
-    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Cleanse", "Power Heal", "Power Buff"],
+    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Dispel", "Power Heal", "Power Buff"],
     role: "support"
   },
   {
@@ -206,7 +206,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-divine.png",
     save: "will",
     expertise: "presence",
-    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Cleanse", "Power Heal", "Power Buff"],
+    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Dispel", "Power Heal", "Power Buff"],
     role: "support"
   },
   {
@@ -216,7 +216,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-harmonic.png",
     save: "will",
     expertise: "presence",
-    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Cleanse", "Power Heal", "Power Buff"],
+    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Dispel", "Power Heal", "Power Buff"],
     role: "support"
   },
   {
@@ -226,7 +226,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-magitech.png",
     save: "reflex",
     expertise: "knowledge",
-    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Cleanse", "Power Heal", "Power Buff"],
+    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Dispel", "Power Heal", "Power Buff"],
     role: "support"
   },
   {
@@ -236,7 +236,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-nature.png",
     save: "will",
     expertise: "awareness",
-    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Cleanse", "Power Heal", "Power Buff"],
+    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Dispel", "Power Heal", "Power Buff"],
     role: "support"
   },
   {
@@ -246,7 +246,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-spirit.png",
     save: "will",
     expertise: "awareness",
-    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Cleanse", "Power Heal", "Power Buff"],
+    actions: ["Normal Attack", "Recover", "Rush", "Revive", "Heal", "Buff", "Dispel", "Power Heal", "Power Buff"],
     role: "support"
   },
   {
@@ -256,7 +256,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-aura.png",
     save: "-",
     expertise: "-",
-    actions: ["Defense Enhancement", "Alter Hinder", "Taunt", "Guard", "Protect", "Hinder", "Reckless Attack", "Ultra Protect", "Ultra Hinder"],
+    actions: ["Defense Enhancement", "Alter Hinder", "Ferrier", "Taunt", "Guard", "Protect", "Hinder", "Reckless Attack", "Ultra Protect", "Ultra Hinder"],
     role: "alter"
   },
   {
@@ -266,7 +266,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-battle-spirits.png",
     save: "-",
     expertise: "-",
-    actions: ["Damage Enhancement", "Maneuver", "Steady", "Hinder", "Ultra Hinder", "Burst Attack", "Critical Attack", "Reckless Attack"],
+    actions: ["Damage Enhancement", "Defense Enhancement", "Maneuver", "Steady", "Hinder", "Ultra Hinder", "Burst Attack", "Critical Attack", "Reckless Attack"],
     role: "alter"
   },
   {
@@ -276,7 +276,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-corrupt.png",
     save: "-",
     expertise: "-",
-    actions: ["Damage Enhancement", "Support Enhancement", "Steady", "Hinder", "Ultra Hinder", "Burst Attack", "Critical Attack", "Reckless Attack"],
+    actions: ["Damage Enhancement", "Support Enhancement", "Alter Hinder", "Steady", "Hinder", "Ultra Hinder", "Burst Attack", "Critical Attack", "Reckless Attack"],
     role: "alter"
   },
   {
@@ -296,7 +296,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-evoke.png",
     save: "-",
     expertise: "-",
-    actions: ["Damage Enhancement", "Support Enhancement", "Steady", "Hinder", "Ultra Hinder", "Burst Attack", "Critical Attack", "Reckless Attack"],
+    actions: ["Damage Enhancement", "Support Enhancement", "Alter Dispel", "Steady", "Hinder", "Ultra Hinder", "Burst Attack", "Critical Attack", "Reckless Attack"],
     role: "alter"
   },
   {
@@ -306,7 +306,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-hyper-sense.png",
     save: "-",
     expertise: "-",
-    actions: ["Damage Enhancement", "Extension", "Taunt", "Hinder", "Protect", "Guard", "Ultra Hinder", "Ultra Protect", "Critical Attack"],
+    actions: ["Damage Enhancement", "Extension", "Alter Hinder", "Taunt", "Hinder", "Protect", "Guard", "Ultra Hinder", "Ultra Protect", "Critical Attack"],
     role: "alter"
   },
   {
@@ -316,7 +316,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-mend.png",
     save: "-",
     expertise: "-",
-    actions: ["Support Enhancement", "Defense Enhancement", "Revive", "Heal", "Buff", "Cleanse", "Power Heal", "Power Buff", "Reckless Attack"],
+    actions: ["Support Enhancement", "Defense Enhancement", "Alter Dispel", "Revive", "Heal", "Buff", "Dispel", "Power Heal", "Power Buff", "Reckless Attack"],
     role: "alter"
   },
   {
@@ -326,7 +326,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-metamorph.png",
     save: "-",
     expertise: "-",
-    actions: ["Damage Enhancement", "Ferrier", "Steady", "Hinder", "Ultra Hinder", "Burst Attack", "Critical Attack", "Reckless Attack"],
+    actions: ["Damage Enhancement", "Maneuver", "Ferrier", "Steady", "Hinder", "Ultra Hinder", "Burst Attack", "Critical Attack", "Reckless Attack"],
     role: "alter"
   },
   {
@@ -336,7 +336,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-summon.png",
     save: "-",
     expertise: "-",
-    actions: ["Defense Enhancement", "Extension", "Hinder", "Steady", "Guard", "Ultra Hinder", "Burst Attack", "Reckless Attack"],
+    actions: ["Defense Enhancement", "Support Enhancement", "Extension", "Hinder", "Steady", "Guard", "Ultra Hinder", "Burst Attack", "Reckless Attack"],
     role: "alter"
   },
   {
@@ -346,7 +346,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-weapon-arts.png",
     save: "-",
     expertise: "-",
-    actions: ["Damage Enhancement", "Alter Hinder", "Hinder", "Steady", "Guard", "Ultra Hinder", "Burst Attack", "Critical Attack"],
+    actions: ["Damage Enhancement", "Alter Hinder", "Extension", "Hinder", "Steady", "Guard", "Ultra Hinder", "Burst Attack", "Critical Attack"],
     role: "alter"
   },
 ]

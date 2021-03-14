@@ -187,13 +187,13 @@ const actionlist = [
     category: "normal"
   },
   {
-    lookup: "cleanse",
-    name: "Cleanse",
+    lookup: "dispel",
+    name: "Dispel",
     color: "#4e9be2",
-    image: "https://terrarp.com/db/action/cleanse.png",
+    image: "https://terrarp.com/db/action/dispel.png",
     description: "<p>Remove bad conditions from yourself or your target. You can remove up to 1d4 + MR stacks of conditions.</p><p><i>(Single) </i>Dispel conditions from your target.</p><p><i>(AoE) </i>Divide your cleanses between up to 3 targets (unequal distribution is okay)</p>",
     dice: "1d4 + MR",
-    roll: "?r cleanse <span class='masteryreplace'>MR</span> # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r dispel <span class='masteryreplace'>MR</span> # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
     masteries: "alchemy animancy chronomancy divine-magic harmonic-magic magitech nature-magic spirit-magic mend",
     category: "normal"
   },
@@ -249,7 +249,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your Alter Mastery enhances your healing and buffing supportive abilities. Add 3 per mastery rank (up to a max of 15) to standard and special heal and buff.</p>",
     dice: "-",
     roll: "-",
-    masteries: "corrupt evoke mend",
+    masteries: "corrupt evoke mend summon",
     category: "passive"
   },
   {
@@ -260,7 +260,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>From D-rank, your movement increases by 1. All your movements ignore difficult terrain but not impassable terrain. Also, you can move through monster zones as though they are regular zone.</p>",
     dice: "-",
     roll: "-",
-    masteries: "battle-spirits dynamism",
+    masteries: "battle-spirits dynamism metamorph",
     category: "passive"
   },
   {
@@ -271,7 +271,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>From C-rank, your movement increases by 1. In addition, you can choose up to 2 willing targets in the same zone to move with you, stopping where you do without spending their movement. Reduce your movement by 1 for every person that moving in this way, including yourself.</p>",
     dice: "-",
     roll: "-",
-    masteries: "metamorph dynamism",
+    masteries: "aura metamorph dynamism",
     category: "passive"
   },
   {
@@ -297,6 +297,17 @@ const actionlist = [
     category: "passive"
   },
   {
+    lookup: "alter-dispel",
+    name: "Alter Dispel",
+    color: "#6845a2",
+    image: "https://terrarp.com/db/action/alter-dispel.png",
+    description: "<p><i>(Passive)</i></p><p>Your mastery grants your Dispel action more flexibility. With this passive, you can now dispel certain buffs from enemies and specific zone effects.</p>",
+    dice: "-",
+    roll: "-",
+    masteries: "evoke mend",
+    category: "passive"
+  },
+  {
     lookup: "extension",
     name: "Extension",
     color: "#6845a2",
@@ -304,7 +315,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>At C-rank, your actions (excluding those with the Self-targeted tag) can target an ally or enemy 1 zone away. At S-rank, this range increases to 2.</p>",
     dice: "-",
     roll: "-",
-    masteries: "hyper-sense summon",
+    masteries: "hyper-sense summon weapon-arts",
     category: "passive"
   },
 ]
