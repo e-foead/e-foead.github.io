@@ -1067,6 +1067,14 @@ function valueReplace() {
   namesReplace();
 }
 
+function targetReplaceSingle(e) {
+  e.parentElement.parentElement.getElementsByClassName("targetreplace")[0].innerHTML = "single";
+}
+
+function targetReplaceAOE(e) {
+  e.parentElement.parentElement.getElementsByClassName("targetreplace")[0].innerHTML = "aoe";
+}
+
 var totalhp;
 var multiplier;
 var armormod;

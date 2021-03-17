@@ -1213,6 +1213,20 @@ td {
   text-align: center;
 }
 
+.single, .aoe {
+  border-radius: 3px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.single {
+  background-color: #c06ce0;
+}
+
+.aoe {
+  background-color: #71c1cd;
+}
+
 @media (min-width: 800px) {
 .passivecontainer{
   margin-bottom: 5px;
