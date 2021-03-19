@@ -227,7 +227,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your Alter Mastery makes you more resilient to damage. Add 5 per mastery rank (up to a max of 25) to your HP.</p>",
     dice: "-",
     roll: "-",
-    masteries: "aura mend summon",
+    masteries: "aura battle-spirits hyper-sense summon",
     category: "passive"
   },
   {
@@ -238,7 +238,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your Alter Mastery enhances your attacks. Add 3 per mastery rank (up to a max of 15) to all standard and special attacks.</p>",
     dice: "-",
     roll: "-",
-    masteries: "battle-spirits corrupt evoke hyper-sense metamorph weapon-arts",
+    masteries: "battle-spirits corrupt evoke hyper-sense metamorph summon weapon-arts",
     category: "passive"
   },
   {
@@ -249,7 +249,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your Alter Mastery enhances your healing and buffing supportive abilities. Add 3 per mastery rank (up to a max of 15) to standard and special heal and buff.</p>",
     dice: "-",
     roll: "-",
-    masteries: "corrupt evoke mend summon",
+    masteries: "corrupt evoke mend",
     category: "passive"
   },
   {
@@ -260,7 +260,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>From D-rank, your movement increases by 1. All your movements ignore difficult terrain but not impassable terrain. Also, you can move through monster zones as though they are regular zone.</p>",
     dice: "-",
     roll: "-",
-    masteries: "battle-spirits dynamism metamorph",
+    masteries: "dynamism metamorph",
     category: "passive"
   },
   /*{
@@ -304,7 +304,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>This passive enhances the Dispel action. When you Dispel, use 2d4. Also, you can now dispel specific enemy's buffs and certain zone effects in addition to ally's conditions. You can only choose to dispel one type of target at a time (allies' conditions, enemies' buffs, or zone effects).</p>",
     dice: "-",
     roll: "-",
-    masteries: "evoke mend",
+    masteries: "mend",
     category: "passive"
   },
   /*{
