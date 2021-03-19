@@ -1064,6 +1064,11 @@ function valueReplace() {
   document.getElementById("freeactiondisplay").innerHTML = document.getElementById("freeactiondisplay").innerHTML.replace(/WR/g, weaponRankLetter);
   document.getElementById("actionsdisplay").innerHTML = document.getElementById("actionsdisplay").innerHTML.replace(/WR/g, weaponRankLetter);
 
+  if (document.getElementById("alter-dispelfinal")) {
+    document.getElementById("actionsdisplay").innerHTML = document.getElementById("actionsdisplay").innerHTML.replace(/r dispel/g, "r alterdispel");
+    document.getElementById("actionsdisplay").innerHTML = document.getElementById("actionsdisplay").innerHTML.replace(/1d4/g, "2d4");
+  }
+
   namesReplace();
 }
 
@@ -1313,6 +1318,7 @@ var name = "";
 var threadcode = "";
 
 function namesReplace() {
+
   if (name !== "") {
     document.getElementById("freeactiondisplay").innerHTML = document.getElementById("freeactiondisplay").innerHTML.replace(/Character Name/g, name);
     document.getElementById("actionsdisplay").innerHTML = document.getElementById("actionsdisplay").innerHTML.replace(/Character Name/g, name);

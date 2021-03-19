@@ -263,7 +263,7 @@ const actionlist = [
     masteries: "battle-spirits dynamism metamorph",
     category: "passive"
   },
-  {
+  /*{
     lookup: "ferrier",
     name: "Ferrier",
     color: "#6845a2",
@@ -273,7 +273,7 @@ const actionlist = [
     roll: "-",
     masteries: "aura metamorph dynamism",
     category: "passive"
-  },
+  },*/
   {
     lookup: "speed-up",
     name: "Speed Up",
@@ -307,7 +307,7 @@ const actionlist = [
     masteries: "evoke mend",
     category: "passive"
   },
-  {
+  /*{
     lookup: "extension",
     name: "Extension",
     color: "#6845a2",
@@ -317,5 +317,5 @@ const actionlist = [
     roll: "-",
     masteries: "hyper-sense summon weapon-arts",
     category: "passive"
-  },
+  },*/
 ]
