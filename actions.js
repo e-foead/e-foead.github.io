@@ -301,7 +301,7 @@ const actionlist = [
     name: "Alter Dispel",
     color: "#6845a2",
     image: "https://terrarp.com/db/action/alter-dispel.png",
-    description: "<p><i>(Passive)</i></p><p>Your mastery grants your Dispel action more flexibility. With this passive, you can now dispel certain buffs from enemies and specific zone effects.</p>",
+    description: "<p><i>(Passive)</i></p><p>This passive enhances the Dispel action. When you Dispel, use 2d4. Also, you can now dispel specific enemy's buffs and certain zone effects in addition to ally's conditions. You can only choose to dispel one type of target at a time (allies' conditions, enemies' buffs, or zone effects).</p>",
     dice: "-",
     roll: "-",
     masteries: "evoke mend",
