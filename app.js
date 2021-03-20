@@ -749,7 +749,7 @@ function fillMasteriesRank() {
   for (var i = 0; i < chosenMasteries.length; i++) {
     for (var j = 0; j < masterylist.length; j++) {
       if (chosenMasteries[i] === masterylist[j].lookup) {
-        document.getElementById("masteryrankpick").innerHTML += "<div class='rankcontainer' id='rank" + i + "'><div id='mastery" + i + "' class='masterycircle'><img src=" + masterylist[j].image + "></div>" + masterylist[j].name + "<br><select class='dropdown' id='masteryrank" + i + "' autocomplete='off'><option value='1' selected>D</option><option value='2'>C</option><option value='3'>B</option><option value='4'>A</option><option value='5'>S</option></select></div>";
+        document.getElementById("masteryrankpick").innerHTML += "<div class='rankcontainer' id='rank" + i + "'><div id='mastery" + i + "' class='masterycircle'><img src=" + masterylist[j].image + "></div>" + masterylist[j].name + "<br><select class='droplist' id='masteryrank" + i + "' autocomplete='off'><option value='1' selected>D</option><option value='2'>C</option><option value='3'>B</option><option value='4'>A</option><option value='5'>S</option></select></div>";
         document.getElementById("mastery" + i).style.backgroundColor = masterylist[j].color;
         document.getElementById("rank" + i).style.marginBottom = "1vw";
       }
