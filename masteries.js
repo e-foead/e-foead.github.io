@@ -16,7 +16,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-astramancy.png",
     save: "will",
     expertise: "presence",
-    actions: ["Normal Attack", "Recover", "Rush", "Guard", "Protect", "Hinder", "Ultra Protect", "Ultra Hinder"],
+    actions: ["Normal Attack", "Recover", "Rush", "Taunt", "Guard", "Protect", "Hinder", "Ultra Protect", "Ultra Hinder"],
     role: "defense"
   },
   {
