@@ -306,7 +306,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-hyper-sense.png",
     save: "-",
     expertise: "-",
-    actions: ["Damage Enhancement", "Defense", "Hinder", "Protect", "Guard", "Ultra Hinder", "Ultra Protect", "Critical Attack"],
+    actions: ["Damage Enhancement", "Defense Enhancement", "Hinder", "Protect", "Guard", "Ultra Hinder", "Ultra Protect", "Critical Attack"],
     role: "alter"
   },
   {
