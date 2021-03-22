@@ -336,7 +336,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-summon.png",
     save: "-",
     expertise: "-",
-    actions: ["Defense Enhancement", "Defense Enhancement", "Hinder", "Taunt", "Guard", "Ultra Hinder", "Burst Attack", "Reckless Attack"],
+    actions: ["Damage Enhancement", "Defense Enhancement", "Hinder", "Taunt", "Guard", "Ultra Hinder", "Burst Attack", "Reckless Attack"],
     role: "alter"
   },
   {
