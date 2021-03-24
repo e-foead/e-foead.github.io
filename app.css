@@ -21,6 +21,25 @@ html {
   max-width: 900px;
 }
 
+#threadcodeinput, #threadcodebutton {
+  display: none;
+}
+
+#thrcodebutton {
+  background-color: #a9357b;
+  color: white;
+  border-radius: 4px;
+  padding: 3px;
+  user-select: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 90%;
+}
+
+#threadcodebutton {
+  text-align: center;
+}
+
 h1 {
   font-weight: bold;
 }

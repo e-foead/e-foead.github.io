@@ -6,7 +6,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/attack.png",
     description: "<p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p>",
     dice: "1d100 + modifiers",
-    roll: "?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons",
     category: "normal"
   },
@@ -17,7 +17,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/recover.png",
     description: "<p>Recover HP.</p>",
     dice: "1d20",
-    roll: "?r recover # Character Name | Thread Code",
+    roll: "?r recover # Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons",
     category: "normal"
   },
@@ -50,7 +50,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/guard.png",
     description: "<p>Attack the enemy with your guard up and gain the Guarded status.</p><p><i>This action can be flavored as an attack or a spell that does damage and also reduces incoming damage or increases your defense. You can also flavor Guard as a defensive attack.</i></p>",
     dice: "2d20 + modifiers",
-    roll: "?r guard <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r guard <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura dynamism hyper-sense summon weapon-arts",
     category: "normal"
   },
@@ -61,7 +61,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/hinder.png",
     description: "<p>Attack and hinder the target. Half of the attack's final roll result reduces the target's HP, the other half reduces the target's stability/SP.</p><p><i>This action can be flavored as a spell or ability that crowd controls (CC) the enemy such as entanglement, cripple, slow, disrupt, trap, etc.</i></p>",
     dice: "1d100 + modifiers",
-    roll: "?r hinder <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r hinder <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons aura battle-spirits corrupt dynamism evoke hyper-sense metamorph slash weapon-arts",
     category: "normal"
   },
@@ -72,7 +72,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/protect.png",
     description: "<p>Attack a target and give 1 nearby ally the Protected status.</p><p><i>This action can be flavored as a taunt that draws enemy attention away to reduce damage, an ability or spell that damages the enemy and boost your ally's defense, or an ability that stops enemies from getting close to the ally, etc.</i></p>",
     dice: "2d20 + modifiers",
-    roll: "?r protect <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r protect <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura hyper-sense",
     category: "normal"
   },
@@ -83,7 +83,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/uhinder.png",
     description: "<p><i>(Special Action)</i></p><p>Perform a big attack and majorly hinder the target at the cost of your own safety. Half of the attack's final roll result reduces the target's HP, the other half reduces the target's Stability. Gain the Vulnerable status.</p><p><i>This action can be flavored as a spell or ability that crowd controls (CC) the enemy such as entanglement, cripple, slow, disrupt, trap, etc.</i></p>",
     dice: "2d100 + modifiers",
-    roll: "?r ultrahinder <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r ultrahinder <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons aura battle-spirits corrupt dynamism evoke hyper-sense metamorph slash weapon-arts",
     category: "normal"
   },
@@ -94,7 +94,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/uprotect.png",
     description: "<p><i>(Special Action)</i></p><p>Perform a big attack that damage the enemy and protect nearby allies. Give 3 allies in the same zone the Protected status and gain the Vulnerable status.</p><p><i>You can flavor this action as a form of taunt to draw enemy attention onto yourself, an ability or spell that deals damage and protects at the same time, something that lessenns the enemy's damage, etc.</i></p>",
     dice: "1d100 + modifiers",
-    roll: "?r ultraprotect <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r ultraprotect <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura hyper-sense",
     category: "normal"
   },
@@ -116,7 +116,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/movement.png",
     description: "<p>Execute an attack with higher base damage, but does not have critical.</p><p><i>You can flavor this action as a tactical strike, a dependable combo of attacks that works, etc.</i></p>",
     dice: "6d20 + modifiers",
-    roll: "?r steady <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r steady <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons battle-spirits corrupt evoke metamorph summon weapon-arts",
     category: "normal"
   },
@@ -127,7 +127,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/reckless.png",
     description: "<p><i>(Special Action)</i></p><p>Extend yourself and execute a powerful reckless attack with high unpredictability and high payoff. You become Vulnerable.</p><p><i>You can flavor this action as using powerful abilities or spells close to the enemy, positioning yourself in a compromising location for better aim, etc.</i></p>",
     dice: "2d100 + modifiers",
-    roll: "?r reckless <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r reckless <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "aura battle-spirits corrupt dynamism evoke mend metamorph summon crush-weapons martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons",
     category: "normal"
   },
@@ -138,7 +138,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/burst.png",
     description: "<p><i>(Special Action)</i></p><p>Execute an attack that can deal massive damage at the cost of your safety. You become Vulnerable.</p><p><i>You can flavor this action as a high-level destructive spell, a deadly special attack, a combo chain, etc.</i><p>",
     dice: "2d20 per mastery rank + 1d20 per weapon rank",
-    roll: "?r burst <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r burst <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "aeromancy crush-weapons dark-magic pyromancy slash-weapons battle-spirits corrupt dynamism evoke metamorph summon weapon-arts",
     category: "normal"
   },
@@ -149,7 +149,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/critical.png",
     description: "<p><i>(Special Action)</i></p><p>Execute an attack that exploits the target's weak point and leave them devastated when you land a critical at the cost of your safety. You become Vulnerable.</p><p><i>You can flavor this action as a repositioning ability that allows you to capitalize on the target's mistake, a spell that targets their weak point, using improved aiming to land a potent attack, etc.</i></p>",
     dice: "2d100 with advantage + modifiers",
-    roll: "?r critical <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r critical <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "aeromancy dark-magic martial-arts pierce-weapons ranged-weapons shadow-arts battle-spirits corrupt dynamism evoke hyper-sense metamorph weapon-arts",
     category: "normal"
   },
@@ -160,7 +160,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/revive.png",
     description: "<p>Bring a player back to life within 10 minutes of death. You need their permission OOCly, but they have no say ICly. The target will come back with 75 HP. A player may only be revived twice per thread.</p><p><i>You can flavor this action as a typical holy revive spell, a potion that brings your target back from death, a spell that calls the soul back to the body and reconstruct it, etc.</i></p>",
     dice: "1d20 per mastery rank",
-    roll: "?r revive <span class='masteryreplace'>MR</span> # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r revive <span class='masteryreplace'>MR</span> # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "alchemy animancy chronomancy divine-magic harmonic-magic magitech nature-magic spirit-magic mend",
     category: "normal"
   },
@@ -171,7 +171,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/heal.png",
     description: "<p>Heal yourself or another target.</p><p><i>This action can be flavored as any ability or effect that helps keep the targets alive such as barrier, shielding, heal-over-time, life transference, etc.</i></p><p span class='single' onclick='targetReplaceSingle(this)'><i>(Single) </i>Heal 1 target for the full amount</p><p span class='aoe' onclick='targetReplaceAOE(this)'><i>(AoE) </i>Split your heal amount equally among three targets, rounded down.</p>",
     dice: "1d20 + modifiers",
-    roll: "?r heal <span class='targetreplace'>single/aoe</span> <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r heal <span class='targetreplace'>single/aoe</span> <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "alchemy animancy chronomancy divine-magic harmonic-magic magitech nature-magic spirit-magic mend",
     category: "normal"
   },
@@ -182,7 +182,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/buff.png",
     description: "<p>Grant yourself or another target a damage buff.</p><p><i>This action can be flavored as you magically empowering the target's weapon, setting them up to do more damage, etc.</i></p><p span class='single' onclick='targetReplaceSingle(this)'><i>(Single) </i>Give one target a damage buff that lasts 3 posts</p><p span class='aoe' onclick='targetReplaceAOE(this)'><i>(AoE) </i>Give three targets a damage buff that lasts for 1 post.</p>",
     dice: "1d20 + modifiers / 3",
-    roll: "?r buff <span class='targetreplace'>single/aoe</span> <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r buff <span class='targetreplace'>single/aoe</span> <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "alchemy animancy chronomancy divine-magic harmonic-magic magitech nature-magic spirit-magic mend",
     category: "normal"
   },
@@ -193,7 +193,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/dispel.png",
     description: "<p>Remove bad conditions from yourself or your target. You can remove up to 1d4 + MR stacks of conditions.</p><p><i> This action can be flavored as a standard dispel or you doing something more active to clear conditions.</i></p><p><i>(Single) </i>Dispel conditions from your target.</p><p><i>(AoE) </i>Divide your cleanses between up to 3 targets (unequal distribution is okay)</p>",
     dice: "1d4 + MR",
-    roll: "?r dispel <span class='masteryreplace'>MR</span> # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r dispel <span class='masteryreplace'>MR</span> # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "alchemy animancy chronomancy divine-magic harmonic-magic magitech nature-magic spirit-magic mend",
     category: "normal"
   },
@@ -204,7 +204,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/pheal.png",
     description: "<p><i>(Special Action)</i></p><p>Heal yourself or another target. This is a more potent heal with dangerous drawbacks. You become Vulnerable.</p><p><i>This action can be flavored as any ability or effect that helps keep the targets alive such as barrier, shielding, heal-over-time, life transference, etc.</i></p><p span class='single' onclick='targetReplaceSingle(this)'><i>(Single) </i>Heal 1 target for the full amount</p><p span class='aoe' onclick='targetReplaceAOE(this)'><i>(AoE) </i>Split your heal amount equally among three targets, rounded down.</p>",
     dice: "1d100 + modifiers",
-    roll: "?r powerheal <span class='targetreplace'>single/aoe</span> <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r powerheal <span class='targetreplace'>single/aoe</span> <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "alchemy animancy chronomancy divine-magic harmonic-magic magitech nature-magic spirit-magic mend",
     category: "normal"
   },
@@ -215,7 +215,7 @@ const actionlist = [
     image: "https://terrarp.com/db/action/pbuff.png",
     description: "<p><i>(Special Action)</i></p><p>Grant yourself or another target a damage buff. This is a more potent buff with dangerous drawbacks. You become Vulnerable.</p><p><i>This action can be flavored as you magically empowering the target's weapon, setting them up to do more damage, etc.</i></p><p span class='single' onclick='targetReplaceSingle(this)'><i>(Single) </i>Give one target a damage buff that lasts 3 posts</p><p span class='aoe' onclick='targetReplaceAOE(this)'><i>(AoE) </i>Give three targets a damage buff that lasts for 1 post.</p>",
     dice: "1d100 + modifiers / 3",
-    roll: "?r powerbuff <span class='targetreplace'>single/aoe</span> <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code",
+    roll: "?r powerbuff <span class='targetreplace'>single/aoe</span> <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "alchemy animancy chronomancy divine-magic harmonic-magic magitech nature-magic spirit-magic mend",
     category: "normal"
   },

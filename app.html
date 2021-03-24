@@ -51,13 +51,17 @@
 -->
     <div class="masterycategory" id="inputbox">
       <table>
-        <tr>
+        <tr id="nameinput">
           <td>Character Name:</td>
           <td><input type="text" id="charnamereplace" autocomplete="off" placeholder="ex. Astor Balthas"></td>
         </tr>
-        <tr>
+        <tr id="threadcodeinput">
           <td>Thread Code:</td>
           <td><input type="text" id="threadcodereplace" autocomplete="off" placeholder="ex. BE941"></td>
+        </tr>
+        <tr id="threadcodebutton">
+          <td style='color:#eee;user-select:none;cursor:default;'>Thread Code:</td>
+          <td><div id="thrcodebutton" class="threadcodeinput" onclick="clickUpdateCode()">Apply Thread Code</div></td>
         </tr>
       </table>
     </div>
@@ -261,7 +265,7 @@
           <p>On a natural 100, double your total after adding modifiers.</p>
           </div>
           <div class="cardroll"><b>Roll:</b> 1d100 + modifiers</div>
-          <div class="rollcode">?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code</div>
+          <div class="rollcode">?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class="thrcode">Thread Code</span></div>
         </div>
         <div class="card recover">
           <div class="cardicon aci-recover"></div>

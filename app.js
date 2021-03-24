@@ -43,8 +43,8 @@ window.addEventListener('hashchange', function() {
 
     document.getElementById("masterydisplay").innerHTML = "";
 
-    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code</div>";
-    document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'>Recover HP</div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | Thread Code</div>";
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span></div>";
+    document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'>Recover HP</div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | <span class='thrcode'>Thread Code</span></div>";
     document.getElementById("actionsdisplay").innerHTML = "";
 
     var checkMasteries = importstats[0].split(",");
@@ -254,7 +254,9 @@ window.addEventListener('hashchange', function() {
       document.getElementsByClassName("button")[i].style.display = "none";
     }
     document.getElementById("buildcodedisplay").style.display = "none";
-    document.getElementById("inputbox").style.display = "none";
+    document.getElementById("nameinput").style.display = "none";
+    document.getElementById("threadcodeinput").style.display = "block";
+    document.getElementById("threadcodebutton").style.display = "block";
 
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
@@ -328,8 +330,8 @@ window.onload = function() {
 
     document.getElementById("masterydisplay").innerHTML = "";
 
-    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code</div>";
-    document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'>Recover HP</div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | Thread Code</div>";
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span></div>";
+    document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'>Recover HP</div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | <span class='thrcode'>Thread Code</span></div>";
     document.getElementById("actionsdisplay").innerHTML = "";
 
     var checkMasteries = importstats[0].split(",");
@@ -539,7 +541,9 @@ window.onload = function() {
       document.getElementsByClassName("button")[i].style.display = "none";
     }
     document.getElementById("buildcodedisplay").style.display = "none";
-    document.getElementById("inputbox").style.display = "none";
+    document.getElementById("nameinput").style.display = "none";
+    document.getElementById("threadcodeinput").style.display = "block";
+    document.getElementById("threadcodebutton").style.display = "block";
 
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
@@ -1324,11 +1328,6 @@ function namesReplace() {
     document.getElementById("actionsdisplay").innerHTML = document.getElementById("actionsdisplay").innerHTML.replace(/Character Name/g, name);
     document.getElementsByClassName("charname")[0].innerHTML = name + "'s ";
   }
-
-  if (threadcode !== "") {
-    document.getElementById("freeactiondisplay").innerHTML = document.getElementById("freeactiondisplay").innerHTML.replace(/Thread Code/g, threadcode);
-    document.getElementById("actionsdisplay").innerHTML = document.getElementById("actionsdisplay").innerHTML.replace(/Thread Code/g, threadcode);
-  }
 }
 
 function getCode() {
@@ -1342,7 +1341,20 @@ function getCode() {
     var generatecharname = name
   }
 
-  var buildcode = "https://e-foead.github.io/app.html#" + generatemasterycode + "." + generatemasteryrankcode + "." + armorweight + "." + armorRank.toString() + "." + weaponRank.toString() + "." + generateactioncode + "." + generatecharname + "." + threadcode;
+  var buildcode = "https://e-foead.github.io/app.html#" + generatemasterycode + "." + generatemasteryrankcode + "." + armorweight + "." + armorRank.toString() + "." + weaponRank.toString() + "." + generateactioncode + "." + generatecharname;
 
   document.getElementById("finalcode").value = buildcode;
+}
+
+function clickUpdateCode() {
+  var newcode = document.getElementById("threadcodereplace").value;
+  if (newcode === "") {
+    for (var i = 0; i < document.getElementsByClassName("thrcode").length; i++) {
+      document.getElementsByClassName("thrcode")[i].innerHTML = "Thread Code"
+    }
+  } else {
+    for (var i = 0; i < document.getElementsByClassName("thrcode").length; i++) {
+      document.getElementsByClassName("thrcode")[i].innerHTML = newcode;
+    }
+  }
 }
