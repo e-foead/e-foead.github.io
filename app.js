@@ -1187,7 +1187,7 @@ function passiveBonus() {
 
   if (document.querySelector("#defense-enhancementfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1])
-    y = y * 5;
+    y = y * 10;
     var x = document.getElementById("defense-enhancementfinal").innerHTML
     document.getElementById("defense-enhancementfinal").innerHTML = document.getElementById("defense-enhancementfinal").innerHTML.substring(0, x.length - 6)
     document.getElementById("defense-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is " + y + " extra HP, which has already been accounted for in your stats</div></div>"
