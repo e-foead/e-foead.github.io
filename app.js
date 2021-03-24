@@ -1100,7 +1100,7 @@ function hpCalc() {
 
   if (chosenActions.includes("defense-enhancement")) {
     passivehp = parseInt(chosenMasteriesRanks[chosenMasteriesRanks.length - 1]);
-    passivehp = passivehp * 5;
+    passivehp = passivehp * 10;
   }
 
   totalhp = 100 + armormod + passivehp;
