@@ -37,9 +37,9 @@ const actionlist = [
     name: "Taunt",
     color: "#d78747",
     image: "https://terrarp.com/db/action/taunt.png",
-    description: "<p>Enemies are more likely to attack you this cycle. You can indicate if 'Taunt' is on or off in your post without using an action.</p><p><i>This action can be flavored as verbal insults, threaten, taunt aura, using a skill with your mastery to grab the enemy's attention, or simply throwing the enemy a mean stare.</i></p>",
+    description: "<p>When you perform any attack, you may activate your Taunt to gain the Taunting state. You can indicate if your Taunt is active by including or excluding the code below the [hr][/hr] BBcode in your post template.</p><p><i>This action can be flavored as verbal insults, threaten, taunt aura, using a skill with your mastery to grab the enemy's attention, or simply throwing the enemy a mean stare.</i></p>",
     dice: "-",
-    roll: "-",
+    roll: "[taunt][/taunt]",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura hyper-sense",
     category: "normal"
   },
@@ -227,7 +227,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your Alter Mastery makes you more resilient to damage. Add 10 per mastery rank (up to a max of 50) to your HP.</p>",
     dice: "-",
     roll: "-",
-    masteries: "aura battle-spirits hyper-sense summon",
+    masteries: "aura hyper-sense metamorph summon",
     category: "passive"
   },
   {
@@ -238,7 +238,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your Alter Mastery enhances your attacks. Add 3 per mastery rank (up to a max of 15) to all standard and special attacks.</p>",
     dice: "-",
     roll: "-",
-    masteries: "battle-spirits corrupt evoke hyper-sense metamorph summon weapon-arts",
+    masteries: "battle-spirits corrupt evoke hyper-sense metamorph weapon-arts",
     category: "passive"
   },
   {
@@ -249,7 +249,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your Alter Mastery enhances your healing and buffing supportive abilities. Add 3 per mastery rank (up to a max of 15) to standard and special heal and buff.</p>",
     dice: "-",
     roll: "-",
-    masteries: "corrupt evoke mend",
+    masteries: "corrupt evoke mend summon",
     category: "passive"
   },
   {
@@ -260,7 +260,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>From D-rank, your movement increases by 1. Your movement ignores the difficult terrain effect. Also, you can move through monster zones as though they are regular zone.</p>",
     dice: "-",
     roll: "-",
-    masteries: "dynamism metamorph",
+    masteries: "battle-spirits dynamism",
     category: "passive"
   },
   /*{
@@ -293,7 +293,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your mastery grants your Hinder and Ultra Hinder actions more flexibility. Instead of splitting the damage evenly between the enemy's HP and its Stability, you can pick which of the two to use your full roll result on.</p>",
     dice: "-",
     roll: "-",
-    masteries: "aura weapon-arts",
+    masteries: "aura battle-spirits corrupt hyper-sense mend summon weapon-arts",
     category: "passive"
   },
   {
@@ -304,7 +304,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>This passive enhances the Dispel action. When you Dispel, use 2d4. Also, you can now dispel specific enemy's buffs and certain zone effects in addition to ally's conditions. You can only choose to dispel one type of target at a time (allies' conditions, enemies' buffs, or zone effects).</p>",
     dice: "-",
     roll: "-",
-    masteries: "mend",
+    masteries: "aura evoke mend weapon-arts",
     category: "passive"
   },
   /*{
@@ -318,4 +318,15 @@ const actionlist = [
     masteries: "hyper-sense summon weapon-arts",
     category: "passive"
   },*/
+  {
+    lookup: "alter-rush",
+    name: "Alter Rush",
+    color: "#6845a2",
+    image: "https://terrarp.com/db/action/alter-rush.png",
+    description: "<p><i>(Passive)</i></p><p>From C-rank, your movement increases by 1. When you use Rush, you can take one consenting ally in the same zone with you and move as normal. The ally arrives at the same zone as you without expending any of their movement.</p>",
+    dice: "-",
+    roll: "-",
+    masteries: "dynamism metamorph",
+    category: "passive"
+  }
 ]

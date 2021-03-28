@@ -980,7 +980,7 @@ function displayActions() {
     var validmastery = [];
     var x = actionlist.findIndex(a => a.lookup === chosenActions[i]);
     if (actionlist[x].name === "Taunt") {
-      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div></div>";
+      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
@@ -1232,6 +1232,21 @@ function passiveBonus() {
     var x = document.getElementById("speed-upfinal").innerHTML
     document.getElementById("speed-upfinal").innerHTML = document.getElementById("speed-upfinal").innerHTML.substring(0, x.length - 6)
     document.getElementById("speed-upfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+  }
+
+  if (document.querySelector("#alter-rushfinal")) {
+    var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
+    var message;
+    if (y > 1) {
+      message = "You may move 1 extra zone per post, which has already been accounted for in your stats";
+      movement += 1
+    } else {
+      message = "You do not have additional zones of rmovement"
+    }
+
+    var x = document.getElementById("alter-rushfinal").innerHTML
+    document.getElementById("alter-rushfinal").innerHTML = document.getElementById("alter-rushfinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("alter-rushfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
   if (document.querySelector("#movement-enhancementfinal")) {

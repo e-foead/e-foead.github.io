@@ -968,6 +968,11 @@ p {
 	background-repeat: no-repeat;
 }
 
+.aci-alter-rush{
+	background-image: url(https://terrarp.com/db/action/alter-rush.png);
+	background-repeat: no-repeat;
+}
+
 .rollcode {
   font-family: monospace;
   user-select: all;
