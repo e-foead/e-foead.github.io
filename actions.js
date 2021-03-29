@@ -128,7 +128,7 @@ const actionlist = [
     description: "<p><i>(Special Action)</i></p><p>Extend yourself and execute a powerful reckless attack with high unpredictability and high payoff. You become Vulnerable.</p><p><i>You can flavor this action as using powerful abilities or spells close to the enemy, positioning yourself in a compromising location for better aim, etc.</i></p>",
     dice: "2d100 + modifiers",
     roll: "?r reckless <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
-    masteries: "aura battle-spirits corrupt dynamism evoke mend metamorph summon crush-weapons martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons",
+    masteries: "aura battle-spirits corrupt dynamism evoke mend metamorph summon weapon-arts crush-weapons martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons",
     category: "normal"
   },
   {

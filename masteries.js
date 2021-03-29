@@ -346,7 +346,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-weapon-arts.png",
     save: "-",
     expertise: "-",
-    actions: ["Damage Enhancement", "Alter Hinder", "Alter Dispel", "Hinder", "Taunt", "Guard", "Ultra Hinder", "Burst Attack", "Critical Attack"],
+    actions: ["Damage Enhancement", "Alter Hinder", "Alter Dispel", "Hinder", "Taunt", "Guard", "Ultra Hinder", "Burst Attack", "Critical Attack", "Reckless Attack"],
     role: "alter"
   },
 ]
