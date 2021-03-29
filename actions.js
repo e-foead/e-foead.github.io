@@ -40,7 +40,7 @@ const actionlist = [
     description: "<p>When you perform any attack, you may activate your Taunt to gain the Taunting state. You can indicate if your Taunt is active by including or excluding the code below the [hr][/hr] BBcode in your post template.</p><p><i>This action can be flavored as verbal insults, threaten, taunt aura, using a skill with your mastery to grab the enemy's attention, or simply throwing the enemy a mean stare.</i></p>",
     dice: "-",
     roll: "[taunt][/taunt]",
-    masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura hyper-sense",
+    masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura",
     category: "normal"
   },
   {
@@ -51,7 +51,7 @@ const actionlist = [
     description: "<p>Attack the enemy with your guard up and gain the Guarded status.</p><p><i>This action can be flavored as an attack or a spell that does damage and also reduces incoming damage or increases your defense. You can also flavor Guard as a defensive attack.</i></p>",
     dice: "2d20 + modifiers",
     roll: "?r guard <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
-    masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura dynamism hyper-sense summon weapon-arts",
+    masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura hyper-sense summon weapon-arts",
     category: "normal"
   },
   {
@@ -62,7 +62,7 @@ const actionlist = [
     description: "<p>Attack and hinder the target. Half of the attack's final roll result reduces the target's HP, the other half reduces the target's stability/SP.</p><p><i>This action can be flavored as a spell or ability that crowd controls (CC) the enemy such as entanglement, cripple, slow, disrupt, trap, etc.</i></p>",
     dice: "1d100 + modifiers",
     roll: "?r hinder <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
-    masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons aura battle-spirits corrupt dynamism evoke hyper-sense metamorph slash weapon-arts",
+    masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons aura battle-spirits corrupt dynamism evoke hyper-sense metamorph summon weapon-arts",
     category: "normal"
   },
   {
@@ -84,7 +84,7 @@ const actionlist = [
     description: "<p><i>(Special Action)</i></p><p>Perform a big attack and majorly hinder the target at the cost of your own safety. Half of the attack's final roll result reduces the target's HP, the other half reduces the target's Stability. Gain the Vulnerable status.</p><p><i>This action can be flavored as a spell or ability that crowd controls (CC) the enemy such as entanglement, cripple, slow, disrupt, trap, etc.</i></p>",
     dice: "2d100 + modifiers",
     roll: "?r ultrahinder <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
-    masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons aura battle-spirits corrupt dynamism evoke hyper-sense metamorph slash weapon-arts",
+    masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons aura battle-spirits corrupt dynamism evoke hyper-sense metamorph summon weapon-arts",
     category: "normal"
   },
   {
@@ -106,7 +106,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your mastery increases your movement potential. From C-rank, your movement increases by 1.</p><p><i>This passive can be flavored as having great athleticism or your mastery actively enhancing your movement in some way.</i></p>",
     dice: "-",
     roll: "-",
-    masteries: "aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons",
+    masteries: "aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons battle-spirits dynamism metamorph",
     category: "passive"
   },
   {
@@ -117,7 +117,7 @@ const actionlist = [
     description: "<p>Execute an attack with higher base damage, but does not have critical.</p><p><i>You can flavor this action as a tactical strike, a dependable combo of attacks that works, etc.</i></p>",
     dice: "6d20 + modifiers",
     roll: "?r steady <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
-    masteries: "aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons battle-spirits corrupt evoke metamorph summon weapon-arts",
+    masteries: "aeromancy crush-weapons dark-magic martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons corrupt evoke summon",
     category: "normal"
   },
   {
@@ -128,7 +128,7 @@ const actionlist = [
     description: "<p><i>(Special Action)</i></p><p>Extend yourself and execute a powerful reckless attack with high unpredictability and high payoff. You become Vulnerable.</p><p><i>You can flavor this action as using powerful abilities or spells close to the enemy, positioning yourself in a compromising location for better aim, etc.</i></p>",
     dice: "2d100 + modifiers",
     roll: "?r reckless <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
-    masteries: "aura battle-spirits corrupt dynamism evoke mend metamorph summon weapon-arts crush-weapons martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons",
+    masteries: "crush-weapons martial-arts pierce-weapons pyromancy ranged-weapons shadow-arts slash-weapons battle-spirits corrupt dynamism evoke metamorph summon weapon-arts",
     category: "normal"
   },
   {
