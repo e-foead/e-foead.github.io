@@ -1241,6 +1241,9 @@ td {
   border-radius: 3px;
   padding: 2px;
   cursor: pointer;
+  /*border: 1px solid rgba(0,0,0,0.7);*/
+  box-shadow: 1px 1px 3px #999;
+  box-sizing: border-box;
 }
 
 .single {
