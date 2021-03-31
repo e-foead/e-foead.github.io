@@ -233,6 +233,10 @@ window.addEventListener('hashchange', function() {
       } else {
         name = getname.replace(/_/g, " ")
       }
+      for (var i = 0; i < charlist.length; i++) {
+        var unsafe = new RegExp(charlist[i].text,'gi');
+        name = name.replace(unsafe, charlist[i].character);
+      }
     }
 
     if (!importstats[7]) {
@@ -519,6 +523,10 @@ window.onload = function() {
         name = "";
       } else {
         name = getname.replace(/_/g, " ")
+      }
+      for (var i = 0; i < charlist.length; i++) {
+        var unsafe = new RegExp(charlist[i].text,'gi');
+        name = name.replace(unsafe, charlist[i].character);
       }
     }
 
