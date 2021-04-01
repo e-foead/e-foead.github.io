@@ -137,7 +137,7 @@ const actionlist = [
     color: "#c72828",
     image: "https://terrarp.com/db/action/burst.png",
     description: "<p><i>(Special Action)</i></p><p>Execute an attack that can deal massive damage at the cost of your safety. You become Vulnerable.</p><p><i>You can flavor this action as a high-level destructive spell, a deadly special attack, a combo chain, etc.</i><p>",
-    dice: "8d20 + 1d20 per mastery rank and weapon rank",
+    dice: "8d20 + 1d20 per mastery rank and weapon rank + buff/other modifiers",
     roll: "?r burst <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
     masteries: "aeromancy crush-weapons dark-magic pyromancy slash-weapons battle-spirits corrupt dynamism evoke metamorph summon weapon-arts",
     category: "normal"
