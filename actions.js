@@ -337,7 +337,7 @@ const actionlist = [
     description: "<p>Greatly inspire allies. Give 3 targets a bonus toward any mastery or expertise check. Each target gains Xd8 (1d8 per MR) to a check (save not included) this cycle.</p>",
     dice: "1d8 per MR",
     roll: "?r alterinspire <span class='masteryreplace'>MR</span> # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
-    masteries: "dynamism metamorph",
+    masteries: "aura",
     category: "normal"
   },
   {

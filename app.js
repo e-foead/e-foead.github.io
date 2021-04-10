@@ -219,9 +219,9 @@ window.addEventListener('hashchange', function() {
 
     if (parseInt(checkarank) < 3 && checkactions.length > 5) {
       errormessage = "You have too many actions for your armor rank";
-    } else if (parseInt(checkarank) === 2) && checkactions.length > 4 {
+    } else if (parseInt(checkarank) === 2 && checkactions.length > 4) {
       errormessage = "You have too many actions for your armor rank"
-    } else if (parseInt(checkarank) === 1) && checkactions.length > 3 {
+    } else if (parseInt(checkarank) === 1 && checkactions.length > 3) {
       errormessage = "You have too many actions for your armor rank"
     }
 
@@ -526,9 +526,9 @@ window.onload = function() {
 
     if (parseInt(checkarank) < 3 && checkactions.length > 5) {
       errormessage = "You have too many actions for your armor rank";
-    } else if (parseInt(checkarank) === 2) && checkactions.length > 4 {
+    } else if (parseInt(checkarank) === 2 && checkactions.length > 4) {
       errormessage = "You have too many actions for your armor rank"
-    } else if (parseInt(checkarank) === 1) && checkactions.length > 3 {
+    } else if (parseInt(checkarank) === 1 && checkactions.length > 3) {
       errormessage = "You have too many actions for your armor rank"
     }
 
@@ -1050,7 +1050,24 @@ function displayActions() {
       if (document.getElementsByClassName("aci-" + actionlist[x].lookup).length !== 1) {
         document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
       }
-    } else if (actionlist[x].category !== "passive") {
+    } else if (actionlist[x].name === "Alter Inspire") {
+      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='cardroll'><b>Roll:</b> " + actionlist[x].dice + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
+      for (var a = 0; a < chosenMasteries.length; a++) {
+        if (actionlist[x].masteries.includes(chosenMasteries[a])) {
+          var z = masterylist.findIndex(q => q.lookup === chosenMasteries[a]);
+          validmastery.push("<div class='display masterycircle " + chosenMasteries[a] + "'><img onclick='clickMastery(this)' class='" + masterylist[z].lookup + "' src=" + masterylist[z].image + "></div>")
+        }
+      }
+
+      displaycard = displaycard.substring(0, displaycard.length - 6);
+      displaycard += "<div class='line'></div><div class='masteryicon'>" + validmastery.join("",) + "</div></div>"
+      document.getElementById("actionsdisplay").innerHTML += displaycard;
+      document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
+      document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
+      if (document.getElementsByClassName("aci-" + actionlist[x].lookup).length !== 1) {
+        document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
+    }
+  } else if (actionlist[x].category !== "passive") {
       displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='cardroll'><b>Roll:</b> " + actionlist[x].dice + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
       for (var a = 0; a < chosenMasteries.length; a++) {
         if (actionlist[x].masteries.includes(chosenMasteries[a])) {
