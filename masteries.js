@@ -276,7 +276,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-corrupt.png",
     save: "-",
     expertise: "-",
-    actions: ["Damage", "Support", "Exceed", "Alter Hinder", "Steady", "Hinder", "Ultra Hinder", "Critical Attack", "Burst Attack", "Reckless Attack"],
+    actions: ["Damage", "Support", "Exceed", "Steady", "Hinder", "Ultra Hinder", "Critical Attack", "Burst Attack", "Reckless Attack"],
     role: "alter"
   },
   {
