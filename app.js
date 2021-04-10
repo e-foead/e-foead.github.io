@@ -1153,9 +1153,9 @@ function displayEquipment() {
     document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, you may perform two actions instead of one. This can be two standard actions or one standard action and one Special Action.</p>";
   } else {
     var swind = parseInt(armorRank)
-    var swindbonus = swind * 10;
+    var swindbonus = swind * 15;
     document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Second Wind</h4>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, regain 10 " + swindbonus + " HP.</p>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, regain " + swindbonus + " HP.</p>";
   }
 }
 
