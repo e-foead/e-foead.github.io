@@ -1008,6 +1008,7 @@ function backPart3() {
   targeting = 0;
 
   passivehp = 0;
+  tauntbonus = 0;
 
   window.scrollTo(0,0);
 }
@@ -1154,7 +1155,7 @@ function displayEquipment() {
     var swind = parseInt(armorRank)
     var swindbonus = swind * 10;
     document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Second Wind</h4>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread when your HP is reduced to 0, you immediately regain " + swindbonus + " HP instead of dying.</p>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, regain 10 " + swindbonus + " HP.</p>";
   }
 }
 
@@ -1209,7 +1210,13 @@ function hpCalc() {
     passivehp = passivehp * 10;
   }
 
-  totalhp = 100 + armormod + passivehp;
+  if (chosenActions.includes("taunt")) {
+    tauntbonus = 20
+  } else {
+    tauntbonus = 0
+  }
+
+  totalhp = 100 + armormod + passivehp + tauntbonus;
 
   document.getElementsByClassName("hpcontainer")[0].innerHTML += "<div>" + totalhp + "</div>"
 }

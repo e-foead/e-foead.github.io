@@ -37,7 +37,7 @@ const actionlist = [
     name: "Taunt",
     color: "#d78747",
     image: "https://terrarp.com/db/action/taunt.png",
-    description: "<p>When you perform any attack, you may activate your Taunt to gain the Taunting state. You can indicate if your Taunt is active by including or excluding the code below the [hr][/hr] BBcode in your post template.</p><p><i>This action can be flavored as verbal insults, threaten, taunt aura, using a skill with your mastery to grab the enemy's attention, or simply throwing the enemy a mean stare.</i></p>",
+    description: "<p>Make enemies more likely to hit you. When you perform an attack action, you may activate taunt to gain the Taunting State. To activate taunt, paste the code below anywhere within your post.</p><p>Taunt also increases your maximum HP by +5 per MR (max: 25). Even when it's not activated, having taunt in your build increases your chance of being targeted by enemies. </p><p><i>This action can be flavored as verbal insults, threaten, taunt aura, using a skill with your mastery to grab the enemy's attention, or simply throwing the enemy a mean stare.</i></p>",
     dice: "-",
     roll: "[taunt][/taunt]",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura",
@@ -304,7 +304,7 @@ const actionlist = [
     description: "<p><i>(Passive)</i></p><p>Your mastery grants your Hinder and Ultra Hinder actions more flexibility. Instead of splitting the damage evenly between the enemy's HP and its Stability, you can pick which of the two to use your full roll result on.</p>",
     dice: "-",
     roll: "-",
-    masteries: "aura battle-spirits corrupt weapon-arts",
+    masteries: "aura battle-spirits weapon-arts",
     category: "passive"
   },
   {
