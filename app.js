@@ -1429,7 +1429,7 @@ function passiveBonus() {
 
     var z = document.getElementById("momentumfinal").innerHTML
     document.getElementById("momentumfinal").innerHTML = document.getElementById("momentumfinal").innerHTML.substring(0, z.length - 6)
-    document.getElementById("damagefinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage. Add the total of your buffs, if any, and this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r attack A B " + y + " # Comment</p></div></div>"
+    document.getElementById("momentumfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage. Add the total of your buffs, if any, and this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r attack A B " + y + " # Comment</p></div></div>"
   }
 
   movementmessage = movement + " zone(s) per post"
