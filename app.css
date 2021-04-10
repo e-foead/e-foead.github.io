@@ -123,6 +123,7 @@ ul {
   user-select: none;
   box-sizing: border-box;
   transition: all .1s ease-in-out;
+  cursor: pointer;
 }
 
 .mbox {
@@ -858,8 +859,8 @@ p {
     background-image: url(https://terrarp.com/db/action/attack.png);
     background-repeat: no-repeat;
 }
-.aci-guard{
-	background-image: url(https://terrarp.com/db/action/guard.png);
+.aci-counter{
+	background-image: url(https://terrarp.com/db/action/counter.png);
 	background-repeat: no-repeat;
 }
 .aci-taunt{
@@ -926,19 +927,19 @@ p {
 	background-image: url(https://terrarp.com/db/action/pbuff.png);
 	background-repeat: no-repeat;
 }
-.aci-damage-enhancement{
+.aci-damage{
 	background-image: url(https://terrarp.com/db/action/damage.png);
 	background-repeat: no-repeat;
 }
-.aci-support-enhancement{
+.aci-support{
 	background-image: url(https://terrarp.com/db/action/support.png);
 	background-repeat: no-repeat;
 }
-.aci-defense-enhancement{
+.aci-defense{
 	background-image: url(https://terrarp.com/db/action/defense.png);
 	background-repeat: no-repeat;
 }
-.aci-speed-up{
+.aci-speed{
 	background-image: url(https://terrarp.com/db/action/speed.png);
 	background-repeat: no-repeat;
 }
@@ -950,7 +951,7 @@ p {
 	background-image: url(https://terrarp.com/db/action/ferrier.png);
 	background-repeat: no-repeat;
 }
-.aci-movement-enhancement{
+.aci-extra-movement{
 	background-image: url(https://terrarp.com/db/action/movement.png);
 	background-repeat: no-repeat;
 }
@@ -968,9 +969,77 @@ p {
 	background-repeat: no-repeat;
 }
 
-.aci-alter-rush{
-	background-image: url(https://terrarp.com/db/action/alter-rush.png);
+.aci-inspire{
+	background-image: url(https://terrarp.com/db/action/inspire.png);
 	background-repeat: no-repeat;
+}
+
+.aci-carry{
+	background-image: url(https://terrarp.com/db/action/carry.png);
+	background-repeat: no-repeat;
+}
+
+.aci-momentum{
+	background-image: url(https://terrarp.com/db/action/momentum.png);
+	background-repeat: no-repeat;
+}
+
+.aci-alter-inspire{
+	background-image: url(https://terrarp.com/db/action/inspire.png);
+	background-repeat: no-repeat;
+}
+
+.aci-exceed{
+	background-image: url(https://terrarp.com/db/action/exceed.png);
+	background-repeat: no-repeat;
+}
+
+.aci-fortitude {
+  /*background-image: url(https://terrarp.com/db/tool/fortitude.png);*/
+  background-color: #df6135;
+  background-repeat: no-repeat;
+}
+
+.aci-reflex {
+  /*background-image: url(https://terrarp.com/db/tool/reflex.png);*/
+  background-color: #68b435;
+  background-repeat: no-repeat;
+}
+
+.aci-will {
+  /*background-image: url(https://terrarp.com/db/tool/will.png);*/
+  background-color: #9f5cce;
+  background-repeat: no-repeat;
+}
+
+.aci-fitness {
+  /*background-image: url(https://terrarp.com/db/tool/fitness.png);*/
+  background-color: #d02222;
+  background-repeat: no-repeat;
+}
+
+.aci-knack {
+  /*background-image: url(https://terrarp.com/db/tool/knack.png);*/
+  background-color: #389c44;
+  background-repeat: no-repeat;
+}
+
+.aci-awareness {
+  /*background-image: url(https://terrarp.com/db/tool/awareness.png);*/
+  background-color: #de6e47;
+  background-repeat: no-repeat;
+}
+
+.aci-knowledge {
+  /*background-image: url(https://terrarp.com/db/tool/knowledge.png);*/
+  background-color: #6e51cb;
+  background-repeat: no-repeat;
+}
+
+.aci-presence {
+  /*background-image: url(https://terrarp.com/db/tool/presence.png);*/
+  background-color: #e2427b;
+  background-repeat: no-repeat;
 }
 
 .rollcode {
@@ -1141,7 +1210,7 @@ p {
   background-color: rgba(0,0,0,0);
 }
 
-.savecontainer, .expertisecontainer {
+.savecontainer, .expertisecontainer, .checkrollcontainer, .saverollcontainer {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -1150,6 +1219,31 @@ p {
   background: #e1e1e1;
   flex: 1 1 0;
 }
+
+#saveschecks{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.checkrollcontainer, .saverollcontainer {
+  margin: 0.5vw;
+  justify-content: space-around;
+}
+
+.checkrollcontainer > div, .saverollcontainer > div {
+  margin: 0.75vw;
+}
+
+.checkrollcontainer > .rollcode, .saverollcontainer > .rollcode {
+  font-size: 0.5em;
+}
+
+#masterycheckicons, #savesicons, #expertiseicons {
+  display: flex;
+  justify-content: center;
+}
+
 .hpcontainer{
   background: #c34747;
 }

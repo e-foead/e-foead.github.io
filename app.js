@@ -17,6 +17,7 @@ window.addEventListener('hashchange', function() {
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
     movement = 1;
+    targeting = 0;
     name = threadcode = "";
 
     document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
@@ -37,11 +38,19 @@ window.addEventListener('hashchange', function() {
     document.getElementById("skillawareness").innerHTML = "+";
     document.getElementById("skillknowledge").innerHTML = "+";
 
+    document.getElementsByClassName("expertisereplace")[0].innerHTML = "Type";
+    document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = "X";
+    document.getElementsByClassName("expertisereplace")[0].innerHTML = "Type";
+    document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = "X";
+    document.getElementsByClassName("mnamereplace")[0].innerHTML = "Type";
+    document.getElementsByClassName("masteryreplace")[0].innerHTML = "MR";
+
     document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://terrarp.com/db/tool/weapon-rank.png'></div><div class='displaytitle'>Weapon Rank</div>";
     document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div class='displaytitle'>Armor Rank</div>";
     document.getElementsByClassName("passivecontainer")[0].innerHTML = "<span class='armorpassive'></span>";
 
     document.getElementById("masterydisplay").innerHTML = "";
+    document.getElementById("masterycheckicons").innerHTML = "";
 
     document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span></div>";
     document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'>Recover HP</div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | <span class='thrcode'>Thread Code</span></div>";
@@ -266,6 +275,9 @@ window.addEventListener('hashchange', function() {
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
     movement = 1;
+    targeting = 0;
+
+    savesChecks();
 
     displayMasteries();
     displayEquipment();
@@ -307,6 +319,7 @@ window.onload = function() {
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
     movement = 1;
+    targeting = 0;
 
     name = threadcode = "";
 
@@ -328,11 +341,19 @@ window.onload = function() {
     document.getElementById("skillawareness").innerHTML = "+";
     document.getElementById("skillknowledge").innerHTML = "+";
 
+    document.getElementsByClassName("expertisereplace")[0].innerHTML = "Type";
+    document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = "X";
+    document.getElementsByClassName("expertisereplace")[0].innerHTML = "Type";
+    document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = "X";
+    document.getElementsByClassName("mnamereplace")[0].innerHTML = "Type";
+    document.getElementsByClassName("masteryreplace")[0].innerHTML = "MR";
+
     document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://terrarp.com/db/tool/weapon-rank.png'></div><div class='displaytitle'>Weapon Rank</div>";
     document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div class='displaytitle'>Armor Rank</div>";
     document.getElementsByClassName("passivecontainer")[0].innerHTML = "<span class='armorpassive'></span>";
 
     document.getElementById("masterydisplay").innerHTML = "";
+    document.getElementById("masterycheckicons").innerHTML = "";
 
     document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span></div>";
     document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'>Recover HP</div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | <span class='thrcode'>Thread Code</span></div>";
@@ -557,6 +578,9 @@ window.onload = function() {
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
     movement = 1;
+    targeting = 0;
+
+    savesChecks();
 
     displayMasteries();
     displayEquipment();
@@ -873,10 +897,12 @@ function getCards() {
 
 function selectAction(e) {
   var slots;
-  if (armorweight === "light") {
-    slots = 5
-  } else {
+  if (armorRank === "1") {
+    slots = 3
+  } else if (armorRank === "2") {
     slots = 4
+  } else {
+    slots = 5
   }
 
   if (e.classList.contains("selected")) {
@@ -913,6 +939,10 @@ function nextButton3() {
   calcSaves();
   calcExpertise();
 
+  savesChecks();
+  namesReplace();
+  valueReplace();
+
   getCode();
 
   window.scrollTo(0,0);
@@ -946,11 +976,19 @@ function backPart3() {
   document.getElementById("skillawareness").innerHTML = "+";
   document.getElementById("skillknowledge").innerHTML = "+";
 
+  document.getElementsByClassName("expertisereplace")[0].innerHTML = "Type";
+  document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = "X";
+  document.getElementsByClassName("expertisereplace")[0].innerHTML = "Type";
+  document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = "X";
+  document.getElementsByClassName("mnamereplace")[0].innerHTML = "Type";
+  document.getElementsByClassName("masteryreplace")[0].innerHTML = "MR";
+
   document.getElementsByClassName("weaponrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img src='https://terrarp.com/db/tool/weapon-rank.png'></div><div class='displaytitle'>Weapon Rank</div>";
   document.getElementsByClassName("armorrankdisplay")[0].innerHTML = "<div class='displaycircle equipment'><img id='armordisplay'></div><div class='displaytitle'>Armor Rank</div>";
   document.getElementsByClassName("passivecontainer")[0].innerHTML = "<span class='armorpassive'></span>";
 
   document.getElementById("masterydisplay").innerHTML = "";
+  document.getElementById("masterycheckicons").innerHTML = "";
 
   document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code</div>";
   document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'>Recover HP</div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | Thread Code</div>";
@@ -1026,6 +1064,57 @@ function displayActions() {
   passiveBonus();
 }
 
+function savesChecks() {
+  masteryChecks();
+}
+
+function clickFortitude() {
+  document.getElementsByClassName("savereplace")[0].innerHTML = "Fortitude";
+  document.getElementsByClassName("savebonusreplace")[0].innerHTML = fortitude;
+}
+
+function clickReflex() {
+  document.getElementsByClassName("savereplace")[0].innerHTML = "Reflex";
+  document.getElementsByClassName("savebonusreplace")[0].innerHTML = reflex;
+}
+
+function clickWill() {
+  document.getElementsByClassName("savereplace")[0].innerHTML = "Will";
+  document.getElementsByClassName("savebonusreplace")[0].innerHTML = will;
+}
+
+function clickFitness() {
+  document.getElementsByClassName("expertisereplace")[0].innerHTML = "Fitness";
+  document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = fitness;
+}
+
+function clickKnack() {
+  document.getElementsByClassName("expertisereplace")[0].innerHTML = "Knack";
+  document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = knack;
+}
+
+function clickAwareness() {
+  document.getElementsByClassName("expertisereplace")[0].innerHTML = "Awareness";
+  document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = awareness;
+}
+
+function clickKnowledge() {
+  document.getElementsByClassName("expertisereplace")[0].innerHTML = "Knowledge";
+  document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = knowledge;
+}
+
+function clickPresence() {
+  document.getElementsByClassName("expertisereplace")[0].innerHTML = "Presence";
+  document.getElementsByClassName("expertisebonusreplace")[0].innerHTML = presence;
+}
+
+function masteryChecks() {
+  for (var i = 0; i < chosenMasteries.length; i++) {
+    var z = masterylist.findIndex(q => q.lookup === chosenMasteries[i])
+    document.getElementById("masterycheckicons").innerHTML += "<div class='display masterycircle " + chosenMasteries[i] + "'><img onclick='clickMastery(this)' class='" + masterylist[z].lookup + "' src=" + masterylist[z].image + "></div>"
+  }
+}
+
 function displayMasteries() {
   var displaym;
   for (var i = 0; i < chosenMasteries.length; i++) {
@@ -1054,14 +1143,18 @@ function displayEquipment() {
   document.getElementById("armordisplay").src = armorimg;
 
   if (armorweight === "light") {
-    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Armor Passive: Light</h4>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, you may swap out your chosen actions for a new loadout that thread.</p>";
+    var surge = parseInt(armorRank)
+    var surgebonus = surge * 20
+    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Surge</h4>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread after you have made a roll, you may add  " + surgebonus + " to it (before any Multipliers). Surging Revive gives you " + surge + " additional revive target(s). Dispel and Inspire cannot be surged.</p>";
   } else if (armorweight === "medium") {
-    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Armor Passive: Medium</h4>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, you may add +20 per Armor Rank to any roll you make before multipliers.</p>";
+    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Haste</h4>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, you may perform two actions instead of one. This can be two standard actions or one standard action and one Special Action.</p>";
   } else {
-    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Armor Passive: Heavy</h4>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, you may recover 20 HP per Armor Rank.</p>";
+    var swind = parseInt(armorRank)
+    var swindbonus = swind * 10;
+    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Second Wind</h4>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread when your HP is reduced to 0, you immediately regain " + swindbonus + " HP instead of dying.</p>";
   }
 }
 
@@ -1075,6 +1168,7 @@ function clickMastery(e) {
 function valueReplace() {
   document.getElementById("freeactiondisplay").innerHTML = document.getElementById("freeactiondisplay").innerHTML.replace(/WR/g, weaponRankLetter);
   document.getElementById("actionsdisplay").innerHTML = document.getElementById("actionsdisplay").innerHTML.replace(/WR/g, weaponRankLetter);
+  document.getElementById("saveschecks").innerHTML = document.getElementById("saveschecks").innerHTML.replace(/WR/g, weaponRankLetter);
 
   if (document.getElementById("alter-dispelfinal")) {
     document.getElementById("actionsdisplay").innerHTML = document.getElementById("actionsdisplay").innerHTML.replace(/r dispel/g, "r alterdispel");
@@ -1101,7 +1195,7 @@ function hpCalc() {
   if (armorweight === "light") {
     multiplier = 10;
   } else if (armorweight === "medium") {
-    multiplier = 20;
+    multiplier = 15;
   } else {
     multiplier = 30;
   }
@@ -1110,7 +1204,7 @@ function hpCalc() {
 
   var armormod = ar * multiplier;
 
-  if (chosenActions.includes("defense-enhancement")) {
+  if (chosenActions.includes("defense")) {
     passivehp = parseInt(chosenMasteriesRanks[chosenMasteriesRanks.length - 1]);
     passivehp = passivehp * 10;
   }
@@ -1193,29 +1287,34 @@ var targeting = 0;
 
 function passiveBonus() {
 
-  if (document.querySelector("#defense-enhancementfinal")) {
+  if (document.querySelector("#defensefinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1])
     y = y * 10;
-    var x = document.getElementById("defense-enhancementfinal").innerHTML
-    document.getElementById("defense-enhancementfinal").innerHTML = document.getElementById("defense-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("defense-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is " + y + " extra HP, which has already been accounted for in your stats</div></div>"
+    var x = document.getElementById("defensefinal").innerHTML
+    document.getElementById("defensefinal").innerHTML = document.getElementById("defensefinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("defensefinal").innerHTML += "<div class='cardinfo'>Your bonus is " + y + " extra HP, which has already been accounted for in your stats</div></div>"
   }
 
-  if (document.querySelector("#damage-enhancementfinal")) {
+  if (document.querySelector("#damagefinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1])
     y = y * 3;
-    var x = document.getElementById("damage-enhancementfinal").innerHTML
-    document.getElementById("damage-enhancementfinal").innerHTML = document.getElementById("damage-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("damage-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage. Add the total of your buffs, if any, and this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r attack A B " + y + " # Comment</p></div></div>"
+    var x = document.getElementById("damagefinal").innerHTML
+    document.getElementById("damagefinal").innerHTML = document.getElementById("damagefinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("damagefinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage. Add the total of your buffs, if any, and this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r attack A B " + y + " # Comment</p></div></div>"
   }
 
-  if (document.querySelector("#support-enhancementfinal")) {
+  if (document.querySelector("#supportfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1])
-    y = y * 3;
-    var x = document.getElementById("support-enhancementfinal").innerHTML
-    document.getElementById("support-enhancementfinal").innerHTML = document.getElementById("support-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("support-enhancementfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra healing/buffing. Add this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r heal single A B " + y + " # Comment</p></div></div>"
+    y = y * 5;
+    var x = document.getElementById("supportfinal").innerHTML
+    document.getElementById("supportfinal").innerHTML = document.getElementById("supportfinal").innerHTML.substring(0, x.length - 6)
+
+    if (y > 9) {
+      document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'><p>Your bonus is +" + y + " extra healing/buffing. Add this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r heal single A B " + y + " # Comment</p><p>You may add 4 to your Dispel and Inspire rolls (e.g. <span style='font-family:monospace'>?r dispel S 4 # Mend | Asch | 1C1</span>)</p></div></div>"
+    } else {
+    document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra healing/buffing. Add this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r heal single A B " + y + " # Comment</p></div></div>"
   }
+}
 
   if (document.querySelector("#maneuverfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
@@ -1227,7 +1326,7 @@ function passiveBonus() {
     document.getElementById("maneuverfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
-  if (document.querySelector("#speed-upfinal")) {
+  if (document.querySelector("#speedfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
     var message;
     if (y === 1 || y === 2) {
@@ -1237,27 +1336,27 @@ function passiveBonus() {
       message = "You may move " + z + " extra zone(s) per post, which has already been accounted for in your stats"
       movement += z
     }
-    var x = document.getElementById("speed-upfinal").innerHTML
-    document.getElementById("speed-upfinal").innerHTML = document.getElementById("speed-upfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("speed-upfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+    var x = document.getElementById("speedfinal").innerHTML
+    document.getElementById("speedfinal").innerHTML = document.getElementById("speedfinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("speedfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
-  if (document.querySelector("#alter-rushfinal")) {
+  if (document.querySelector("#carryfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
     var message;
-    if (y > 1) {
+    if (y >= 1) {
       message = "You may move 1 extra zone per post, which has already been accounted for in your stats";
       movement += 1
     } else {
       message = "You do not have additional zones of rmovement"
     }
 
-    var x = document.getElementById("alter-rushfinal").innerHTML
-    document.getElementById("alter-rushfinal").innerHTML = document.getElementById("alter-rushfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("alter-rushfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+    var x = document.getElementById("carryfinal").innerHTML
+    document.getElementById("carryfinal").innerHTML = document.getElementById("carryfinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("carryfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
-  if (document.querySelector("#movement-enhancementfinal")) {
+  if (document.querySelector("#extra-movementfinal")) {
     var offense = [];
     for (var i = 0; i < chosenMasteries.length; i++) {
       var y = masterylist.findIndex(item => item.lookup === chosenMasteries[i]);
@@ -1280,9 +1379,9 @@ function passiveBonus() {
       message = "You do not have additional zones of movement"
     }
 
-    var x = document.getElementById("movement-enhancementfinal").innerHTML;
-    document.getElementById("movement-enhancementfinal").innerHTML = document.getElementById("movement-enhancementfinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("movement-enhancementfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+    var x = document.getElementById("extra-movementfinal").innerHTML;
+    document.getElementById("extra-movementfinal").innerHTML = document.getElementById("extra-movementfinal").innerHTML.substring(0, x.length - 6)
+    document.getElementById("extra-movementfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
   }
 
   if (document.querySelector("#ferrierfinal")) {
@@ -1300,27 +1399,8 @@ function passiveBonus() {
   }
 
   if (document.querySelector("#extensionfinal")) {
-    var checkranknum = [];
-    for (var i = 0; i < chosenMasteriesRanks.length; i++) {
-      checkranknum.push(parseInt(chosenMasteriesRanks[i]))
-    }
 
-    var x = Math.max(...checkranknum);
-
-    if (x === 5) {
-      message = "Your actions can target enemies/allies up to 2 zones away";
-      targeting = 2;
-    } else if (x > 1) {
-      message = "Your actions can target enemies/allies up to 1 zone away"
-      targeting = 1;
-    } else {
-      message = "Your actions can only target enemies/allies in your zone"
-      targeting = 0;
-    }
-
-    var z = document.getElementById("extensionfinal").innerHTML
-    document.getElementById("extensionfinal").innerHTML = document.getElementById("extensionfinal").innerHTML.substring(0, z.length - 6)
-    document.getElementById("extensionfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
+    targeting = 1;
 
     if (targeting === 2) {
       document.getElementsByClassName("rangecontainer")[0].style.display = "inline-block";
@@ -1336,6 +1416,15 @@ function passiveBonus() {
     }
   }
 
+  if (document.querySelector("#momentumfinal")) {
+    y = movement * 5;
+    message = "You can add " + y + " additional damage to your attacks"
+
+    var z = document.getElementById("momentumfinal").innerHTML
+    document.getElementById("momentumfinal").innerHTML = document.getElementById("momentumfinal").innerHTML.substring(0, z.length - 6)
+    document.getElementById("damagefinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage. Add the total of your buffs, if any, and this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r attack A B " + y + " # Comment</p></div></div>"
+  }
+
   movementmessage = movement + " zone(s) per post"
   document.getElementsByClassName("movementcontainer")[0].innerHTML += movementmessage
 }
@@ -1349,6 +1438,7 @@ function namesReplace() {
   if (name !== "") {
     document.getElementById("freeactiondisplay").innerHTML = document.getElementById("freeactiondisplay").innerHTML.replace(/Character Name/g, name);
     document.getElementById("actionsdisplay").innerHTML = document.getElementById("actionsdisplay").innerHTML.replace(/Character Name/g, name);
+    document.getElementById("saveschecks").innerHTML = document.getElementById("saveschecks").innerHTML.replace(/Character Name/g, name);
     document.getElementsByClassName("charname")[0].innerHTML = name + "'s ";
   }
 }
