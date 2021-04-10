@@ -51,7 +51,7 @@ h1 {
 .actionboxinfo {
     background: #fff;
     border-radius: 4px;
-    margin: 10px 5px;
+    /*margin: 10px 5px;*/
     padding: 10px 20px;
     border: 1px solid #e1e1e1;
 }
