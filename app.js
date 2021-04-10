@@ -217,8 +217,12 @@ window.addEventListener('hashchange', function() {
       errormessage = "You have too many actions."
     }
 
-    if (armorweight !== "light" && checkactions.length > 4) {
-      errormessage = "You have too many actions for your armor weight";
+    if (parseInt(checkarank) < 3 && checkactions.length > 5) {
+      errormessage = "You have too many actions for your armor rank";
+    } else if (parseInt(checkarank) === 2) && checkactions.length > 4 {
+      errormessage = "You have too many actions for your armor rank"
+    } else if (parseInt(checkarank) === 1) && checkactions.length > 3 {
+      errormessage = "You have too many actions for your armor rank"
     }
 
     if (errormessage.length > 0) {
@@ -520,8 +524,12 @@ window.onload = function() {
       errormessage = "You have too many actions."
     }
 
-    if (armorweight !== "light" && checkactions.length > 4) {
-      errormessage = "You have too many actions for your armor weight";
+    if (parseInt(checkarank) < 3 && checkactions.length > 5) {
+      errormessage = "You have too many actions for your armor rank";
+    } else if (parseInt(checkarank) === 2) && checkactions.length > 4 {
+      errormessage = "You have too many actions for your armor rank"
+    } else if (parseInt(checkarank) === 1) && checkactions.length > 3 {
+      errormessage = "You have too many actions for your armor rank"
     }
 
     if (errormessage.length > 0) {
