@@ -177,6 +177,10 @@ ul {
   cursor: pointer;
 }
 
+.armorpassive {
+  display: none;
+}
+
 .selected{
   border: 1px solid #ccc;/*a9357b*/
 }

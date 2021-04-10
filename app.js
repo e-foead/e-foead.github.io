@@ -1155,15 +1155,15 @@ function displayEquipment() {
     var surge = parseInt(armorRank)
     var surgebonus = surge * 20
     document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Surge</h4>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread after you have made a roll, you may add  " + surgebonus + " to it (before any Multipliers). Surging Revive gives you " + surge + " additional revive target(s). Dispel and Inspire cannot be surged.</p>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<b>Surge.</b> Once per thread after you have made a roll, you may add  " + surgebonus + " to it (before any Multipliers). Surging Revive gives you " + surge + " additional revive target(s). Dispel and Inspire cannot be surged.";
   } else if (armorweight === "medium") {
     document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Haste</h4>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, you may perform two actions instead of one. This can be two standard actions or one standard action and one Special Action.</p>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<b>Haste.</b> Once per thread, you may perform two actions instead of one. This can be two standard actions or one standard action and one Special Action.";
   } else {
     var swind = parseInt(armorRank)
     var swindbonus = swind * 15;
     document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Second Wind</h4>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<p>Once per thread, regain " + swindbonus + " HP.</p>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<b>Second Wind.</b> Once per thread, regain " + swindbonus + " HP.";
   }
 }
 
@@ -1204,7 +1204,7 @@ function hpCalc() {
   if (armorweight === "light") {
     multiplier = 10;
   } else if (armorweight === "medium") {
-    multiplier = 15;
+    multiplier = 20;
   } else {
     multiplier = 30;
   }

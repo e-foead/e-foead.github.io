@@ -256,7 +256,7 @@ const masterylist = [
     image: "https://terrarp.com/db/mastery/w-aura.png",
     save: "-",
     expertise: "-",
-    actions: ["Defense", "Alter Hinder", "Alter Inspire", "Counter", "Protect", "Hinder", "Taunt", "Ultra Protect", "Ultra Hinder", "Inspire"],
+    actions: ["Defense", "Alter Hinder", "Alter Inspire", "Counter", "Protect", "Hinder", "Taunt", "Ultra Protect", "Ultra Hinder"],
     role: "alter"
   },
   {

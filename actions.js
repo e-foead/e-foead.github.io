@@ -37,7 +37,7 @@ const actionlist = [
     name: "Taunt",
     color: "#d78747",
     image: "https://terrarp.com/db/action/taunt.png",
-    description: "<p>Make enemies more likely to hit you. When you perform an attack action, you may activate taunt to gain the Taunting State. To activate taunt, paste the code below anywhere within your post.</p><p>Taunt also increases your maximum HP by +5 per MR (max: 25). Even when it's not activated, having taunt in your build increases your chance of being targeted by enemies. </p><p><i>This action can be flavored as verbal insults, threaten, taunt aura, using a skill with your mastery to grab the enemy's attention, or simply throwing the enemy a mean stare.</i></p>",
+    description: "<p>Make enemies more likely to hit you. When you perform an attack action, you may activate taunt to gain the Taunting State. To activate taunt, paste the code below anywhere within your post.</p><p><b>Passive.</b> Taunt also increases your maximum HP by 20. Even when it's not activated, having taunt in your build increases your chance of being targeted by enemies. </p><p><i>This action can be flavored as verbal insults, threaten, taunt aura, using a skill with your mastery to grab the enemy's attention, or simply throwing the enemy a mean stare.</i></p>",
     dice: "-",
     roll: "[taunt][/taunt]",
     masteries: "arcanamancy astramancy beast-arts geomancy guard-arts hemomancy hydromancy illusion-magic aura",
@@ -222,12 +222,12 @@ const actionlist = [
   {
     lookup: "inspire",
     name: "Inspire",
-    color: "#3460d0",
+    color: "rgb(78, 155, 226)",
     image: "https://terrarp.com/db/action/inspire.png",
     description: "<p>Inspire allies. Give 3 targets a bonus toward any mastery or expertise check. Each target gains Xd6 (1d6 per MR) to a check (save not included) this cycle.</p><p><i>This action can be flavored as having an inspiring presence or actively helping others achieve specific tasks.</i></p>",
     dice: "1d6 per MR",
     roll: "?r inspire <span class='masteryreplace'>MR</span> # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span>",
-    masteries: "alchemy animancy chronomancy divine-magic harmonic-magic magitech nature-magic spirit-magic aura mend summon",
+    masteries: "alchemy animancy chronomancy divine-magic harmonic-magic magitech nature-magic spirit-magic mend summon",
     category: "normal"
   },
   {
