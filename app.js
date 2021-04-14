@@ -20,6 +20,11 @@ window.addEventListener('hashchange', function() {
     targeting = 0;
     name = threadcode = "";
 
+    dmgmods = [];
+    supportmods = [];
+    dispelmods = [];
+    inspiremods = [];
+
     document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
     document.getElementsByClassName("movementcontainer")[0].innerHTML = "<div class='move'><div class='stat-text'>Movement</div><img src='https://terrarp.com/db/tool/movement.png'></div>";
     document.getElementsByClassName("rangecontainer")[0].innerHTML = "<div class='range'><div class='stat-text'>Range</div><img src='https://terrarp.com/db/tool/range.png'></div>";
@@ -52,8 +57,8 @@ window.addEventListener('hashchange', function() {
     document.getElementById("masterydisplay").innerHTML = "";
     document.getElementById("masterycheckicons").innerHTML = "";
 
-    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span></div>";
-    document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'>Recover HP</div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | <span class='thrcode'>Thread Code</span></div>";
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>Perform a basic attack. </p><p><i>You can flavor this action as a spell, a weapon attack, or a damaging ability flavored by your mastery.</i></p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR <span class='damagepassivemod'></span># <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code</div>";
+    document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'><p>Recover your HP by 1d20. This roll cannot be modified by any passive or bonus action.</p><p><i>You can flavor this action as taking a breather, patching up a wound, drinking a potion, calming down, etc.</i></p></div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | Thread Code</div>";
     document.getElementById("actionsdisplay").innerHTML = "";
 
     var checkMasteries = importstats[0].split(",");
@@ -325,6 +330,11 @@ window.onload = function() {
     movement = 1;
     targeting = 0;
 
+    dmgmods = [];
+    supportmods = [];
+    dispelmods = [];
+    inspiremods = [];
+
     name = threadcode = "";
 
     document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
@@ -359,8 +369,8 @@ window.onload = function() {
     document.getElementById("masterydisplay").innerHTML = "";
     document.getElementById("masterycheckicons").innerHTML = "";
 
-    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span></div>";
-    document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'>Recover HP</div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | <span class='thrcode'>Thread Code</span></div>";
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>Perform a basic attack. </p><p><i>You can flavor this action as a spell, a weapon attack, or a damaging ability flavored by your mastery.</i></p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR <span class='damagepassivemod'></span># <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code</div>";
+    document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'><p>Recover your HP by 1d20. This roll cannot be modified by any passive or bonus action.</p><p><i>You can flavor this action as taking a breather, patching up a wound, drinking a potion, calming down, etc.</i></p></div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | Thread Code</div>";
     document.getElementById("actionsdisplay").innerHTML = "";
 
     var checkMasteries = importstats[0].split(",");
@@ -998,8 +1008,8 @@ function backPart3() {
   document.getElementById("masterydisplay").innerHTML = "";
   document.getElementById("masterycheckicons").innerHTML = "";
 
-  document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>A spell, physical, or combo attack flavored by your mastery.</p><p>On a natural 100, double your total after adding modifiers.</p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR # <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code</div>";
-  document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'>Recover HP</div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | Thread Code</div>";
+  document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>Perform a basic attack. </p><p><i>You can flavor this action as a spell, a weapon attack, or a damaging ability flavored by your mastery.</i></p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR <span class='damagepassivemod'></span># <span class='mnamereplace'>Mastery</span> | Character Name | Thread Code</div>";
+  document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'><p>Recover your HP by 1d20. This roll cannot be modified by any passive or bonus action.</p><p><i>You can flavor this action as taking a breather, patching up a wound, drinking a potion, calming down, etc.</i></p></div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | Thread Code</div>";
   document.getElementById("actionsdisplay").innerHTML = "";
 
   fortitude = 0;
@@ -1017,6 +1027,11 @@ function backPart3() {
 
   passivehp = 0;
   tauntbonus = 0;
+
+  dmgmods = [];
+  supportmods = [];
+  dispelmods = [];
+  inspiremods = [];
 
   window.scrollTo(0,0);
 }
@@ -1325,6 +1340,11 @@ function calcExpertise() {
 var movement = 1;
 var targeting = 0;
 
+var dmgmods = [];
+var supportmods = [];
+var dispelmods = [];
+var inspiremods = [];
+
 function passiveBonus() {
 
   if (document.querySelector("#defensefinal")) {
@@ -1338,21 +1358,25 @@ function passiveBonus() {
   if (document.querySelector("#damagefinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1])
     y = y * 3;
+    dmgmods.push(y);
     var x = document.getElementById("damagefinal").innerHTML
     document.getElementById("damagefinal").innerHTML = document.getElementById("damagefinal").innerHTML.substring(0, x.length - 6)
-    document.getElementById("damagefinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage. Add the total of your buffs, if any, and this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r attack A B " + y + " # Comment</p></div></div>"
+    document.getElementById("damagefinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage, which has already been applied to your roll codes.</p></div></div>"
   }
 
   if (document.querySelector("#supportfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1])
     y = y * 5;
+    supportmods.push(y)
     var x = document.getElementById("supportfinal").innerHTML
     document.getElementById("supportfinal").innerHTML = document.getElementById("supportfinal").innerHTML.substring(0, x.length - 6)
 
     if (y > 9) {
-      document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'><p>Your bonus is +" + y + " extra healing/buffing. Add this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r heal single A B " + y + " # Comment</p><p>You may add 4 to your Dispel and Inspire rolls (e.g. <span style='font-family:monospace'>?r dispel S 4 # Mend | Asch | 1C1</span>)</p></div></div>"
+      dispelmods.push(4)
+      inspiremods.push(4)
+      document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'><p>Your bonus is +" + y + " extra healing/buffing, which has already been applied to your roll codes.</p><p>You may add 4 to your Dispel and Inspire rolls, which has already been applied to your roll codes</p></div></div>"
     } else {
-    document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra healing/buffing. Add this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r heal single A B " + y + " # Comment</p></div></div>"
+    document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra healing/buffing, which has already been applied to your roll codes.</p></div></div>"
   }
 }
 
@@ -1388,7 +1412,7 @@ function passiveBonus() {
       message = "You may move 1 extra zone per post, which has already been accounted for in your stats";
       movement += 1
     } else {
-      message = "You do not have additional zones of rmovement"
+      message = "You do not have additional zones of movement"
     }
 
     var x = document.getElementById("carryfinal").innerHTML
@@ -1458,15 +1482,32 @@ function passiveBonus() {
 
   if (document.querySelector("#momentumfinal")) {
     y = movement * 5;
+    dmgmods.push(y);
     message = "You can add " + y + " additional damage to your attacks"
 
     var z = document.getElementById("momentumfinal").innerHTML
     document.getElementById("momentumfinal").innerHTML = document.getElementById("momentumfinal").innerHTML.substring(0, z.length - 6)
-    document.getElementById("momentumfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage. Add the total of your buffs, if any, and this bonus to your roll code before the comment. For example: <p style='font-family:monospace'>?r attack A B " + y + " # Comment</p></div></div>"
+    document.getElementById("momentumfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra damage, which has already been applied to your roll codes.</p></div></div>"
   }
 
   movementmessage = movement + " zone(s) per post"
   document.getElementsByClassName("movementcontainer")[0].innerHTML += movementmessage
+
+  for (var i = 0; i < document.getElementsByClassName("damagepassivemod").length; i++) {
+    document.getElementsByClassName("damagepassivemod")[i].innerHTML = dmgmods.join(" ") + " ";
+  }
+
+  for (var i = 0; i < document.getElementsByClassName("supportpassivemod").length; i++) {
+    document.getElementsByClassName("supportpassivemod")[i].innerHTML = supportmods + " ";
+  }
+
+  for (var i = 0; i < document.getElementsByClassName("dispelpassivemod").length; i++) {
+    document.getElementsByClassName("dispelpassivemod")[i].innerHTML = dispelmods + " ";
+  }
+
+  for (var i = 0; i < document.getElementsByClassName("inspirepassivemod").length; i++) {
+    document.getElementsByClassName("inspirepassivemod")[i].innerHTML = inspiremods + " ";
+  }
 }
 
 
