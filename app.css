@@ -654,6 +654,24 @@ ul {
   display: none;
  }
 
+ .exceedcontainer {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .exceedbutton {
+   border-radius: 5px;
+   margin-right: 5px;
+   background-color: #545454;
+   padding: 2px;
+   font-weight: bold;
+   font-size: 120%;
+   color: white;
+   user-select: none;
+   cursor: pointer;
+ }
+
  @media (max-width: 344px){
 #button1, #button2, #button3, #button2back, #button3back, #button4back{
   width: 95%!important;

@@ -1044,6 +1044,26 @@ function saveActions() {
   }
 }
 
+function exceedReplace5() {
+  document.getElementsByClassName("exceedvalue")[0].innerHTML = "5";
+}
+
+function exceedReplace10() {
+  document.getElementsByClassName("exceedvalue")[0].innerHTML = "10";
+}
+
+function exceedReplace15() {
+  document.getElementsByClassName("exceedvalue")[0].innerHTML = "15";
+}
+
+function exceedReplace20() {
+  document.getElementsByClassName("exceedvalue")[0].innerHTML = "20";
+}
+
+function exceedReplace25() {
+  document.getElementsByClassName("exceedvalue")[0].innerHTML = "25";
+}
+
 function displayActions() {
   var displaycard;
   for (var i = 0; i < chosenActions.length; i++) {
@@ -1058,7 +1078,7 @@ function displayActions() {
         document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
       }
     } else if (actionlist[x].name === "Exceed") {
-      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div>Add the following code to the end of your roll code: </div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
+      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div>Select an amount below:</div><div class='exceedcontainer'><div class='exceedbutton' onclick='exceedReplace5()'>5</div><div class='exceedbutton' onclick='exceedReplace10()'>10</div><div class='exceedbutton' onclick='exceedReplace15()'>15</div><div class='exceedbutton' onclick='exceedReplace20()'>20</div><div class='exceedbutton' onclick='exceedReplace25()'>25</div></div><div>Add the following code to the end of your roll code: </div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
@@ -1371,10 +1391,10 @@ function passiveBonus() {
     var x = document.getElementById("supportfinal").innerHTML
     document.getElementById("supportfinal").innerHTML = document.getElementById("supportfinal").innerHTML.substring(0, x.length - 6)
 
-    if (y > 9) {
-      dispelmods.push(4)
-      inspiremods.push(4)
-      document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'><p>Your bonus is +" + y + " extra healing/buffing, which has already been applied to your roll codes.</p><p>You may add 4 to your Dispel and Inspire rolls, which has already been applied to your roll codes</p></div></div>"
+    if (y > 0) {
+      dispelmods.push(5)
+      inspiremods.push(5)
+      document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'><p>Your bonus is +" + y + " extra healing/buffing, which has already been applied to your roll codes.</p><p>You may add 5 to your Dispel and Inspire rolls, which has already been applied to your roll codes</p></div></div>"
     } else {
     document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra healing/buffing, which has already been applied to your roll codes.</p></div></div>"
   }
@@ -1431,7 +1451,7 @@ function passiveBonus() {
 
     var movecheck = false;
     for (var i = 0; i < offense.length; i++) {
-      if (chosenMasteriesRanks[chosenMasteries.indexOf(offense[i])] > 1) {
+      if (chosenMasteriesRanks[chosenMasteries.indexOf(offense[i])] > 0) {
         movecheck = true;
       }
     }
