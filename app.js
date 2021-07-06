@@ -1046,22 +1046,27 @@ function saveActions() {
 
 function exceedReplace5() {
   document.getElementsByClassName("exceedvalue")[0].innerHTML = "5";
+  document.getElementsByClassName("exceedvalue")[1].innerHTML = "5"
 }
 
 function exceedReplace10() {
   document.getElementsByClassName("exceedvalue")[0].innerHTML = "10";
+  document.getElementsByClassName("exceedvalue")[1].innerHTML = "10";
 }
 
 function exceedReplace15() {
   document.getElementsByClassName("exceedvalue")[0].innerHTML = "15";
+  document.getElementsByClassName("exceedvalue")[1].innerHTML = "15";
 }
 
 function exceedReplace20() {
   document.getElementsByClassName("exceedvalue")[0].innerHTML = "20";
+  document.getElementsByClassName("exceedvalue")[1].innerHTML = "20";
 }
 
 function exceedReplace25() {
   document.getElementsByClassName("exceedvalue")[0].innerHTML = "25";
+  document.getElementsByClassName("exceedvalue")[1].innerHTML = "25";
 }
 
 function displayActions() {
