@@ -930,6 +930,10 @@ p {
 	background-image: url(https://terrarp.com/db/action/steady.png);
 	background-repeat: no-repeat;
 }
+.aci-heavy {
+    background-image: url(https://terrarp.com/db/action/hattack.png);
+    background-repeat: no-repeat;
+}
 .aci-heal{
 	background-image: url(https://terrarp.com/db/action/heal.png);
 	background-repeat: no-repeat;
@@ -1015,6 +1019,31 @@ p {
 .aci-exceed{
 	background-image: url(https://terrarp.com/db/action/exceed.png);
 	background-repeat: no-repeat;
+}
+
+.aci-haste {
+    background-image: url(https://terrarp.com/db/action/haste.png);
+    background-repeat: no-repeat;
+}
+
+.aci-overload {
+    background-image: url(https://terrarp.com/db/action/overload.png);
+    background-repeat: no-repeat;
+}
+
+.aci-reposition {
+    background-image: url(https://terrarp.com/db/action/reposition.png);
+    background-repeat: no-repeat;
+}
+
+.aci-versatile {
+    background-image: url(https://terrarp.com/db/action/versatile.png);
+    background-repeat: no-repeat;
+}
+
+.aci-save-aura {
+    background-image: url(https://terrarp.com/db/action/aura.png);
+    background-repeat: no-repeat;
 }
 
 .aci-fortitude {

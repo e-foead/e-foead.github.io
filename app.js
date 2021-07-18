@@ -16,13 +16,15 @@ window.addEventListener('hashchange', function() {
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
-    movement = 1;
+    movement = 2;
     targeting = 0;
     name = threadcode = "";
+    reflexmod = 0;
 
     dmgmods = [];
     supportmods = [];
     dispelmods = [];
+    hastemods = [];
     inspiremods = [];
 
     document.getElementsByClassName("hpcontainer")[0].innerHTML = "<div class='hp'><div class='stat-text'>Health</div><img src='https://terrarp.com/db/tool/health.png'></div>";
@@ -57,7 +59,7 @@ window.addEventListener('hashchange', function() {
     document.getElementById("masterydisplay").innerHTML = "";
     document.getElementById("masterycheckicons").innerHTML = "";
 
-    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>Perform a basic attack. </p><p><i>You can flavor this action as a spell, a weapon attack, or a damaging ability flavored by your mastery.</i></p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR <span class='damagepassivemod'></span># <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span></div>";
+    document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>Perform a basic attack.</p><p><i>You can flavor this action as a spell, a weapon attack, or a damaging ability flavored by your mastery.</i></p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR <span class='damagepassivemod'></span># <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span></div>";
     document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'><p>Recover your HP by 1d20. This roll cannot be modified by any passive or bonus action.</p><p><i>You can flavor this action as taking a breather, patching up a wound, drinking a potion, calming down, etc.</i></p></div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | <span class='thrcode'>Thread Code</span></div>";
     document.getElementById("actionsdisplay").innerHTML = "";
 
@@ -283,8 +285,9 @@ window.addEventListener('hashchange', function() {
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
-    movement = 1;
+    movement = 2;
     targeting = 0;
+    reflexmod = 0;
 
     savesChecks();
 
@@ -327,12 +330,14 @@ window.onload = function() {
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
-    movement = 1;
+    movement = 2;
     targeting = 0;
+    reflexmod = 0;
 
     dmgmods = [];
     supportmods = [];
     dispelmods = [];
+    hastemods = [];
     inspiremods = [];
 
     name = threadcode = "";
@@ -595,8 +600,9 @@ window.onload = function() {
     fortitude = reflex = will = 0;
     fitness = knack = awareness = knowledge = presence = 0;
     hp = 0;
-    movement = 1;
+    movement = 2;
     targeting = 0;
+    reflexmod = 0;
 
     savesChecks();
 
@@ -1008,7 +1014,9 @@ function backPart3() {
   document.getElementById("masterydisplay").innerHTML = "";
   document.getElementById("masterycheckicons").innerHTML = "";
 
-  document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>Perform a basic attack. </p><p><i>You can flavor this action as a spell, a weapon attack, or a damaging ability flavored by your mastery.</i></p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR <span class='damagepassivemod'></span># <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span></div>";
+  document.getElementsByClassName("hastepassivemod")[0].innerHTML = "";
+
+  document.getElementsByClassName("card normal")[0].innerHTML = "<div class='cardicon aci-attack'></div><div class='cardtitle'>Attack</div><div class='cardinfo'><p>Perform a basic attack.</p><p><i>You can flavor this action as a spell, a weapon attack, or a damaging ability flavored by your mastery.</i></p></div><div class='cardroll'><b>Roll:</b> 1d100 + modifiers</div><div class='rollcode'>?r attack <span class='masteryreplace'>MR</span> WR <span class='damagepassivemod'></span># <span class='mnamereplace'>Mastery</span> | Character Name | <span class='thrcode'>Thread Code</span></div>";
   document.getElementsByClassName("card recover")[0].innerHTML = "<div class='cardicon aci-recover'></div><div class='cardtitle'>Recover</div><div class='cardinfo'><p>Recover your HP by 1d20. This roll cannot be modified by any passive or bonus action.</p><p><i>You can flavor this action as taking a breather, patching up a wound, drinking a potion, calming down, etc.</i></p></div><div class='cardroll'><b>Roll:</b> 1d20</div><div class='rollcode'>?r recover # Character Name | <span class='thrcode'>Thread Code</span></div>";
   document.getElementById("actionsdisplay").innerHTML = "";
 
@@ -1022,7 +1030,7 @@ function backPart3() {
   knowledge = 0;
   presence = 0;
 
-  movement = 1;
+  movement = 2;
   targeting = 0;
 
   passivehp = 0;
@@ -1031,6 +1039,7 @@ function backPart3() {
   dmgmods = [];
   supportmods = [];
   dispelmods = [];
+  hastemods = [];
   inspiremods = [];
 
   window.scrollTo(0,0);
@@ -1075,7 +1084,7 @@ function displayActions() {
     var validmastery = [];
     var x = actionlist.findIndex(a => a.lookup === chosenActions[i]);
     if (actionlist[x].name === "Taunt") {
-      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
+      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div>Paste the code below anywhere within your post to gain the Taunting State.<div class='rollcode'>" + actionlist[x].roll + "</div></div>";
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
@@ -1083,29 +1092,52 @@ function displayActions() {
         document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
       }
     } else if (actionlist[x].name === "Exceed") {
-      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div>Select an amount below:</div><div class='exceedcontainer'><div class='exceedbutton' onclick='exceedReplace5()'>5</div><div class='exceedbutton' onclick='exceedReplace10()'>10</div><div class='exceedbutton' onclick='exceedReplace15()'>15</div><div class='exceedbutton' onclick='exceedReplace20()'>20</div><div class='exceedbutton' onclick='exceedReplace25()'>25</div></div><div>Add the following code to the end of your roll code: </div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
+      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='cardinfo'>Select an amount below:</div><div class='exceedcontainer'><div class='exceedbutton' onclick='exceedReplace5()'>5</div><div class='exceedbutton' onclick='exceedReplace10()'>10</div><div class='exceedbutton' onclick='exceedReplace15()'>15</div><div class='exceedbutton' onclick='exceedReplace20()'>20</div><div class='exceedbutton' onclick='exceedReplace25()'>25</div></div><div>Add the following code to the end of your roll code: </div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
       if (document.getElementsByClassName("aci-" + actionlist[x].lookup).length !== 1) {
         document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
       }
-    } else if (actionlist[x].name === "Alter Inspire") {
-      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='cardroll'><b>Roll:</b> " + actionlist[x].dice + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
-      for (var a = 0; a < chosenMasteries.length; a++) {
-        if (actionlist[x].masteries.includes(chosenMasteries[a])) {
-          var z = masterylist.findIndex(q => q.lookup === chosenMasteries[a]);
-          validmastery.push("<div class='display masterycircle " + chosenMasteries[a] + "'><img onclick='clickMastery(this)' class='" + masterylist[z].lookup + "' src=" + masterylist[z].image + "></div>")
-        }
-      }
-
-      displaycard = displaycard.substring(0, displaycard.length - 6);
-      displaycard += "<div class='line'></div><div class='masteryicon'>" + validmastery.join("",) + "</div></div>"
+    } else if (actionlist[x].name === "Save Aura") {
+      displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div>Paste the code below anywhere within your post to highlight your aura.</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
       document.getElementById("actionsdisplay").innerHTML += displaycard;
       document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
       if (document.getElementsByClassName("aci-" + actionlist[x].lookup).length !== 1) {
         document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
+      }
+  } else if (actionlist[x].name === "Carry") {
+    displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div>Paste the code below anywhere within your post to activate your carry.<div class='rollcode'>" + actionlist[x].roll + "</div></div>";
+    document.getElementById("actionsdisplay").innerHTML += displaycard;
+    document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
+    document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
+    if (document.getElementsByClassName("aci-" + actionlist[x].lookup).length !== 1) {
+      document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
+    }
+  } else if (actionlist[x].name === "Reposition") {
+    displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div>Paste the code below anywhere within your post to activate your reposition.<div class='rollcode'>" + actionlist[x].roll + "</div></div>";
+    document.getElementById("actionsdisplay").innerHTML += displaycard;
+    document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
+    document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
+    if (document.getElementsByClassName("aci-" + actionlist[x].lookup).length !== 1) {
+      document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
+    }
+  } else if (actionlist[x].name === "Extension") {
+    displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div>Include the text below after any rollcode where you're using Extension. E.g. <b>?r attack D D Pyromancy | Astor | 10C1 | Extension</b><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
+    document.getElementById("actionsdisplay").innerHTML += displaycard;
+    document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
+    document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
+    if (document.getElementsByClassName("aci-" + actionlist[x].lookup).length !== 1) {
+      document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
+    }
+  } else if (actionlist[x].name === "Haste") {
+    displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
+    document.getElementById("actionsdisplay").innerHTML += displaycard;
+    document.getElementById(actionlist[x].lookup + "final").style.borderColor = actionlist[x].color;
+    document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
+    if (document.getElementsByClassName("aci-" + actionlist[x].lookup).length !== 1) {
+      document.getElementsByClassName("aci-" + actionlist[x].lookup)[1].style.backgroundColor = actionlist[x].color;
     }
   } else if (actionlist[x].category !== "passive") {
       displaycard = "<div class='card' id='" + actionlist[x].lookup + "final'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='cardroll'><b>Roll:</b> " + actionlist[x].dice + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
@@ -1145,16 +1177,19 @@ function savesChecks() {
 function clickFortitude() {
   document.getElementsByClassName("savereplace")[0].innerHTML = "Fortitude";
   document.getElementsByClassName("savebonusreplace")[0].innerHTML = fortitude;
+  document.getElementsByClassName("reflexmodifiers")[0].innerHTML = "";
 }
 
 function clickReflex() {
   document.getElementsByClassName("savereplace")[0].innerHTML = "Reflex";
   document.getElementsByClassName("savebonusreplace")[0].innerHTML = reflex;
+  document.getElementsByClassName("reflexmodifiers")[0].innerHTML = reflexmod;
 }
 
 function clickWill() {
   document.getElementsByClassName("savereplace")[0].innerHTML = "Will";
   document.getElementsByClassName("savebonusreplace")[0].innerHTML = will;
+  document.getElementsByClassName("reflexmodifiers")[0].innerHTML = "";
 }
 
 function clickFitness() {
@@ -1222,8 +1257,8 @@ function displayEquipment() {
     document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Surge</h4>";
     document.getElementsByClassName("passivecontainer")[0].innerHTML += "<b>Light Armor</b><p><b>Surge.</b> Once per thread, you may add  " + surgebonus + " to a roll you make (before multipliers). Surging Revive gives you " + surge + " additional revive target(s). Dispel and Inspire cannot be surged.</p>";
   } else if (armorweight === "medium") {
-    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Haste</h4>";
-    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<b>Haste.</b><p> Once per thread, you may perform 2 actions instead of 1: Standard + Standard or Standard + Special.</p>";
+    document.getElementsByClassName("armorpassive")[0].innerHTML = "<h4>Twice</h4>";
+    document.getElementsByClassName("passivecontainer")[0].innerHTML += "<b>Twice.</b><p> Once per thread, you may perform 2 actions instead of 1: Standard + Standard or Standard + Special.</p>";
   } else {
     var swind = parseInt(armorRank)
     var swindbonus = swind * 15;
@@ -1267,11 +1302,11 @@ var passivehp = 0;
 
 function hpCalc() {
   if (armorweight === "light") {
-    multiplier = 10;
+    multiplier = 15;
   } else if (armorweight === "medium") {
     multiplier = 20;
   } else {
-    multiplier = 30;
+    multiplier = 25;
   }
 
   var ar = parseInt(armorRank);
@@ -1362,12 +1397,14 @@ function calcExpertise() {
   document.getElementById("skillpresence").innerHTML += presence;
 }
 
-var movement = 1;
+var movement = 2;
 var targeting = 0;
+var reflexmod = 0;
 
 var dmgmods = [];
 var supportmods = [];
 var dispelmods = [];
+var hastemods = [];
 var inspiremods = [];
 
 function passiveBonus() {
@@ -1382,7 +1419,7 @@ function passiveBonus() {
 
   if (document.querySelector("#damagefinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1])
-    y = y * 3;
+    y = y * 5;
     dmgmods.push(y);
     var x = document.getElementById("damagefinal").innerHTML
     document.getElementById("damagefinal").innerHTML = document.getElementById("damagefinal").innerHTML.substring(0, x.length - 6)
@@ -1399,7 +1436,8 @@ function passiveBonus() {
     if (y > 0) {
       dispelmods.push(5)
       inspiremods.push(5)
-      document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'><p>Your bonus is +" + y + " extra healing/buffing, which has already been applied to your roll codes.</p><p>You may add 5 to your Dispel and Inspire rolls, which has already been applied to your roll codes</p></div></div>"
+      hastemods.push(1)
+      document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'><p>Your bonus is +" + y + " extra healing/buffing, which has already been applied to your roll codes.</p><p>You may add +5 to your Dispel and Inspire rolls, which has already been applied to your roll codes. You may add +1 to your Haste rolls, which has already been applied to your roll codes.</p></div></div>"
     } else {
     document.getElementById("supportfinal").innerHTML += "<div class='cardinfo'>Your bonus is +" + y + " extra healing/buffing, which has already been applied to your roll codes.</p></div></div>"
   }
@@ -1418,13 +1456,24 @@ function passiveBonus() {
   if (document.querySelector("#speedfinal")) {
     var y = parseInt(chosenMasteriesRanks[chosenMasteries.length - 1]);
     var message;
-    if (y === 1 || y === 2) {
-      message = "You do not have additional zones of movement"
+    if (y === 1) {
+      movement += 1
+      message = "You may move 1 additional zone per post, which has already been accounted for in your stats"
+    } else if (y === 2) {
+      movement += 2
+      message = "You may move 2 additional zone per post, which has already been accounted for in your stats"
     } else {
-      var z = y - 2
-      message = "You may move " + z + " extra zone(s) per post, which has already been accounted for in your stats"
-      movement += z
+      movement += 3
+      if (y > 3) {
+        z = y - 3;
+        z = z*5
+        reflexmod = z
+        message = "You may move 3 additional zone per post, which has already been accounted for in your stats<br>You gain +" + z + " to your Reflex saves, which has already been applied to your roll code"
+      } else {
+        message = "You may move 3 additional zone per post, which has already been accounted for in your stats"
+      }
     }
+
     var x = document.getElementById("speedfinal").innerHTML
     document.getElementById("speedfinal").innerHTML = document.getElementById("speedfinal").innerHTML.substring(0, x.length - 6)
     document.getElementById("speedfinal").innerHTML += "<div class='cardinfo'>" + message + "</div></div>"
@@ -1532,6 +1581,14 @@ function passiveBonus() {
 
   for (var i = 0; i < document.getElementsByClassName("inspirepassivemod").length; i++) {
     document.getElementsByClassName("inspirepassivemod")[i].innerHTML = inspiremods + " ";
+  }
+
+  for (var i = 0; i < document.getElementsByClassName("hastepassivemod").length; i++) {
+    document.getElementsByClassName("hastepassivemod")[i].innerHTML = hastemods + " ";
+  }
+
+  for (var i = 0; i < document.getElementsByClassName("reflexmodifiers").length; i++) {
+    document.getElementsByClassName("reflexmodifiers")[i].innerHTML = reflexmod + " ";
   }
 }
 
