@@ -1319,7 +1319,7 @@ function hpCalc() {
   }
 
   if (chosenActions.includes("taunt")) {
-    tauntbonus = 20
+    tauntbonus = 25
   } else {
     tauntbonus = 0
   }
