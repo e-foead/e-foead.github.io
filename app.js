@@ -898,6 +898,7 @@ function getActions() {
   }
   uniqueactionpool = [...new Set(singlearraypool)];
   uniqueactions = uniqueactionpool.slice(3)
+  console.log(uniqueactions)
 }
 
 function getCards() {
@@ -905,14 +906,16 @@ function getCards() {
   for (var i = 0; i < uniqueactions.length; i++) {
     var x = actionlist.findIndex(a => a.name === uniqueactions[i]);
     if (actionlist[x].roll !== "-") {
-      actioncard = "<div class='card choice' id='" + actionlist[x].lookup + "' onclick='selectAction(this)'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='cardroll'><b>Roll:</b> " + actionlist[x].dice + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
+      actioncard = "<div class='card choice' id='" + actionlist[x].lookup + "' onclick='selectAction(this)' style='border-color: " + actionlist[x].color + "'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div><div class='cardroll'><b>Roll:</b> " + actionlist[x].dice + "</div><div class='rollcode'>" + actionlist[x].roll + "</div></div>";
       document.getElementById("pickactions").innerHTML += actioncard;
       document.getElementById(actionlist[x].lookup).style.borderColor = actionlist[x].color;
+      document.getElementById(actionlist[x].lookup).style.borderStyle = "solid";
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
     } else {
       actioncard = "<div class='card choice' id='" + actionlist[x].lookup + "' onclick='selectAction(this)'><div class='cardicon aci-" + actionlist[x].lookup + "'></div><div class='cardtitle'>" + actionlist[x].name + "</div><div class='cardinfo'>" + actionlist[x].description + "</div></div>";
       document.getElementById("pickactions").innerHTML += actioncard;
       document.getElementById(actionlist[x].lookup).style.borderColor = actionlist[x].color;
+      document.getElementById(actionlist[x].lookup).style.borderStyle = "solid";
       document.getElementsByClassName("aci-" + actionlist[x].lookup)[0].style.backgroundColor = actionlist[x].color;
     }
   }
